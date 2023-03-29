@@ -36,7 +36,6 @@ const HeroSlider = () => {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    infinite: true,
                     dots: true
                 }
             },
@@ -44,25 +43,29 @@ const HeroSlider = () => {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                    dots: true
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    dots: true
                 }
             }
         ]
     };
     return (
-        <Slider {...settings}>
-            <TaxonItem src={chelicherata} title={"Chelicherata"} speciesCount={258}/>
-            <TaxonItem src={myriapoda} title={"Myriapoda"} speciesCount={138}/>
-            <TaxonItem src={crostacea} title={"Crustacea"} speciesCount={86}/>
-            <TaxonItem src={hexapoda} title={"Hexapoda"} speciesCount={207}/>
-        </Slider>
+        <div className="hero-slider">
+            <Slider {...settings}>
+                <TaxonItem src={chelicherata} title={"Chelicherata"} speciesCount={258}/>
+                <TaxonItem src={myriapoda} title={"Myriapoda"} speciesCount={138}/>
+                <TaxonItem src={crostacea} title={"Crustacea"} speciesCount={86}/>
+                <TaxonItem src={hexapoda} title={"Hexapoda"} speciesCount={207}/>
+            </Slider>
+        </div>
     );
 }
 
@@ -88,11 +91,11 @@ export default class Hero extends React.Component {
                         the data.
                     </div>
 
-                    <div className="slick-multiItemSlider">
-                        <HeroSlider />
-                    </div>
+                    <HeroSlider />
 
-                    <Link to="./contribute/photo-upload" className="hero-button" >Let's start </Link>
+                    <div className="hero-button">
+                        <Link to="./contribute/photo-upload" >Let's start</Link>
+                    </div>
 
                 </div>
             </div>

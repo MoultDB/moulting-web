@@ -1,78 +1,77 @@
-import React, {useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import './header.css';
-import { mainMenuItems } from './main-menu-items.js';
 import Logo from "../../assets/images/moultdb-logo.png";
-import { CaretDownFill, CaretRightFill } from 'react-bootstrap-icons';
-
-const MenuItems = ({ items, depthLevel }) => {
-    const [dropdown, setDropdown] = useState(false);
-    const liClassName = "menu-items " ;
-    return (
-        <li className={liClassName} key={depthLevel}>
-            {items.submenu ? (
-                <>
-                    <Link type="button" aria-haspopup="menu"
-                       aria-expanded={dropdown ? "true" : "false"}
-                       onClick={() => setDropdown((prev) => !prev)}
-                       className={depthLevel === 0 ? "lv1" : ""}>
-                        {items.title}{" "}
-                        {depthLevel > 0 ? <CaretRightFill /> : <CaretDownFill />}
-                    </Link>
-                    {/*<a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"*/}
-                    {/*   aria-expanded="false">Dropdown <span className="caret"></span></a>*/}
-
-                    <Dropdown mainUrl={items.url} submenus={items.submenu} dropdown={dropdown} depthLevel={depthLevel} />
-                </>
-            ) : (
-                <Link to={items.url} className={"lv" + (depthLevel + 1)}>{items.title}</Link>
-            )}
-        </li>
-    );
-};
-const Dropdown = ({ submenus, dropdown, depthLevel }) => {
-    depthLevel = depthLevel + 1;
-    const dropdownClass = depthLevel > 1 ? "dropdown-submenu" : "dropdown-menu";
-
-    return (
-        <ul className={`dropdown ${dropdownClass} ${dropdown ? "show" : ""}`}>
-            {submenus.map((submenu, index) => (
-                <MenuItems items={submenu} depthLevel={depthLevel} />
-            ))}
-        </ul>
-    );
-};
 
 export default function Header() {
     return (
         <header>
             <div className={"container"}>
-                <nav id="moulting-header" className="navbar navbar-default navbar-custom">
-                    <div className="navbar-header logo">
-                        <div className="navbar-toggle" data-toggle="collapse" data-target="#moulting-navbar-collapse">
-                            <span className="sr-only">Toggle navigation</span>
-                            <div id="nav-icon1">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <Link to="/">
+                <nav className="navbar navbar-expand-lg navbar-dark">
+                    <div className="container-fluid">
+                        <Link to="/" className="navbar-brand">
                             <img src={Logo} className="d-inline-block align-top" alt="MoultDB logo" width="300" height="150"/>
                         </Link>
-                    </div>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#moultingNav" aria-controls="moultingNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="moultingNavNav">
+                            <ul className="navbar-nav">
+                                <li className="nav-item">
+                                    <Link to={"/"} className={"nav-link"} aria-current={"page"} >Home</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={"/explore"} className={"nav-link"} >Explore</Link>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <Link to={"/contribute"}  role={"button"} className={"nav-link dropdown-toggle"}
+                                          data-bs-toggle={"dropdown"} aria-expanded={"false"} >Contribute</Link>
+                                    <ul className="dropdown-menu">
+                                        <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"} >Photo upload</Link></li>
+                                        <li><Link to={"/contribute/video-upload"} className={"dropdown-item"} >Video upload</Link></li>
+                                        <li><Link to={"/contribute/find-species"} className={"dropdown-item"} >Who's that species?</Link></li>
+                                        <li><a href="http://131.175.120.138:61111/GeMI/" className={"dropdown-item"}
+                                               rel={"noopener noreferrer"} target={"_blank"}>Machine Learning for citizen science</a></li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <Link to={"/about"}  role={"button"} className={"nav-link dropdown-toggle"}
+                                          data-bs-toggle={"dropdown"} aria-expanded={"false"} >About us</Link>
+                                    <ul className="dropdown-menu">
+                                        <li><Link to={"/about/moulting"} className={"dropdown-item"} >The MoultDB</Link></li>
+                                        <li><Link to={"/about/publications"} className={"dropdown-item"} >MoultDB publication</Link></li>
+                                        <li><Link to={"/about/blog"} className={"dropdown-item"} >MoultDB blog</Link></li>
+                                        <li><Link to={"/about/privacy-notice"} className={"dropdown-item"} >MoultDB privacy notice</Link></li>
+                                        <li><a href="https://github.com/MoultDB/" className={"dropdown-item"}
+                                               rel={"noopener noreferrer"} target={"_blank"}>Source code</a></li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <Link to={"/community"}  role={"button"} className={"nav-link dropdown-toggle"}
+                                          data-bs-toggle={"dropdown"} aria-expanded={"false"} >Community</Link>
+                                    <ul className="dropdown-menu">
+                                        <li><Link to={"/community/user-grid"} className={"dropdown-item"} >User favorite grid</Link></li>
+                                        <li><Link to={"/community/user-list"} className={"dropdown-item"} >User favorite list</Link></li>
+                                        <li><Link to={"/community/user-profile"} className={"dropdown-item"} >User profile</Link></li>
+                                        <li><Link to={"/community/user-rate"} className={"dropdown-item"} >User rate</Link></li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={"/help"} className={"nav-link"} aria-current={"page"} >Help</Link>
+                                </li>
+                            </ul>
 
-                    <div className="collapse navbar-collapse flex-parent" id="moulting-navbar-collapse">
-                        <ul className="nav navbar-nav flex-child-menu menu-left">
-                            {mainMenuItems.map((menu, index) => {
-                                const depthLevel = 0;
-                                return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
-                            })}
-                        </ul>
-                        <ul className="nav navbar-nav flex-child-menu menu-right">
-                            <li className="loginLink"><Link to="/login">Log in</Link></li>
-                            <li className="btn signupLink"><Link to="/registration">Sign up</Link></li>
-                        </ul>
+                            <ul className="navbar-nav navbar-end">
+                                <li className="nav-item">
+                                    <Link to={"/login"} className={"nav-link"} >Log in</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={"/registration"} className={"nav-link signupLink"} >Sign up</Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
                 <div className="top-search">

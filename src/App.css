@@ -283,10 +283,10 @@ textarea.form-control {
 .container-fluid,
 .row,
 .form-horizontal .form-group,
-.nav,
-.navbar,
-.navbar-header,
-.navbar-collapse,
+/*.nav,*/
+/*.navbar,*/
+/*.navbar-header,*/
+/*.navbar-collapse,*/
 .modal-footer {
   *zoom: 1;
 }
@@ -300,14 +300,14 @@ textarea.form-control {
 .row:after,
 .form-horizontal .form-group:before,
 .form-horizontal .form-group:after,
-.nav:before,
-.nav:after,
-.navbar:before,
-.navbar:after,
-.navbar-header:before,
-.navbar-header:after,
-.navbar-collapse:before,
-.navbar-collapse:after,
+/*.nav:before,*/
+/*.nav:after,*/
+/*.navbar:before,*/
+/*.navbar:after,*/
+/*.navbar-header:before,*/
+/*.navbar-header:after,*/
+/*.navbar-collapse:before,*/
+/*.navbar-collapse:after,*/
 .modal-footer:before,
 .modal-footer:after {
   content: " ";
@@ -318,10 +318,10 @@ textarea.form-control {
 .container-fluid:after,
 .row:after,
 .form-horizontal .form-group:after,
-.nav:after,
-.navbar:after,
-.navbar-header:after,
-.navbar-collapse:after,
+/*.nav:after,*/
+/*.navbar:after,*/
+/*.navbar-header:after,*/
+/*.navbar-collapse:after,*/
 .modal-footer:after {
   clear: both;
 }
