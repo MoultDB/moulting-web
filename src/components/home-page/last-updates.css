@@ -76,11 +76,10 @@
     text-transform: none;
     border: none;
     height: 40px;
-    background: url('../../assets/images/uploads/search-bgsb.png') no-repeat right 20px center;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background-color: #233a50;
+    background: #233a50 url('../../assets/images/uploads/search-bgsb.png') no-repeat right 20px center;
 }
 .sidebar .sb-cate ul li {
     margin-bottom: 15px;

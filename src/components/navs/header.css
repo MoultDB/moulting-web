@@ -94,7 +94,6 @@ header .top-search select {
     border-right: 1px solid #020d18;
     -webkit-appearance: none;
     -moz-appearance: none;
-    /* Firefox */
     background: url('../../assets/images/uploads/drop-icon.png') no-repeat right 20px center;
     text-transform: uppercase;
     color: #ffffff;

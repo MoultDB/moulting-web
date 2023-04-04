@@ -1,15 +1,5 @@
-.youtube.full-width {
-    padding: 70px 100px;
-}
-@media (max-width: 767px) {
-    .youtube.full-width {
-        padding: 70px 30px;
-    }
-}
-
 .youtube {
-    background-color: #06121e;
-    padding: 70px 0;
+    padding: 0 0 30px 0;
 }
 .youtube .youtube-img {
     width: 100px;

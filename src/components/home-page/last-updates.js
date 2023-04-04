@@ -73,7 +73,7 @@ export default class LastUpdates extends React.Component {
             arrows: false,
             adaptiveHeight: false
         };
-        return <div className="photo-items">
+        return <div className="photo-items bg-custom-dark">
             <div className="container">
                 <div className="row ipad-width">
                     <div className="col-md-8">

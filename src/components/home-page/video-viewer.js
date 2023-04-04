@@ -52,7 +52,7 @@ export default class VideoViewer extends React.Component {
     }
 
     render() {
-        return <div className="youtube">
+        return <div className="youtube bg-custom-dark">
             <div className="container">
                 <div className="row ipad-width">
                     <div className="col-md-12">
