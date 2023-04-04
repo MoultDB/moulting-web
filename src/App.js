@@ -8,6 +8,7 @@ import HomePage from "./components/home-page/home-page";
 import Notfound from "./components/notfound";
 import {useEffect} from "react";
 import Footer from "./components/navs/footer";
+import Usergrid from "./components/user/user-grid";
 
 function App() {
     return (
@@ -88,6 +89,7 @@ function CustomRoutes() {
             <Route path="/user/login" element={<ComingSoon />} />
             <Route path="/user/logout" element={<ComingSoon />} />
             <Route path="/user/admin" element={<ComingSoon />} />
+            <Route path="/user/grid" element={<Usergrid />} />
             <Route path="/user/change-password" element={<ComingSoon />} />
             <Route path="/user/forget-password" element={<ComingSoon />} />
             <Route path="/404" element={<Notfound />} />

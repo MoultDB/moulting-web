@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.0",
     "react-obfuscate": "^3.6.8",
+    "react-paginate": "^8.1.5",
     "react-router-dom": "^6.8.2",
     "react-slick": "^0.29.0",
     "react-twitter-embed": "^4.0.4",
