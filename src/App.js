@@ -16,20 +16,16 @@ function App() {
             <Header />
             <div id="moulting-body">
                 <CustomRoutes />
-                {/*<CookieConsent*/}
-                {/*    location="bottom"*/}
-                {/*    buttonText="Do not show this banner again"*/}
-                {/*    cookieName="__Host-moulting-privacy-policy"*/}
-                {/*    cookieValue="1"*/}
-                {/*    style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }}*/}
-                {/*    buttonStyle={{ color: "#4e503b", fontSize: "13px" }}*/}
-                {/*    expires={365}*/}
-                {/*    sameSite={"strict"}*/}
-                {/*    cookieSecurity={"true"}*/}
-                {/*>*/}
-                {/*    This website requires cookies, and limited processing of your personal data in order to function.*/}
-                {/*    By using the site you are agreeing to this as outlined in our <Link to="/about/privacy-notice">privacy notice</Link>.*/}
-                {/*</CookieConsent>*/}
+                <CookieConsent
+                    buttonText="Do not show this banner again"
+                    cookieName="moulting-privacy-policy"
+                    expires={365}
+                    sameSite={"strict"}
+                    cookieSecurity={"true"}>
+                    This website requires cookies, and limited processing of your personal data in order to function.
+                    By using the site you are agreeing to this as outlined in our <Link to="/about/privacy-notice">privacy notice</Link>.
+                </CookieConsent>
+
             </div>
             <Footer />
         </BrowserRouter>
