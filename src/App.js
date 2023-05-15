@@ -1,14 +1,14 @@
-import {BrowserRouter, Route, Link, Routes, useNavigate, Navigate} from "react-router-dom";
+import {BrowserRouter, Link, Navigate, Route, Routes} from "react-router-dom";
 import './App.css';
 import CookieConsent from "react-cookie-consent";
 import ComingSoon from "./components/coming-soon";
-import ReactGA from "react-ga";
 import Header from "./components/navs/header";
 import HomePage from "./components/home-page/home-page";
 import Notfound from "./components/notfound";
-import {useEffect} from "react";
 import Footer from "./components/navs/footer";
-import Usergrid from "./components/user/user-grid";
+import UserProfile from "./components/user/user-profile";
+import LoginForm from "./components/user/login";
+import Registration from "./components/user/registration";
 
 function App() {
     return (
@@ -35,7 +35,6 @@ function App() {
 export default App;
 
 function CustomRoutes() {
-    const history = useNavigate();
 
     const isLocalhost = Boolean(
         window.location.hostname === 'localhost' ||
@@ -46,23 +45,6 @@ function CustomRoutes() {
             /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
         )
     );
-
-    // ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID, {
-    //     testMode: isLocalhost,
-    //     gaOptions: {
-    //         cookieFlags: "SameSite=None; Secure",
-    //         cookieExpires: "7200"
-    //     }
-    // });
-
-    // useEffect(() => {
-    //     trackPageView(); // To track the first pageview upon load
-    //     history.listen(trackPageView); // To track the subsequent pageviews
-    // }, [history]);
-
-    function trackPageView() {
-        ReactGA.pageview(window.location.pathname + window.location.search);
-    }
 
     return (
         <Routes>
@@ -76,18 +58,13 @@ function CustomRoutes() {
             <Route path="/about/publications" element={<ComingSoon />} />
             <Route path="/about/blog" element={<ComingSoon />} />
             <Route path="/about/privacy-notice" element={<ComingSoon />} />
-            <Route path="/community/user-grid" element={<ComingSoon />} />
-            <Route path="/community/user-list" element={<ComingSoon />} />
-            <Route path="/community/user-profile" element={<ComingSoon />} />
-            <Route path="/community/user-rate" element={<ComingSoon />} />
-            <Route path="/help" element={<ComingSoon />} />
-            <Route path="/user/registration" element={<ComingSoon />} />
-            <Route path="/user/login" element={<ComingSoon />} />
-            <Route path="/user/logout" element={<ComingSoon />} />
-            <Route path="/user/admin" element={<ComingSoon />} />
-            <Route path="/user/grid" element={<Usergrid />} />
+            <Route path="/user/registration" element={<Registration />} />
+            <Route path="/user/login" element={<LoginForm />} />
             <Route path="/user/change-password" element={<ComingSoon />} />
             <Route path="/user/forget-password" element={<ComingSoon />} />
+            <Route path="/user/profile" element={<UserProfile />} />
+            <Route path="/user/logout" element={<ComingSoon />} />
+            <Route path="/help" element={<ComingSoon />} />
             <Route path="/404" element={<Notfound />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
         </Routes>
