@@ -18,7 +18,6 @@ header .nav-link {
     font-size: 14px;
     color: #abb7c4;
     font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
     border-bottom: none;
 }
@@ -35,7 +34,6 @@ header .dropdown-menu .dropdown-item {
     font-family: 'Dosis', sans-serif;
     font-size: 14px;
     font-weight: bold;
-    text-transform: uppercase;
 }
 header .dropdown-menu .dropdown-item:hover {
     color: #dcf836;
