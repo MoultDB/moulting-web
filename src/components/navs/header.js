@@ -50,7 +50,7 @@ export default class Header extends React.Component {
                                         <Link to={"/explore"} className={"nav-link"}>Explore</Link>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <Link to={"/contribute"} role={"button"} className={"nav-link dropdown-toggle"}
+                                        <Link role={"button"} className={"nav-link dropdown-toggle"}
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>Contribute</Link>
                                         <ul className="dropdown-menu">
                                             <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"}>Photo
@@ -65,11 +65,10 @@ export default class Header extends React.Component {
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <Link to={"/about"} role={"button"} className={"nav-link dropdown-toggle"}
+                                        <Link role={"button"} className={"nav-link dropdown-toggle"}
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</Link>
                                         <ul className="dropdown-menu">
-                                            <li><Link to={"/about/moulting"} className={"dropdown-item"}>The
-                                                MoultDB</Link></li>
+                                            <li><Link to={"/about"} className={"dropdown-item"}>The MoultDB</Link></li>
                                             <li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB
                                                 publication</Link></li>
                                             <li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link>
@@ -81,40 +80,23 @@ export default class Header extends React.Component {
                                         </ul>
                                     </li>
 
-                                    {currentUser && (
-                                    <li className="nav-item dropdown">
-                                        <Link to={"/user"} role={"button"} className={"nav-link dropdown-toggle"}
-                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>Community</Link>
-                                        <ul className="dropdown-menu">
-                                            <li><Link to={"/user/grid"} className={"dropdown-item"}>User favorite
-                                                grid</Link></li>
-                                            <li><Link to={"/user/list"} className={"dropdown-item"}>User favorite
-                                                list</Link></li>
-                                            <li><Link to={"/user/profile"} className={"dropdown-item"}>User
-                                                profile</Link></li>
-                                            <li><Link to={"/user/rate"} className={"dropdown-item"}>User rate</Link>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    )}
-
                                     <li className="nav-item">
                                         <Link to={"/help"} className={"nav-link"} aria-current={"page"}>Help</Link>
                                     </li>
                                 </ul>
 
-                                {(this.state.currentUser) ?
+                                {(currentUser) ?
                                     <ul className="navbar-nav navbar-end">
                                         <li className="nav-item dropdown">
-                                            <Link to={"/user"} role={"button"} className={"nav-link dropdown-toggle"}
+                                            <Link role={"button"} className={"nav-link dropdown-toggle"}
                                                   data-bs-toggle={"dropdown"} aria-expanded={"false"}>{currentUser.email}</Link>
                                             <ul className="dropdown-menu">
-                                                <li><Link to={"/user/profile"} className={"dropdown-item"}>User profile</Link></li>
+                                                <li><Link to={"/user/profile"} className={"dropdown-item"}>Your profile</Link></li>
+                                                <li><Link to="/" className={"dropdown-item"} onClick={this.logOut}>Log out</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="nav-item">
-                                            <Link to="/" className={"nav-link"} onClick={this.logOut}>Log out</Link>
-                                        </li>
+                                        {/*<li className="nav-item">*/}
+                                        {/*</li>*/}
 
 
                                     </ul>

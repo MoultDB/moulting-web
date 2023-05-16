@@ -83,13 +83,10 @@ class Registration extends Component {
 
         AuthService.register(this.state.name, this.state.email, this.state.password, this.state.orcidId).then(
             () => {
-                this.props.router.navigate("/user/login", {
-                    state: {
-                        message: "User created, you can log in",
-                        error: false
-                    }
+                this.setState({
+                    successful: true,
+                    message: "User created, you can log in"
                 });
-                window.location.reload();
             },
             error => {
                 const resMessage =
@@ -119,55 +116,44 @@ class Registration extends Component {
             <main>
                 <div className="container">
                     <div className="row">
-                        <div className="description">
                             <h1>Sign up to MoultDB</h1>
                             <div className="col-sm-10 col-sm-offset-1">
+                                {this.state.message && (
+                                        <div
+                                            className={ this.state.successful ? "alert alert-success" : "alert alert-danger"}
+                                            role="alert">
+                                            {this.state.message}
+                                        </div>
+                                )}
                                 <form onSubmit={this.handleSignUp}>
-                                    <div className="form-group">
-                                        <label htmlFor="email">E-mail address</label>
+                                    <div className="mb-3">
+                                        <label htmlFor="email">E-mail</label>
                                         <input type="text" name="email" value={this.state.email} onChange={this.onChangeEmail} />
                                         {this.state.emailError && (
                                             <p className={"text-warning"}>{this.state.emailError}</p>
                                         )}
                                     </div>
-                                    <div className="form-group">
+                                    <div className="mb-3">
                                         <label htmlFor="name">Name</label>
                                         <input type="text" name="name" value={this.state.name} onChange={this.onChangeName} />
                                         {this.state.nameError && (
                                             <p className={"text-warning"}>{this.state.nameError}</p>
                                         )}
                                     </div>
-                                    <div className="form-group">
+                                    <div className="mb-3">
                                         <label htmlFor="orcidid">ORCID iD</label>
                                         <input type="text" name="orcidid" value={this.state.orcidId} onChange={this.onChangeOrcidId} />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="mb-3">
                                         <label htmlFor="password">Password</label>
                                         <input type="password" name="password" value={this.state.password} onChange={this.onChangePassword} />
                                         {this.state.pwdError && (
                                             <p className={"text-warning"}>{this.state.pwdError}</p>
                                         )}
                                     </div>
-                                    <div className="form-group">
-                                        <button type="submit" className={buttonClassName} disabled={isDisabled} >Sign up</button>
-                                    </div>
-                                    {this.state.message && (
-                                        <div className="form-group">
-                                            <div
-                                                className={
-                                                    this.state.successful
-                                                        ? "alert alert-success"
-                                                        : "alert alert-danger"
-                                                }
-                                                role="alert"
-                                            >
-                                                {this.state.message}
-                                            </div>
-                                        </div>
-                                    )}
+                                    <button type="submit" className={buttonClassName} disabled={isDisabled} >Sign up</button>
                                 </form>
                             </div>
-                        </div>
                     </div>
                 </div>
             </main>

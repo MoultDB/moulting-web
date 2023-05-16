@@ -45,7 +45,7 @@ class Login extends Component {
                 this.props.router.navigate("/user/profile");
                 window.location.reload();
             },
-            error => {
+        ).catch(error => {
                 const resMessage =
                     (error.response && error.response.data && error.response.data.message)
                     || error.message
@@ -62,38 +62,33 @@ class Login extends Component {
 
     render() {
 
-        let messageClass = "alert alert-success";
-        if (this.state.error) {
-            messageClass = "alert alert-danger"
-        }
-
         return (
             <main>
                 <div className="container">
                     <div className="row">
-                        <div className="description">
+                        <div className="col-sm-10 col-sm-offset-1">
                             <h1> Log in to MoultDB </h1>
                             <div className="col-sm-10 col-sm-offset-1">
                                 {(this.state.message) &&
-                                    <div className={messageClass} role="alert">
+                                    <div className={"alert alert-danger"} role="alert">
                                         {this.state.message}
                                     </div>
                                 }
 
                                 <form onSubmit={this.handleLogin}>
                                     <p>
-                                        <label>E-mail address</label>
-                                        <input type="text" value={this.state.email} onChange={this.onChangeEmail}/>
+                                        <label htmlFor="email">E-mail</label>
+                                        <input type="text" name="email" value={this.state.email} onChange={this.onChangeEmail}/>
                                     </p>
                                     <p>
-                                        <label>Password</label>
-                                        <input type="password" value={this.state.password} onChange={this.onChangePassword}/>
+                                        <label htmlFor="password">Password</label>
+                                        <input type="password" name="password" value={this.state.password} onChange={this.onChangePassword}/>
                                     </p>
                                     <button type="submit">Log in</button>
                                     <Link to="/user/forgot-password">Forgot password?</Link>
                                 </form>
                             </div>
-                        </div>
+                    </div>
                     </div>
                 </div>
             </main>

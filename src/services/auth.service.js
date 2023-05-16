@@ -1,22 +1,17 @@
+import axios from "axios";
 
 class AuthService {
 
     login(email, password) {
-        return fetch(process.env.REACT_APP_API_URL + "/user/login", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({"email": email, "password": password})
-        })
-            .then(response => response.json())
+        return axios
+            .post(process.env.REACT_APP_API_URL + "/user/login",
+                {"email": email, "password": password})
             .then(response => {
-                if (response.token) {
-                    localStorage.setItem("user", JSON.stringify({token: response.token, email: email}));
+                if (response.data) {
+                    localStorage.setItem("user", JSON.stringify(response.data));
                 }
-                return response.token;
-            })
-            .catch(error =>
-                console.error(error)
-            );
+                return response.data;
+            });
     }
 
     logout() {
@@ -42,7 +37,10 @@ class AuthService {
     }
 
     getCurrentUser() {
-        return JSON.parse(localStorage.getItem('user'));;
+        if (localStorage.getItem('user')) {
+            return JSON.parse(localStorage.getItem('user')).data;
+        }
+        return null;
     }
 }
 

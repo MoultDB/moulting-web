@@ -99,7 +99,7 @@ export default class UserProfile extends React.Component {
         this.state = {
             redirect: null,
             userReady: false,
-            currentUser: { username: "" }
+            currentUser: null
         };
     }
 
@@ -117,11 +117,6 @@ export default class UserProfile extends React.Component {
                     <div className="row">
                         <div className="col-md-12">
                             <h1>User Profile</h1>
-                            <ul className="breadcumb">
-                                <li><a href="#">Home</a></li>
-                                <span><ChevronRight color={"#abb7c4"}/></span>
-                                <li>pictures listing</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -130,6 +125,8 @@ export default class UserProfile extends React.Component {
                 <div className="page-single bg-custom-dark">
                     <div className="container ">
                         <p><strong>E-mail:</strong>{" "}{currentUser.email} </p>
+                        <p><strong>Name:</strong>{" "}{currentUser.name} </p>
+                        <p><strong>ORCID iD:</strong>{" "}{currentUser.orcidId} </p>
                         <p><strong>Token:</strong>{" "}{currentUser.token}</p>
 
                         <div className="row ipad-width">
