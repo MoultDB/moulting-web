@@ -6,10 +6,10 @@ import AdBlockDetect from '../ad-block-detect/detect';
 const News = () => {
     return (
         <section className="moultdb-news">
-            <h2>Last news</h2>
             <AdBlockDetect />
-            <div className="twitter-embed col-sm-6 col-sm-offset-3">
-                <TwitterTimelineEmbed sourceType="profile" screenName="moultdb" noHeader placeholder="Loading..."
+            <div className="twitter-embed ">
+                <TwitterTimelineEmbed sourceType="profile" screenName="moultdb"
+                                      noHeader placeholder="Loading..."
                                       options={{tweetLimit: "5", lang: "en", dnt: "true", cards: "hidden"}}
                 />
             </div>
