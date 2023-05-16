@@ -9,6 +9,8 @@ import Footer from "./components/navs/footer";
 import UserProfile from "./components/user/user-profile";
 import LoginForm from "./components/user/login";
 import Registration from "./components/user/registration";
+import PrivacyNotice from "./components/document/privacy-notice";
+import MarkdownPage from "./components/document/markdown";
 
 function App() {
     return (
@@ -54,10 +56,11 @@ function CustomRoutes() {
             <Route path="/contribute/photo-upload" element={<ComingSoon />} />
             <Route path="/contribute/video-upload" element={<ComingSoon />} />
             <Route path="/contribute/find-species" element={<ComingSoon />} />
-            <Route path="/about/moulting" element={<ComingSoon />} />
+            <Route path="/about" element={<Navigate replace to="/about/moulting" />}  />
+            <Route path="/about/moulting" element={<MarkdownPage />} />
             <Route path="/about/publications" element={<ComingSoon />} />
             <Route path="/about/blog" element={<ComingSoon />} />
-            <Route path="/about/privacy-notice" element={<ComingSoon />} />
+            <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
             <Route path="/user/registration" element={<Registration />} />
             <Route path="/user/login" element={<LoginForm />} />
             <Route path="/user/change-password" element={<ComingSoon />} />

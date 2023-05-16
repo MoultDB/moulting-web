@@ -391,7 +391,6 @@ th,
 td {
   border: 0;
   font-family: inherit;
-  font-size: 100%;
   font-style: inherit;
   font-weight: inherit;
   margin: 0;
@@ -431,10 +430,6 @@ main,
 nav,
 section {
   display: block;
-}
-ol,
-ul {
-  list-style: none;
 }
 table {
   /* tables still need 'cellspacing="0"' in the markup */
@@ -488,24 +483,6 @@ video {
   display: inline;
   zoom: 1;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-html {
-  font-size: 10px;
-}
-body {
-  font-size: 150px;
-  font-size: 15rem;
-  font-size: 15px;
-  font-size: 1.5rem;
-  color: #333;
-}
 body,
 button,
 input,
@@ -520,6 +497,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-family: 'OpenSans', sans-serif;
   font-weight: 700;
   clear: both;
@@ -548,10 +526,10 @@ a {
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  color: #666;
+  color: #4280bf;
 }
 a:hover {
-  color: #020d18;
+  color: #dcf836;
 }
 p {
   margin-bottom: 10px;
@@ -636,93 +614,6 @@ abbr[title] {
   border-bottom: 1px dotted rgba(51, 51, 51, 0.1);
   cursor: help;
 }
-mark,
-ins {
-  background-color: #fff9c0;
-  text-decoration: none;
-}
-sup,
-sub {
-  font-size: 75%;
-  height: 0;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  bottom: 1ex;
-}
-sub {
-  top: .5ex;
-}
-small {
-  font-size: 75%;
-}
-big {
-  font-size: 125%;
-}
-hr {
-  background-color: #eaeaea;
-  background-color: rgba(51, 51, 51, 0.1);
-  border: 0;
-  height: 1px;
-  margin: 15px 0;
-}
-ul,
-ol {
-  margin: 0 0 1.6em 1.3333em;
-}
-ul {
-  list-style: disc;
-}
-ol {
-  list-style: decimal;
-}
-li > ul,
-li > ol {
-  margin-bottom: 0;
-}
-dl {
-  margin-bottom: 1.6em;
-}
-dt {
-  font-weight: bold;
-}
-dd {
-  margin-bottom: 1.6em;
-}
-table,
-th,
-td {
-  border: 1px solid #eaeaea;
-  border: 1px solid rgba(51, 51, 51, 0.1);
-}
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-width: 1px 0 0 1px;
-  margin: 0 0 1.6em;
-  table-layout: fixed;
-  /* Prevents HTML tables from becoming too wide */
-  width: 100%;
-}
-caption,
-th,
-td {
-  font-weight: normal;
-  text-align: left;
-}
-th {
-  border-width: 0 1px 1px 0;
-  font-weight: 700;
-}
-td {
-  border-width: 0 1px 1px 0;
-}
-th,
-td {
-  padding: 0.4em;
-}
 img {
   -ms-interpolation-mode: bicubic;
   border: 0;
@@ -777,15 +668,10 @@ select {
 }
 p {
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  color: #abb7c4;
+  /*font-size: 14px;*/
   font-weight: 300;
   text-transform: none;
   line-height: 24px !important;
-}
-ul {
-  list-style: none;
-  margin-left: 0;
 }
 
 .container{
@@ -796,7 +682,7 @@ ul {
   background: url('./assets/images/uploads/background.png') fixed center;
 }
 #moulting-body {
-  padding-top: 160px !important;
+  padding-top: 130px !important;
 }
 .slider {
   text-align: center;
@@ -814,7 +700,6 @@ ul {
 .description {
   font-family: system-ui, sans-serif;
   font-size: 18px;
-  color: white;
   font-weight: 500;
   text-transform: none;
   margin-top: 15px;
@@ -826,4 +711,19 @@ ul {
 
 .bg-custom-dark {
   background-color: #020d18;
+}
+
+main {
+  margin-top: 60px;
+}
+body {
+  color: white
+}
+h1 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+ul {
+  display: inline-block;
+  text-align: left;
 }
