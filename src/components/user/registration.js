@@ -85,7 +85,7 @@ class Registration extends Component {
             () => {
                 this.setState({
                     successful: true,
-                    message: "User created, you can log in"
+                    message: "User created, check your mailbox to activate your account."
                 });
             },
             error => {
@@ -96,7 +96,7 @@ class Registration extends Component {
 
                 this.setState({
                     successful: false,
-                    message: resMessage
+                    message: "Your account is NOT created. Please contact our support team for assistance.\nError: " + resMessage
                 });
             }
         );

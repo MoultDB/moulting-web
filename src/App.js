@@ -11,6 +11,9 @@ import LoginForm from "./components/user/login";
 import Registration from "./components/user/registration";
 import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
+import Validation from "./components/user/validation";
+import AuthVerify from "./services/auth-verify";
+// import AuthVerify from "./services/auth-verify";
 
 function App() {
     return (
@@ -30,6 +33,7 @@ function App() {
 
             </div>
             <Footer />
+            <AuthVerify />
         </BrowserRouter>
     );
 }
@@ -62,6 +66,7 @@ function CustomRoutes() {
             <Route path="/about/blog" element={<ComingSoon />} />
             <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
             <Route path="/user/registration" element={<Registration />} />
+            <Route path="/user/email-validation" element={<Validation />} />
             <Route path="/user/login" element={<LoginForm />} />
             <Route path="/user/change-password" element={<ComingSoon />} />
             <Route path="/user/forget-password" element={<ComingSoon />} />

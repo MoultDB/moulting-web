@@ -25,15 +25,22 @@ class AuthService {
             body: JSON.stringify({"email": email, "name": name, "password": password, "orcidId": orcidId })
         })
             .then(response => response.json())
-            // .then(response => {
-            //     if (response.token) {
-            //         localStorage.setItem("user", JSON.stringify({token: response.token, email: email}));
-            //     }
-            //     return response.token;
-            // })
-            .catch(error =>
-                console.error(error)
-            );
+    }
+
+    checkTokenValidity(email, token) {
+        let currentUser = this.getCurrentUser();
+        if (currentUser) {
+             fetch(process.env.REACT_APP_API_URL + "/user/check-token?email=" + currentUser.email
+                 + "&token=" + currentUser.token, {
+                method: 'GET'
+            })
+                .then(response => response.json())
+                 .then(response => {
+                     if (!response.data || !response.data.valid) {
+                         localStorage.removeItem("user");
+                     }
+                 })
+        }
     }
 
     getCurrentUser() {
@@ -41,6 +48,13 @@ class AuthService {
             return JSON.parse(localStorage.getItem('user')).data;
         }
         return null;
+    }
+
+    validation(email, token) {
+        return fetch(process.env.REACT_APP_API_URL + "/user/email-validation?email=" + email + "&token=" + token, {
+            method: 'GET'
+        })
+            .then(response => response.json())
     }
 }
 
