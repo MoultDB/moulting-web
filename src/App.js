@@ -69,7 +69,7 @@ function CustomRoutes() {
             <Route path="/user/email-validation" element={<Validation />} />
             <Route path="/user/login" element={<LoginForm />} />
             <Route path="/user/change-password" element={<ComingSoon />} />
-            <Route path="/user/forget-password" element={<ComingSoon />} />
+            <Route path="/user/reset-password" element={<ComingSoon />} />
             <Route path="/user/profile" element={<UserProfile />} />
             <Route path="/user/logout" element={<ComingSoon />} />
             <Route path="/help" element={<ComingSoon />} />
