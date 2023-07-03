@@ -7,6 +7,7 @@ import myriapoda from "../../assets/images/uploads/main_slider/myriapoda.jpg";
 import crostacea from "../../assets/images/uploads/main_slider/crostacea.jpg";
 import hexapoda from "../../assets/images/uploads/main_slider/hexapoda.jpg";
 import Slider from "react-slick";
+import AuthService from "../../services/auth.service";
 
 const TaxonItem = ({ src, title, speciesCount }) => {
     const href = "/taxon/" + title;
@@ -70,6 +71,20 @@ const HeroSlider = () => {
 }
 
 export default class Hero extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentUser: null
+        };
+    }
+
+    componentDidMount() {
+        const currentUser = AuthService.getCurrentUser();
+        this.setState({ currentUser: currentUser })
+    }
+
     render() {
         return <div className="slider photo-items">
             <div className="container">
@@ -94,7 +109,11 @@ export default class Hero extends React.Component {
                     <HeroSlider />
 
                     <div className="hero-button">
-                        <Link to="./contribute/photo-upload" >Let's start</Link>
+                        {(this.state.currentUser) ?
+                            <Link to="./contribute/photo-upload" >Let's start</Link>
+                            :
+                            <Link to="./user/login" >Let's start</Link>
+                        }
                     </div>
 
                 </div>
