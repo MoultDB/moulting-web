@@ -53,15 +53,12 @@ export default class Header extends React.Component {
                                         <Link role={"button"} className={"nav-link dropdown-toggle"}
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>Contribute</Link>
                                         <ul className="dropdown-menu">
-                                            <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"}>Photo
-                                                upload</Link></li>
-                                            <li><Link to={"/contribute/video-upload"} className={"dropdown-item"}>Video
-                                                upload</Link></li>
-                                            <li><Link to={"/contribute/find-species"} className={"dropdown-item"}>Who's
-                                                that species?</Link></li>
+                                            <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"}>Photo upload</Link></li>
+                                            <li><Link to={"/contribute/video-upload"} className={"dropdown-item"}>Video upload</Link></li>
+                                            {/*<li><Link to={"/contribute/find-species"} className={"dropdown-item"}>Who's that species?</Link></li>*/}
                                             <li><a href="http://131.175.120.138:61111/GeMI/" className={"dropdown-item"}
-                                                   rel={"noopener noreferrer"} target={"_blank"}>Machine Learning for
-                                                citizen science</a></li>
+                                                   rel={"noopener noreferrer"} target={"_blank"}>
+                                                Machine Learning for citizen science</a></li>
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown">
@@ -69,12 +66,9 @@ export default class Header extends React.Component {
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</Link>
                                         <ul className="dropdown-menu">
                                             <li><Link to={"/about"} className={"dropdown-item"}>The MoultDB</Link></li>
-                                            <li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB
-                                                publication</Link></li>
-                                            <li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link>
-                                            </li>
-                                            <li><Link to={"/about/privacy-notice"} className={"dropdown-item"}>MoultDB
-                                                privacy notice</Link></li>
+                                            {/*<li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB publication</Link></li>*/}
+                                            {/*<li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link></li>*/}
+                                            <li><Link to={"/about/privacy-notice"} className={"dropdown-item"}>MoultDB privacy notice</Link></li>
                                             <li><a href="https://github.com/MoultDB/" className={"dropdown-item"}
                                                    rel={"noopener noreferrer"} target={"_blank"}>Source code</a></li>
                                         </ul>
@@ -95,10 +89,6 @@ export default class Header extends React.Component {
                                                 <li><Link to="/" className={"dropdown-item"} onClick={this.logOut}>Log out</Link></li>
                                             </ul>
                                         </li>
-                                        {/*<li className="nav-item">*/}
-                                        {/*</li>*/}
-
-
                                     </ul>
                                     :
                                     <ul className="navbar-nav navbar-end">
