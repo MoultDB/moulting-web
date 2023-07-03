@@ -77,15 +77,17 @@ class Login extends Component {
 
                                 <form onSubmit={this.handleLogin}>
                                     <p>
-                                        <label htmlFor="email">E-mail</label>
-                                        <input type="text" name="email" value={this.state.email} onChange={this.onChangeEmail}/>
+                                        <label htmlFor="email" className="form-label">E-mail</label>
+                                        <input type="text" name="email" className="form-control"
+                                               value={this.state.email} onChange={this.onChangeEmail}/>
                                     </p>
                                     <p>
-                                        <label htmlFor="password">Password</label>
-                                        <input type="password" name="password" value={this.state.password} onChange={this.onChangePassword}/>
+                                        <label htmlFor="password" className="form-label ">Password</label>
+                                        <input type="password" name="password" className="form-control"
+                                               value={this.state.password} onChange={this.onChangePassword}/>
                                     </p>
-                                    <button type="submit">Log in</button>
-                                    <Link to="/user/forgot-password">Forgot password?</Link>
+                                    <button type="submit" className="btn btn-primary btn-block">Log in</button>
+                                    {/*<Link to="/user/forgot-password">Forgot password?</Link>*/}
                                 </form>
                             </div>
                     </div>

@@ -127,26 +127,30 @@ class Registration extends Component {
                                 )}
                                 <form onSubmit={this.handleSignUp}>
                                     <div className="mb-3">
-                                        <label htmlFor="email">E-mail</label>
-                                        <input type="text" name="email" value={this.state.email} onChange={this.onChangeEmail} />
+                                        <label htmlFor="email" className="form-label required">E-mail</label>
+                                        <input type="text" name="email" className="form-control"
+                                               value={this.state.email} onChange={this.onChangeEmail} />
                                         {this.state.emailError && (
                                             <p className={"text-warning"}>{this.state.emailError}</p>
                                         )}
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="name">Name</label>
-                                        <input type="text" name="name" value={this.state.name} onChange={this.onChangeName} />
+                                        <label htmlFor="name" className="form-label required">Name</label>
+                                        <input type="text" name="name" className="form-control"
+                                               value={this.state.name} onChange={this.onChangeName} />
                                         {this.state.nameError && (
                                             <p className={"text-warning"}>{this.state.nameError}</p>
                                         )}
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="orcidid">ORCID iD</label>
-                                        <input type="text" name="orcidid" value={this.state.orcidId} onChange={this.onChangeOrcidId} />
+                                        <label htmlFor="orcidid" className="form-label">ORCID iD</label>
+                                        <input type="text" name="orcidid" className="form-control"
+                                               value={this.state.orcidId} onChange={this.onChangeOrcidId} />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="password">Password</label>
-                                        <input type="password" name="password" value={this.state.password} onChange={this.onChangePassword} />
+                                        <label htmlFor="password" className="form-label required">Password</label>
+                                        <input type="password" name="password" className="form-control"
+                                               value={this.state.password} onChange={this.onChangePassword} />
                                         {this.state.pwdError && (
                                             <p className={"text-warning"}>{this.state.pwdError}</p>
                                         )}
