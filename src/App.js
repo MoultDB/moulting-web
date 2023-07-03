@@ -13,6 +13,7 @@ import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
 import Validation from "./components/user/validation";
 import AuthVerify from "./services/auth-verify";
+import UploadFiles from "./components/upload/upload-files";
 // import AuthVerify from "./services/auth-verify";
 
 function App() {
@@ -57,7 +58,7 @@ function CustomRoutes() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/explore" element={<ComingSoon />} />
             <Route path="/explore/:type" element={<ComingSoon />} />
-            <Route path="/contribute/photo-upload" element={<ComingSoon />} />
+            <Route path="/contribute/photo-upload" element={<UploadFiles />} />
             <Route path="/contribute/video-upload" element={<ComingSoon />} />
             <Route path="/contribute/find-species" element={<ComingSoon />} />
             <Route path="/about" element={<Navigate replace to="/about/moulting" />}  />

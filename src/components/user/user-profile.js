@@ -13,6 +13,7 @@ import tarantula1 from "../../assets/images/uploads/photo_carusel/tarantula_moul
 import tarantula2 from "../../assets/images/uploads/photo_carusel/tarantula_moulting/photo_2.jpg";
 import tarantula3 from "../../assets/images/uploads/photo_carusel/tarantula_moulting/photo_3.jpg";
 import tarantula4 from "../../assets/images/uploads/photo_carusel/tarantula_moulting/photo_4.jpg";
+import NotLogIn from "./not-log-in";
 
 const items = [
     {src: moultinginsect1, title: "moulting insect 1"},
@@ -142,13 +143,8 @@ export default class UserProfile extends React.Component {
                     </div>
                 </div>
                 :
-                <div className="container">
-                    <div className="row">
-                        <p><strong>You are not log in</strong></p>
-                        <p>To log in: <Link to={"/user/login"}>log in</Link></p>
-                        <p>To sign up: <Link to={"/user/registration"} className={" signupLink"}>sign up</Link></p>
-                    </div>
-                </div>}
+                <NotLogIn />
+            }
         </main>;
     }
 }
