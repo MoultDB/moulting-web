@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import UploadService from "../../services/upload-files.service";
+import UploadService from "../../services/image.service";
 import './upload-files.css';
 import {withRouter} from '../../common/with-router';
 import AuthService from "../../services/auth.service";

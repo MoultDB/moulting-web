@@ -1,6 +1,6 @@
 import http from "./http-common";
 
-class UploadFilesService {
+class ImageService {
 
     uploadImage(file, speciesName, sex, ageInDays, location, moultingStep, isFossil, specimenCount) {
         let formData = new FormData();
@@ -24,9 +24,12 @@ class UploadFilesService {
         });
     }
 
-    getFiles() {
+    getFiles(email) {
+        if (email) {
+            return http.get("/image/user-specific?email=" + email);
+        }
         return http.get("/image/all");
     }
 }
 
-export default new UploadFilesService();
+export default new ImageService();
