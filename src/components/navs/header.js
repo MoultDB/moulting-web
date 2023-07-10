@@ -54,7 +54,7 @@ export default class Header extends React.Component {
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>Contribute</Link>
                                         <ul className="dropdown-menu">
                                             <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"}>Photo upload</Link></li>
-                                            <li><Link to={"/contribute/video-upload"} className={"dropdown-item"}>Video upload</Link></li>
+                                            {/*<li><Link to={"/contribute/video-upload"} className={"dropdown-item"}>Video upload</Link></li>*/}
                                             {/*<li><Link to={"/contribute/find-species"} className={"dropdown-item"}>Who's that species?</Link></li>*/}
                                             <li><a href="http://131.175.120.138:61111/GeMI/" className={"dropdown-item"}
                                                    rel={"noopener noreferrer"} target={"_blank"}>
@@ -104,15 +104,15 @@ export default class Header extends React.Component {
                             </div>
                         </div>
                     </nav>
-                    <div className="top-search">
-                        <select>
-                            <option value="saab">ALL</option>
-                            <option value="united">SPECIES</option>
-                            <option value="saab">GENUS</option>
-                        </select>
-                        <input type="text"
-                               placeholder="Search for an hashtag, a genus or a species that you are looking for"/>
-                    </div>
+                    {/*<div className="top-search">*/}
+                    {/*    <select>*/}
+                    {/*        <option value="saab">ALL</option>*/}
+                    {/*        <option value="united">SPECIES</option>*/}
+                    {/*        <option value="saab">GENUS</option>*/}
+                    {/*    </select>*/}
+                    {/*    <input type="text"*/}
+                    {/*           placeholder="Search for an hashtag, a genus or a species that you are looking for"/>*/}
+                    {/*</div>*/}
 
                 </div>
             </header>
