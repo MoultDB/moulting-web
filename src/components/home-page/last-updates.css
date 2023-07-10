@@ -1,3 +1,8 @@
+.tabs .photo-item img {
+    max-height: 200px;
+    width:auto;
+}
+
 .sidebar {
     margin-left: 60px;
 }

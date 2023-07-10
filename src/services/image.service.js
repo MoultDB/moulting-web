@@ -30,6 +30,10 @@ class ImageService {
         }
         return http.get("/image/all");
     }
+
+    getLastFiles() {
+        return http.get("/image/last");
+    }
 }
 
 export default new ImageService();
