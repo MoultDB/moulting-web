@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+// FIXME use http-common.js
 class AuthService {
 
     login(email, password) {
@@ -67,7 +69,7 @@ class AuthService {
     }
 
     forgotPassword(email) {
-        return fetch(process.env.REACT_APP_API_URL + "/user/ask-password?email=" + email, {
+        return fetch(process.env.REACT_APP_API_URL + "/user/forgot-password?email=" + email, {
             method: 'GET'
         })
             .then(response => response.json())
