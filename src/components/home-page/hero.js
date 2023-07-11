@@ -8,22 +8,56 @@ import hexapoda from "../../assets/images/uploads/main_slider/hexapoda.jpg";
 import Slider from "react-slick";
 import AuthService from "../../services/auth.service";
 import SocialLinks from "../common/social-links";
+import ImageService from "../../services/image.service";
 
-const TaxonItem = ({ src, title, speciesCount }) => {
-    const href = "/taxon/" + title;
-    return <div className="photo-item">
-        <Link to={href}>
-            <div className="ph-img">
-                <img src={src} alt={title}/>
-            </div>
-            <div className="title-in">
-                <h6>{title}</h6>
-                <p><span>{speciesCount}</span> Species uploaded</p>
-            </div>
-        </Link>
+class TaxonItem extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            files: undefined
+        };
+
+    }
+
+    componentDidMount() {
+        if (this.props.taxonName) {
+            ImageService.getFilesFromTaxon(this.props.taxonName)
+                .then((response) => {
+                    this.setState({
+                        files: response.data.data
+                    });
+                })
+                .catch(() => {
+                    this.setState({
+                        files: undefined
+                    });
+                });
+        }
+    }
+
+    render() {
+        let {src, taxonName} = this.props;
+        let {files} = this.state;
+        let speciesCount = 0;
+        if (files) {
+            speciesCount = files.length;
+        }
+
+        const href = "/taxon/" + taxonName;
+        return <div className="photo-item">
+            <Link to={href}>
+                <div className="ph-img">
+                    <img src={src} alt={taxonName}/>
+                </div>
+                <div className="title-in">
+                    <h6>{taxonName}</h6>
+                    <p><span>{speciesCount}</span> Species uploaded</p>
+                </div>
+            </Link>
         </div>
     }
-;
+}
 
 const HeroSlider = () => {
     const settings = {
@@ -61,10 +95,10 @@ const HeroSlider = () => {
     return (
         <div className="hero-slider">
             <Slider {...settings}>
-                <TaxonItem src={chelicherata} title={"Chelicherata"} speciesCount={258}/>
-                <TaxonItem src={myriapoda} title={"Myriapoda"} speciesCount={138}/>
-                <TaxonItem src={crostacea} title={"Crustacea"} speciesCount={86}/>
-                <TaxonItem src={hexapoda} title={"Hexapoda"} speciesCount={207}/>
+                <TaxonItem src={chelicherata} taxonName={"Arthropoda"}/>
+                <TaxonItem src={myriapoda} taxonName={"Myriapoda"}/>
+                <TaxonItem src={crostacea} taxonName={"Crustacea"}/>
+                <TaxonItem src={hexapoda} taxonName={"Hexapoda"}/>
             </Slider>
         </div>
     );

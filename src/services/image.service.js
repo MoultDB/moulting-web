@@ -7,7 +7,7 @@ class ImageService {
         let formData = new FormData();
 
         formData.append("file", file);
-        formData.append('speciesName', speciesName);
+        formData.append('taxonName', speciesName);
         formData.append('specimenCount', String(specimenCount));
         formData.append('sex', sex);
         formData.append('moultingStep', moultingStep);
@@ -37,6 +37,13 @@ class ImageService {
 
     getLastFiles() {
         return http.get("/image/last");
+    }
+
+    getFilesFromTaxon(taxonName) {
+        if (taxonName) {
+            return http.get("/image/taxon-specific?taxonName=" + taxonName);
+        }
+        return http.get("/image/all");
     }
 }
 

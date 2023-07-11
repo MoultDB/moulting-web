@@ -23,7 +23,7 @@ export default class UserProfile extends React.Component {
         this.setState({ currentUser: currentUser })
 
         if (currentUser) {
-            let files = ImageService.getFiles(currentUser.email)
+            ImageService.getFiles(currentUser.email)
                 .then((response) => {
                     this.setState({
                         successful: true,
