@@ -166,14 +166,14 @@ class UploadFiles extends Component {
                                 <div className="mb-3">
                                     <label htmlFor="speciesname" className="form-label required">Scientific species name</label>
                                     <input type="text" className="form-control" id="speciesname"
-                                           value={this.state.speciesName} placeholder="Ex: Arthropoda" onChange={this.onChangeSpeciesName} required/>
+                                           value={this.state.speciesName} placeholder="E.g.: Arthropoda" onChange={this.onChangeSpeciesName} required/>
                                     <div className="invalid-feedback">Please provide a scientific species name</div>
                                 </div>
 
                                 <div className="mb-3">
                                     <label htmlFor="specimencount required" className="form-label required">Specimen count</label>
                                     <input type="number" className="form-control" id="specimencount"
-                                           value={this.state.specimenCount} placeholder="Ex: 3" onChange={this.onChangeSpecimenCount} required/>
+                                           value={this.state.specimenCount} placeholder="E.g. 3" onChange={this.onChangeSpecimenCount} required/>
                                 </div>
 
                                 <div className="mb-3">
@@ -202,13 +202,13 @@ class UploadFiles extends Component {
                                 <div className="mb-3">
                                     <label htmlFor="ageindays" className="form-label">Age (in days)</label>
                                     <input type="number" className="form-control" id="ageindays"
-                                           value={this.state.ageInDays} placeholder="Ex: 5" onChange={this.onChangeAgeInDays} />
+                                           value={this.state.ageInDays} placeholder="E.g. 5" onChange={this.onChangeAgeInDays} />
                                 </div>
 
                                 <div className="mb-3">
                                     <label htmlFor="location" className="form-label">Location (place where the arthropod comes from)</label>
                                     <input type="text" className="form-control" id="location"
-                                           value={this.state.location} placeholder="Ex: Switzerland" onChange={this.onChangeLocation} />
+                                           value={this.state.location} placeholder="E.g. Switzerland" onChange={this.onChangeLocation} />
                                 </div>
 
                                 <button type="submit" className={buttonClassName} disabled={isDisabled}>Submit</button>
