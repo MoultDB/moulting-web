@@ -52,7 +52,7 @@ class TaxonItem extends React.Component {
                 </div>
                 <div className="title-in">
                     <h6>{taxonName}</h6>
-                    <p><span>{speciesCount}</span> Species uploaded</p>
+                    <p><span>{speciesCount}</span> photos uploaded</p>
                 </div>
             </Link>
         </div>
