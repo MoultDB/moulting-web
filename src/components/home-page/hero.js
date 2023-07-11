@@ -1,13 +1,13 @@
 import React from 'react';
 import './hero.css';
 import { Link } from "react-router-dom";
-import {Facebook, Instagram, Mastodon, Twitter} from 'react-bootstrap-icons';
 import chelicherata from "../../assets/images/uploads/main_slider/chelicherata.jpg";
 import myriapoda from "../../assets/images/uploads/main_slider/myriapoda.jpg";
 import crostacea from "../../assets/images/uploads/main_slider/crostacea.jpg";
 import hexapoda from "../../assets/images/uploads/main_slider/hexapoda.jpg";
 import Slider from "react-slick";
 import AuthService from "../../services/auth.service";
+import SocialLinks from "../common/social-links";
 
 const TaxonItem = ({ src, title, speciesCount }) => {
     const href = "/taxon/" + title;
@@ -91,10 +91,7 @@ export default class Hero extends React.Component {
                 <div className="row">
                     <div className="social-link">
                         <p>Follow us: </p>
-                        <a href="https://www.facebook.com/groups/402623715250579" rel="noopener noreferrer" target="_blank"><Facebook/></a>
-                        <a href="https://twitter.com/moultdb" rel="noopener noreferrer" target="_blank"><Twitter/></a>
-                        <a href="https://www.instagram.com/moultdb/" rel="noopener noreferrer" target="_blank"><Instagram/></a>
-                        <a href="https://ecoevo.social/@moultdb" rel="noopener noreferrer" target="_blank"><Mastodon/></a>
+                        <SocialLinks />
                     </div>
 
                     <div className="description">
@@ -110,9 +107,9 @@ export default class Hero extends React.Component {
 
                     <div className="hero-button">
                         {(this.state.currentUser) ?
-                            <Link to="./contribute/photo-upload" >Let's start</Link>
+                            <Link to="./contribute/photo-upload">Let's start</Link>
                             :
-                            <Link to="./user/login" >Let's start</Link>
+                            <Link to="./user/login">Let's start</Link>
                         }
                     </div>
 

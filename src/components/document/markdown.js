@@ -7,8 +7,14 @@ class MarkdownPage extends Component {
 
     constructor(props) {
         super(props);
+
+        let currentPagePath = this.props.pagePath ? this.props.pagePath : this.props.router.location.pathname;
+        if (!currentPagePath.startsWith("/")) {
+            currentPagePath = "/" + currentPagePath;
+        }
+
         this.state = {
-            pathname : this.props.router.location.pathname,
+            pathname : currentPagePath,
             content: null,
             errorMessage: null
         };
@@ -18,7 +24,7 @@ class MarkdownPage extends Component {
 
         this.setState({content: null, errorMessage: null});
 
-        fetch("https://raw.githubusercontent.com/MoultDB/moultdb-docs/master" + this.state.pathname + ".md")
+        fetch("https://raw.githubusercontent.com/MoultDB/moultdb-docs/develop" + this.state.pathname + ".md")
             .then(results => {
                 if (!results.ok) {
                     this.setState({errorMessage: "Fail to get data from MoultDB GitHub"});

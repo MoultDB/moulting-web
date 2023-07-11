@@ -24,7 +24,6 @@
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
 }
 .slider .social-link p {
@@ -35,20 +34,6 @@
     text-transform: uppercase;
     margin-bottom: 0;
     margin-right: 15px;
-}
-.slider .social-link a  {
-    border-bottom: none;
-}
-.slider .social-link a svg {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: #ffffff;
-    font-size: 16px;
-    margin-right: 15px;
-}
-.slider .social-link a svg:hover {
-    color: #dcf836;
 }
 
 .slider .hero-slider {

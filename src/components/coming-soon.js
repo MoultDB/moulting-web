@@ -1,5 +1,6 @@
 import React from 'react'
-import News from "./news/news";
+import {Link} from "react-router-dom";
+import SocialLinks from "./common/social-links";
 
 export default function ComingSoon() {
     return <main>
@@ -9,11 +10,8 @@ export default function ComingSoon() {
                     <h1> Coming soon! </h1>
                     <p>Sorry, but the page you were trying to view does not exist.</p>
                     <p>Our website is under construction, follow us for update now!</p>
-
-                    <p><strong>You can follow our latest news on twitter!</strong></p>
-                    <div className={"col-sm-6 offset-sm-3 "}>
-                        <News  />
-                    </div>
+                    <p><strong>You can follow our latest news on our <Link to="/news">news page</Link> or on various social media:
+                        <div className={"social-link mt-2"}><SocialLinks /></div></strong></p>
                 </div>
             </div>
         </div>

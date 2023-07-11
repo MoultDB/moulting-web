@@ -66,6 +66,7 @@ export default class Header extends React.Component {
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</Link>
                                         <ul className="dropdown-menu">
                                             <li><Link to={"/about"} className={"dropdown-item"}>The MoultDB</Link></li>
+                                            <li><Link to={"/news"} className={"dropdown-item"}>MoultDB news</Link></li>
                                             {/*<li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB publication</Link></li>*/}
                                             {/*<li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link></li>*/}
                                             <li><Link to={"/about/privacy-notice"} className={"dropdown-item"}>MoultDB privacy notice</Link></li>

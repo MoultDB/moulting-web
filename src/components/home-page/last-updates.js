@@ -186,10 +186,6 @@ export default class LastUpdates extends React.Component {
 
                     {/*<div className="col-md-4">*/}
                     {/*    <div className="sidebar">*/}
-                    {/*        <div className="twitter-timeline">*/}
-                    {/*            <a href="https://twitter.com/moultdb?ref_src=twsrc%5Etfw"*/}
-                    {/*               rel="noopener noreferrer" target="_blank">Tweets by moultdb</a>*/}
-                    {/*        </div>*/}
                     {/*        <div className="contributors">*/}
                     {/*            <h4 className="sb-title">Top Contributors</h4>*/}
                     {/*            <Contributor src={contributorgiulia} title={"#1 Giulia Zancolli"}*/}
