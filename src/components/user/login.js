@@ -87,7 +87,7 @@ class Login extends Component {
                                                value={this.state.password} onChange={this.onChangePassword}/>
                                     </p>
                                     <button type="submit" className="btn btn-primary btn-block">Log in</button>
-                                    {/*<Link to="/user/forgot-password">Forgot password?</Link>*/}
+                                    <Link to="/user/forgot-password">Forgot password?</Link>
                                 </form>
                             </div>
                     </div>

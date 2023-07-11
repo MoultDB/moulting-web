@@ -56,6 +56,22 @@ class AuthService {
         })
             .then(response => response.json())
     }
+
+    resetPassword(email, password, token) {
+        return fetch(process.env.REACT_APP_API_URL + "/user/reset-password", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({"email": email, "password": password, "token": token })
+        })
+            .then(response => response.json())
+    }
+
+    forgotPassword(email) {
+        return fetch(process.env.REACT_APP_API_URL + "/user/ask-password?email=" + email, {
+            method: 'GET'
+        })
+            .then(response => response.json())
+    }
 }
 
 export default new AuthService();

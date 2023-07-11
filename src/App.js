@@ -15,6 +15,8 @@ import Validation from "./components/user/validation";
 import AuthVerify from "./services/auth-verify";
 import UploadFiles from "./components/upload/upload-files";
 import Explore from "./components/explore/explore";
+import ResetPassword from "./components/user/reset-password";
+import ForgotPassword from "./components/user/forgot-password";
 // import AuthVerify from "./services/auth-verify";
 
 function App() {
@@ -70,8 +72,8 @@ function CustomRoutes() {
             <Route path="/user/registration" element={<Registration />} />
             <Route path="/user/email-validation" element={<Validation />} />
             <Route path="/user/login" element={<LoginForm />} />
-            <Route path="/user/change-password" element={<ComingSoon />} />
-            <Route path="/user/reset-password" element={<ComingSoon />} />
+            <Route path="/user/forgot-password" element={<ForgotPassword />} />
+            <Route path="/user/reset-password" element={<ResetPassword />} />
             <Route path="/user/profile" element={<UserProfile />} />
             <Route path="/help" element={<ComingSoon />} />
             <Route path="/news" element={<MarkdownPage pagePath={"news/summary"} />} />
