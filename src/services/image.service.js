@@ -1,4 +1,5 @@
 import http from "./http-common";
+import AuthService from "./auth.service";
 
 class ImageService {
 
@@ -17,11 +18,14 @@ class ImageService {
         if (location !== undefined && location !== '') {
             formData.append('location', location);
         }
-        return http.post("/image/import", formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        });
+
+        let currentUser = AuthService.getCurrentUser();
+        if (currentUser) {
+            formData.append('email', currentUser.email);
+            formData.append('token', currentUser.token);
+        }
+
+        return http.post("/image/import", formData);
     }
 
     getFiles(email) {
