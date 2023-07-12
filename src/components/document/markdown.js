@@ -24,7 +24,7 @@ class MarkdownPage extends Component {
 
         this.setState({content: null, errorMessage: null});
 
-        fetch("https://raw.githubusercontent.com/MoultDB/moultdb-docs/develop" + this.state.pathname + ".md")
+        fetch("https://raw.githubusercontent.com/MoultDB/moultdb-docs/" + process.env.REACT_APP_GITHUB_BRANCH + this.state.pathname + ".md")
             .then(results => {
                 if (!results.ok) {
                     this.setState({errorMessage: "Fail to get data from MoultDB GitHub"});
