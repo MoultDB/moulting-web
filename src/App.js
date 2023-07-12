@@ -76,7 +76,8 @@ function CustomRoutes() {
             <Route path="/user/reset-password" element={<ResetPassword />} />
             <Route path="/user/profile" element={<UserProfile />} />
             <Route path="/help" element={<ComingSoon />} />
-            <Route path="/news" element={<MarkdownPage pagePath={"news/summary"} />} />
+            <Route path="/news" element={<MarkdownPage key="news-summary" pagePath={"news/summary"} />} />
+            <Route path="/news/:date" element={<MarkdownPage key="news-date" />} />
             <Route path="/404" element={<Notfound />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
         </Routes>
