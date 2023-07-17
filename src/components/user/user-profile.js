@@ -58,8 +58,9 @@ export default class UserProfile extends React.Component {
                     <div className="container ">
                         <p><strong>E-mail:</strong>{" "}{currentUser.email} </p>
                         <p><strong>Name:</strong>{" "}{currentUser.name} </p>
-                        <p><strong>ORCID iD:</strong>{" "}{currentUser.orcidId} </p>
-                        <p><strong>Token:</strong>{" "}{currentUser.token}</p>
+                        {currentUser.orcidId &&
+                            <p><strong>ORCID iD:</strong>{" "}{currentUser.orcidId} </p>
+                        }
 
                         {message && !successful(
                             <div className={"alert alert-danger"} role="alert">{message}</div>
