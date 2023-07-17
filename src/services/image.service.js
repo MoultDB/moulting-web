@@ -3,7 +3,7 @@ import AuthService from "./auth.service";
 
 class ImageService {
 
-    uploadImage(file, speciesName, sex, ageInDays, location, moultingStep, isFossil, specimenCount) {
+    uploadImage(file, speciesName, sex, ageInDays, location, moultingStep, isFossil, isCaptive, specimenCount) {
         let formData = new FormData();
 
         formData.append("file", file);
@@ -12,6 +12,7 @@ class ImageService {
         formData.append('sex', sex);
         formData.append('moultingStep', moultingStep);
         formData.append('isFossil', isFossil);
+        formData.append('isCaptive', isCaptive);
         if (ageInDays !== undefined && ageInDays !== '') {
             formData.append('ageInDays', String(ageInDays));
         }
