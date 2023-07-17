@@ -95,7 +95,7 @@ const HeroSlider = () => {
     return (
         <div className="hero-slider">
             <Slider {...settings}>
-                <TaxonItem src={chelicherata} taxonName={"Arthropoda"}/>
+                <TaxonItem src={chelicherata} taxonName={"Chelicerata"}/>
                 <TaxonItem src={myriapoda} taxonName={"Myriapoda"}/>
                 <TaxonItem src={crostacea} taxonName={"Crustacea"}/>
                 <TaxonItem src={hexapoda} taxonName={"Hexapoda"}/>
