@@ -10,7 +10,7 @@ class Explore extends React.Component {
         super(props);
 
         let path;
-        if (this.props.router.location.pathname && !this.props.router.location.pathname !== "/explore") {
+        if (this.props.router.location.pathname && this.props.router.location.pathname !== "/explore") {
             path = this.props.router.location.pathname
                 .substring(this.props.router.location.pathname.lastIndexOf("/")+1)
         }

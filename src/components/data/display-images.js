@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './display-images.css';
 import {CaretRightFill, StarFill} from 'react-bootstrap-icons';
 import ReactPaginate from 'react-paginate';
+import {Link} from "react-router-dom";
 
 function Items({ currentItems }) {
     return (
@@ -9,14 +10,14 @@ function Items({ currentItems }) {
             {currentItems &&
                 currentItems.map((item) => (
                     <div className="paginated-item">
-                        <a href={"/data/" + item.id}>
+                        <Link to={"/data/" + item.id}>
                             <img src={item.url} alt={item.name} />
                             <div className="hvr-inner">Open <CaretRightFill /></div>
                             <div className="ph-item-infor">
                                 <h6>{item.name}</h6>
                                 {/*<p className="rate"><StarFill color={"#f5b50a"} size={16}/><span>45</span> likes</p>*/}
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 ))}
         </>
