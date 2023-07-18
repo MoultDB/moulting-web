@@ -2,13 +2,21 @@ import React from 'react';
 import '../user/user-profile.css';
 import ImageService from "../../services/image.service";
 import DisplayImages from "./display-images";
+import {withRouter} from "../../common/with-router";
 
-export default class Explore extends React.Component {
+class Explore extends React.Component {
 
     constructor(props) {
         super(props);
 
+        let path;
+        if (this.props.router.location.pathname && !this.props.router.location.pathname !== "/explore") {
+            path = this.props.router.location.pathname
+                .substring(this.props.router.location.pathname.lastIndexOf("/")+1)
+        }
+
         this.state = {
+            pathname : path,
             currentData: undefined,
             successful: false,
             message: undefined
@@ -16,7 +24,7 @@ export default class Explore extends React.Component {
     }
 
     componentDidMount() {
-        ImageService.getFiles()
+        ImageService.getFilesFromTaxon(this.state.pathname)
             .then((response) => {
                 this.setState({
                     currentData: response.data.data,
@@ -36,12 +44,13 @@ export default class Explore extends React.Component {
     render() {
         const { currentData } = this.state;
 
+        let taxonName = this.state.pathname ? this.state.pathname : "";
         return <main>
             <div className="species">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1>Explore</h1>
+                            <h1>Explore {taxonName}</h1>
                         </div>
                     </div>
                 </div>
@@ -55,3 +64,4 @@ export default class Explore extends React.Component {
     }
 }
 
+export default withRouter(Explore);

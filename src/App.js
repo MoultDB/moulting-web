@@ -60,8 +60,8 @@ function CustomRoutes() {
     return (
         <Routes>
             <Route exact path="/" element={<HomePage />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/explore/:type" element={<ComingSoon />} />
+            <Route path="/explore" element={<Explore key="main-explore"/>} />
+            <Route path="/explore/:taxon" element={<Explore key="taxon-explore"/>} />
             <Route path="/data/:id" element={<ImageAnnotations />} />
             <Route path="/contribute/photo-upload" element={<UploadFiles />} />
             <Route path="/contribute/video-upload" element={<ComingSoon />} />

@@ -44,7 +44,7 @@ class TaxonItem extends React.Component {
             speciesCount = files.length;
         }
 
-        const href = "/taxon/" + taxonName;
+        const href = "/explore/" + taxonName;
         return <div className="photo-item">
             <Link to={href}>
                 <div className="ph-img">
