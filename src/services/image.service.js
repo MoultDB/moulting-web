@@ -50,6 +50,10 @@ class ImageService {
     getTaxAnnotationsFromImageFilename(filename) {
         return http.get("/taxon-annotation/one?imageFilename=" + filename);
     }
+
+    deleteTaxAnnotationsFromImageFilename(filename) {
+        return http.delete("/taxon-annotation/delete?imageFilename=" + filename);
+    }
 }
 
 export default new ImageService();

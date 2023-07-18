@@ -2,22 +2,27 @@ import React from 'react';
 import './image-annotations.css';
 import ImageService from "../../services/image.service";
 import {withRouter} from "../../common/with-router";
+import AuthService from "../../services/auth.service";
 
 class ImageAnnotations extends React.Component {
 
     constructor(props) {
         super(props);
+        this.deleteTaxAnnot = this.deleteTaxAnnot.bind(this);
 
         this.state = {
             pathname : this.props.router.location.pathname ?
                 this.props.router.location.pathname.split("/").pop() : undefined,
             currentData: undefined,
             successful: false,
-            message: undefined
+            message: undefined,
+            currentUser: undefined
         };
     }
 
     componentDidMount() {
+        const currentUser = AuthService.getCurrentUser();
+        this.setState({ currentUser: currentUser })
 
         ImageService.getTaxAnnotationsFromImageFilename(this.state.pathname)
             .then((response) => {
@@ -41,9 +46,38 @@ class ImageAnnotations extends React.Component {
             });
     }
 
+    deleteTaxAnnot(imageFilename) {
+        ImageService.deleteTaxAnnotationsFromImageFilename(imageFilename)
+            .then((response) => {
+                this.setState({
+                    currentData: undefined,
+                    successful: true,
+                    message: "Image deleted!"
+                });
+            })
+            .catch(function(error) {
+                const resMessage =
+                    (error.response && error.response.data && error.response.data.message)
+                    || error.message
+                    || error.toString();
+
+                this.setState({
+                    currentData: undefined,
+                    successful: false,
+                    message: "Could not delete the image!\nError: " + resMessage
+                });
+            });
+    }
+
+
     render() {
-        const { currentData, successful, message } = this.state;
-        ;
+        const { currentData, successful, message, currentUser} = this.state;
+        let messageClassName = "alert alert-danger";
+        if (successful) {
+            messageClassName = "alert alert-success";
+        }
+
+
         return <main>
             <div className="species">
                 <div className="container">
@@ -54,26 +88,33 @@ class ImageAnnotations extends React.Component {
                     </div>
                 </div>
             </div>
-            {currentData &&
                 <div className="page-single bg-custom-dark">
-                    <div className="container image-annotations">
-
-                        {/*<img className={"col-sm-3"} src={currentData.imageInfo.url} alt={currentData.imageInfo.name} />*/}
-                        {/*<ul  className={"col-sm-9"}>*/}
-                        <img  src={currentData.imageInfo.url} alt={currentData.imageInfo.name} />
-                        <ul >
-                            <li>Scientific name: {currentData.taxon.scientificName}</li>
-                            <li>Sex: {currentData.condition.sex}</li>
-                            <li>Moulting step: {currentData.condition.moultingStep}</li>
-                            <li>In captivity? {currentData.sampleSet.captive? "Yes" : "No"}</li>
-                            <li>Is a fossil? {currentData.sampleSet.fossil? "Yes" : "No"}</li>
-                            <li>Created by: {currentData.version.creationUser.name}</li>
-                            <li>Creation date: {currentData.version.creationDate}</li>
-
-                        </ul>
-                    </div>
+                    {currentData &&
+                        <div className="container image-annotations">
+                            <img  src={currentData.imageInfo.url} alt={currentData.imageInfo.name} />
+                            <ul >
+                                <li>Scientific name: {currentData.taxon.scientificName}</li>
+                                <li>Sex: {currentData.condition.sex}</li>
+                                <li>Moulting step: {currentData.condition.moultingStep}</li>
+                                <li>In captivity? {currentData.sampleSet.captive? "Yes" : "No"}</li>
+                                <li>Is a fossil? {currentData.sampleSet.fossil? "Yes" : "No"}</li>
+                                <li>Created by: {currentData.version.creationUser.name}</li>
+                                <li>Creation date: {currentData.version.creationDate}</li>
+                            </ul>
+                            {currentUser && currentUser.email === currentData.version.creationUser.email &&
+                                <button className={"btn btn-danger "}
+                                        onClick={() => this.deleteTaxAnnot(currentData.imageInfo.id)}>
+                                    DELETE
+                                </button>
+                            }
+                        </div>
+                    }
+                    {message &&
+                        <div className={"container " + messageClassName} role="alert">
+                            {message}
+                        </div>
+                    }
                 </div>
-            }
         </main>;
     }
 }
