@@ -47,7 +47,7 @@ class ImageService {
         return http.get("/image/all");
     }
 
-    getFilesFromImageFilename(filename) {
+    getTaxAnnotationsFromImageFilename(filename) {
         return http.get("/taxon-annotation/one?imageFilename=" + filename);
     }
 }

@@ -19,7 +19,7 @@ class ImageAnnotations extends React.Component {
 
     componentDidMount() {
 
-        ImageService.getFilesFromImageFilename(this.state.pathname)
+        ImageService.getTaxAnnotationsFromImageFilename(this.state.pathname)
             .then((response) => {
                 this.setState({
                     currentData: response.data.data,
