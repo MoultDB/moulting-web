@@ -9,7 +9,7 @@ function Items({ currentItems }) {
             {currentItems &&
                 currentItems.map((item) => (
                     <div className="paginated-item">
-                        <a href="#">
+                        <a href={"/data/" + item.id}>
                             <img src={item.url} alt={item.name} />
                             <div className="hvr-inner">Open <CaretRightFill /></div>
                             <div className="ph-item-infor">

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../user/user-profile.css';
 import ImageService from "../../services/image.service";
-import DisplayImages from "../data/display-images";
+import DisplayImages from "./display-images";
 
 export default class Explore extends React.Component {
 
@@ -34,7 +34,7 @@ export default class Explore extends React.Component {
     }
 
     render() {
-        const { currentData, successful, message } = this.state;
+        const { currentData } = this.state;
 
         return <main>
             <div className="species">

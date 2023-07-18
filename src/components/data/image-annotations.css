@@ -1,0 +1,7 @@
+.image-annotations {
+    display: flex;
+}
+
+.image-annotations img {
+    max-height: 200px;
+}

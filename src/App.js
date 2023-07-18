@@ -14,9 +14,10 @@ import MarkdownPage from "./components/document/markdown";
 import Validation from "./components/user/validation";
 import AuthVerify from "./services/auth-verify";
 import UploadFiles from "./components/upload/upload-files";
-import Explore from "./components/explore/explore";
+import Explore from "./components/data/explore";
 import ResetPassword from "./components/user/reset-password";
 import ForgotPassword from "./components/user/forgot-password";
+import ImageAnnotations from "./components/data/image-annotations";
 // import AuthVerify from "./services/auth-verify";
 
 function App() {
@@ -61,6 +62,7 @@ function CustomRoutes() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/explore/:type" element={<ComingSoon />} />
+            <Route path="/data/:id" element={<ImageAnnotations />} />
             <Route path="/contribute/photo-upload" element={<UploadFiles />} />
             <Route path="/contribute/video-upload" element={<ComingSoon />} />
             <Route path="/contribute/find-species" element={<ComingSoon />} />
