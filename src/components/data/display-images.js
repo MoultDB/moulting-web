@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './display-images.css';
 import {CaretRightFill, StarFill} from 'react-bootstrap-icons';
 import ReactPaginate from 'react-paginate';
 
