@@ -158,14 +158,6 @@ class UploadFiles extends Component {
 
                     <div className="container">
                         <div className="row">
-                            {this.state.message && (
-                                <div
-                                    className={ this.state.successful ? "alert alert-success" : "alert alert-danger"}
-                                    role="alert">
-                                    {this.state.message}
-                                </div>
-                            )}
-
                             <form onSubmit={this.handleSubmit} >
 
                                 <div className="mb-3">
@@ -242,6 +234,14 @@ class UploadFiles extends Component {
 
                                 <button type="submit" className={buttonClassName} disabled={isDisabled}>Submit</button>
                             </form>
+                            {this.state.message && (
+                                <div
+                                    className={ this.state.successful ? "alert alert-success" : "alert alert-danger"}
+                                    role="alert">
+                                    {this.state.message}
+                                </div>
+                            )}
+
                         </div>
                     </div>
                     :
