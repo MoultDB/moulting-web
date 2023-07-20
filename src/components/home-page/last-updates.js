@@ -115,7 +115,7 @@ export default class LastUpdates extends React.Component {
                                         <Slider {...settings}>
                                             {currentData.map((d, index) => (
                                                 <ImageSlide key={index} src={d.url} title={d.name}
-                                                            href={'/taxon/' + d.id } likeCount={0}/>
+                                                            href={'/data/' + d.id } likeCount={0}/>
                                             ))}
                                         </Slider>
                                     </div>
