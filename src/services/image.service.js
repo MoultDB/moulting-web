@@ -52,7 +52,19 @@ class ImageService {
     }
 
     deleteTaxAnnotationsFromImageFilename(filename) {
-        return http.delete("/taxon-annotation/delete?imageFilename=" + filename);
+        let currentUser = AuthService.getCurrentUser();
+        let email;
+        let token;
+        if (currentUser) {
+            email = currentUser.email;
+            token = currentUser.token;
+        }
+        return fetch(process.env.REACT_APP_API_URL + "/taxon-annotation/delete", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({"email": email, "token": token, "imageFilename": filename })
+        })
+            .then(response => response.json())
     }
 }
 
