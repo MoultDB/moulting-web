@@ -16,7 +16,6 @@
     "react-bootstrap-icons": "^1.10.3",
     "react-cookie-consent": "^8.0.1",
     "react-dom": "^18.2.0",
-    "react-ga": "^3.3.0",
     "react-obfuscate": "^3.6.9",
     "react-paginate": "^8.2.0",
     "react-router-dom": "6.8.2",

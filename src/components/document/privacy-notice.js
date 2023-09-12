@@ -88,9 +88,9 @@ export default function PrivacyNotice() {
                                 disabling the option in her/his/its browser. However, some features of this web site may require the
                                 mandatory use of cookies (customization, warnings, etc.). Otherwise, the use of this web site may be
                                 impaired or even impossible.</p>
-                            <p>MoultDB uses Google Analytics as a third-party analytics service to collect information about website
+                            <p>MoultDB uses Matomo as a third-party analytics service to collect information about website
                                 performance and how users navigate through and use our site to help us design better interfaces. The
-                                list below provides a summary of the type of data Google Analytics collects:</p>
+                                list below provides a summary of the type of data Matomo collects:</p>
                             <ul>
                                 <li>Geographical origin</li>
                                 <li>Pages viewed and behavior flow</li>
@@ -98,8 +98,8 @@ export default function PrivacyNotice() {
                                 <li>Operating system</li>
                                 <li>Browser</li>
                             </ul>
-                            <p>We do not use Google Analytics to track you individually or collect personal data. Personal data send
-                                to Google Analytics are anonymized upstream.</p>
+                            <p>We do not use Matomo to track you individually or collect personal data. Personal data send
+                                to Matomo are anonymized upstream.</p>
 
                             <h2>How long do we keep your personal data?</h2>
                             <p>Personal data are destroyed or made anonymous as soon as it is no longer necessary for the purpose
