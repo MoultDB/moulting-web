@@ -4,6 +4,7 @@ import './user-profile.css';
 import NotLogIn from "./not-log-in";
 import ImageService from "../../services/image.service";
 import DisplayImages from "../data/display-images";
+import ChangePageTitle from "../../common/change-page-title";
 
 export default class UserProfile extends React.Component {
 
@@ -44,6 +45,7 @@ export default class UserProfile extends React.Component {
         const { currentUser, currentUserData, successful, message } = this.state;
 
         return <main>
+            <ChangePageTitle pageTitle="User profile" />
             <div className="species">
                 <div className="container">
                     <div className="row">

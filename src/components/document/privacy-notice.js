@@ -1,10 +1,12 @@
 import React from 'react';
 import Obfuscate from "react-obfuscate";
+import ChangePageTitle from "../../common/change-page-title";
 
 // Privacy notice is in a function to be able to obfuscate REACT_APP_CONTACT_EMAIL
 export default function PrivacyNotice() {
     return (
         <main>
+            <ChangePageTitle pageTitle="Privacy notice" />
             <div className="container ">
                 <div className="row">
 

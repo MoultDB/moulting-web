@@ -57,7 +57,7 @@ function CustomRoutes() {
             <Route path="/contribute/video-upload" element={<ComingSoon />} />
             <Route path="/contribute/find-species" element={<ComingSoon />} />
             <Route path="/about" element={<Navigate replace to="/about/moulting" />}  />
-            <Route path="/about/moulting" element={<MarkdownPage />} />
+            <Route path="/about/moulting" element={<MarkdownPage pageTitle={"About"} />} />
             <Route path="/about/publications" element={<ComingSoon />} />
             <Route path="/about/blog" element={<ComingSoon />} />
             <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
@@ -68,8 +68,8 @@ function CustomRoutes() {
             <Route path="/user/reset-password" element={<ResetPassword />} />
             <Route path="/user/profile" element={<UserProfile />} />
             <Route path="/help" element={<ComingSoon />} />
-            <Route path="/news" element={<MarkdownPage key="news-summary" pagePath={"news/summary"} />} />
-            <Route path="/news/:date" element={<MarkdownPage key="news-date" />} />
+            <Route path="/news" element={<MarkdownPage key="news-summary" pagePath={"news/summary"} pageTitle={"News"} />} />
+            <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
             <Route path="/404" element={<Notfound />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
         </Routes>

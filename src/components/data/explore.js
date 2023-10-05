@@ -3,6 +3,7 @@ import '../user/user-profile.css';
 import ImageService from "../../services/image.service";
 import DisplayImages from "./display-images";
 import {withRouter} from "../../common/with-router";
+import ChangePageTitle from "../../common/change-page-title";
 
 class Explore extends React.Component {
 
@@ -45,12 +46,14 @@ class Explore extends React.Component {
         const { currentData } = this.state;
 
         let taxonName = this.state.pathname ? this.state.pathname : "";
+        let title = "Explore " + taxonName;
         return <main>
+            <ChangePageTitle pageTitle={title} />
             <div className="species">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1>Explore {taxonName}</h1>
+                            <h1>{title}</h1>
                         </div>
                     </div>
                 </div>

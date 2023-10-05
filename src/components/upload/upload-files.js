@@ -4,6 +4,7 @@ import './upload-files.css';
 import {withRouter} from '../../common/with-router';
 import AuthService from "../../services/auth.service";
 import NotLogIn from "../user/not-log-in";
+import ChangePageTitle from "../../common/change-page-title";
 
 class UploadFiles extends Component {
     constructor(props) {
@@ -144,6 +145,7 @@ class UploadFiles extends Component {
 
         return (
             <main>
+                <ChangePageTitle pageTitle="Upload photo" />
                 <div className="species">
                     <div className="container">
                         <div className="row">

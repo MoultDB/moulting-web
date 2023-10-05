@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Markdown from 'markdown-to-jsx';
 import Notfound from "../notfound";
 import {withRouter} from '../../common/with-router';
+import ChangePageTitle from "../../common/change-page-title";
 
 class MarkdownPage extends Component {
 
@@ -12,9 +13,11 @@ class MarkdownPage extends Component {
         if (!currentPagePath.startsWith("/")) {
             currentPagePath = "/" + currentPagePath;
         }
+        let currentPageTitle = this.props.pageTitle ? this.props.pageTitle : "Document";
 
         this.state = {
             pathname : currentPagePath,
+            pagetitle : currentPageTitle,
             content: null,
             errorMessage: null
         };
@@ -46,6 +49,7 @@ class MarkdownPage extends Component {
             text =
                 <div className="container ">
                     <div id={id} className="row">
+                        <ChangePageTitle pageTitle={this.state.pagetitle} />
                         <Markdown className={'col-sm-10 offset-sm-1'}>{this.state.content}</Markdown>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AuthService from "../../services/auth.service";
 import {withRouter} from '../../common/with-router';
 import {isEmail} from "validator";
+import ChangePageTitle from "../../common/change-page-title";
 
 const isValidatedPassword = value => {
     return (value.length >= 8 && value.length <= 20);
@@ -87,6 +88,7 @@ class ResetPassword extends Component {
         }
         return (
             <main>
+                <ChangePageTitle pageTitle="Reset password" />
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-10 col-sm-offset-1">

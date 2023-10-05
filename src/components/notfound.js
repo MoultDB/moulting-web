@@ -1,7 +1,9 @@
 import React from 'react'
+import ChangePageTitle from "../common/change-page-title";
 
 export default function Notfound() {
     return <main>
+        <ChangePageTitle pageTitle="Not found" />
         <div className="container">
             <div className="row">
                 <div className={"col-sm-10 offset-sm-1 text-center"}>

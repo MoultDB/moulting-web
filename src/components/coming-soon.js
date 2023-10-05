@@ -1,9 +1,11 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import SocialLinks from "./common/social-links";
+import ChangePageTitle from "../common/change-page-title";
 
 export default function ComingSoon() {
     return <main>
+        <ChangePageTitle pageTitle="Coming soon" />
         <div className="container">
             <div className="row">
                 <div className={"col-sm-10 offset-sm-1 text-center"}>

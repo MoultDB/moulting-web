@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AuthService from "../../services/auth.service";
 import {withRouter} from '../../common/with-router';
+import ChangePageTitle from "../../common/change-page-title";
 
 class Validation extends Component {
 
@@ -46,6 +47,7 @@ class Validation extends Component {
     render() {
         return (
             <main>
+                <ChangePageTitle pageTitle="Account validation" />
                 <div className="container">
                     <div className="row">
                         <h1>MoultDB account validation</h1>

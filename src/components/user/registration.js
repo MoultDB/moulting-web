@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AuthService from "../../services/auth.service";
 import {withRouter} from '../../common/with-router';
 import {isEmail} from "validator";
+import ChangePageTitle from "../../common/change-page-title";
 
 
 const isValidatedName = value => {
@@ -114,6 +115,7 @@ class Registration extends Component {
 
         return (
             <main>
+                <ChangePageTitle pageTitle="Registration" />
                 <div className="container">
                     <div className="row">
                             <h1>Sign up to MoultDB</h1>

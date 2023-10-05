@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import AuthService from "../../services/auth.service";
 import {withRouter} from '../../common/with-router';
+import ChangePageTitle from "../../common/change-page-title";
 
 
 class Login extends Component {
@@ -64,6 +65,7 @@ class Login extends Component {
 
         return (
             <main>
+                <ChangePageTitle pageTitle="Login" />
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-10 col-sm-offset-1">

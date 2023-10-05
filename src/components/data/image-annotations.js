@@ -3,6 +3,7 @@ import './image-annotations.css';
 import ImageService from "../../services/image.service";
 import {withRouter} from "../../common/with-router";
 import AuthService from "../../services/auth.service";
+import ChangePageTitle from "../../common/change-page-title";
 
 class ImageAnnotations extends React.Component {
 
@@ -79,6 +80,7 @@ class ImageAnnotations extends React.Component {
 
 
         return <main>
+            <ChangePageTitle pageTitle="Data" />
             <div className="species">
                 <div className="container">
                     <div className="row">

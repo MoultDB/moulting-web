@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AuthService from "../../services/auth.service";
 import {withRouter} from '../../common/with-router';
 import {isEmail} from "validator";
+import ChangePageTitle from "../../common/change-page-title";
 
 class ForgotPassword extends Component {
 
@@ -66,6 +67,7 @@ class ForgotPassword extends Component {
 
         return (
             <main>
+                <ChangePageTitle pageTitle="New password" />
                 <div className="container">
                     <div className="row">
                         <h1>Ask for new password</h1>
