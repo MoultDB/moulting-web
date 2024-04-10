@@ -4,8 +4,8 @@
 	      http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
 
-    <display-name>MoultdDB Citizen Science project</display-name>
-    <description>A webapp to access and search for MoultdDB Citizen Science project data</description>
+    <display-name>MoultDB Citizen Science project</display-name>
+    <description>A webapp to access and search for MoultDB Citizen Science project data</description>
 
     <error-page>
         <error-code>404</error-code>

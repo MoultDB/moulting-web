@@ -7,7 +7,7 @@
     <artifactId>moulting-web</artifactId>
     <version>0.2.0-SNAPSHOT</version>
     <name>moulting-web</name>
-    <description>A webapp to access and search for MoultdDB Citizen Science project data</description>
+    <description>A webapp to access and search for MoultDB Citizen Science project data</description>
     <packaging>war</packaging>
 
     <properties>
