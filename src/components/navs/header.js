@@ -42,20 +42,16 @@ export default class Header extends React.Component {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse" id="moultingNavNav">
-                                <ul className="navbar-nav">
+                                <ul className="navbar-nav navbar-end">
                                     <li className="nav-item">
-                                        <Link to={"/"} className={"nav-link"} aria-current={"page"}>Home</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link to={"/explore"} className={"nav-link"}>Explore</Link>
+                                        <a href={"https://www.inaturalist.org/projects/arthropods-moulting-exuviae-in-the-world"}
+                                           className={"nav-link"} rel={"noopener noreferrer"} target={"_blank"}>Explore</a>
                                     </li>
                                     <li className="nav-item dropdown">
                                         <Link role={"button"} className={"nav-link dropdown-toggle"}
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>Contribute</Link>
                                         <ul className="dropdown-menu">
                                             <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"}>Photo upload</Link></li>
-                                            {/*<li><Link to={"/contribute/video-upload"} className={"dropdown-item"}>Video upload</Link></li>*/}
-                                            {/*<li><Link to={"/contribute/find-species"} className={"dropdown-item"}>Who's that species?</Link></li>*/}
                                             <li><a href="http://131.175.120.138:61111/GeMI/" className={"dropdown-item"}
                                                    rel={"noopener noreferrer"} target={"_blank"}>
                                                 Machine Learning for citizen science</a></li>
@@ -75,33 +71,8 @@ export default class Header extends React.Component {
                                         </ul>
                                     </li>
 
-                                    <li className="nav-item">
-                                        <Link to={"/help"} className={"nav-link"} aria-current={"page"}>Help</Link>
-                                    </li>
                                 </ul>
 
-                                {(currentUser) ?
-                                    <ul className="navbar-nav navbar-end">
-                                        <li className="nav-item dropdown">
-                                            <Link role={"button"} className={"nav-link dropdown-toggle"}
-                                                  data-bs-toggle={"dropdown"} aria-expanded={"false"}>{currentUser.email}</Link>
-                                            <ul className="dropdown-menu">
-                                                <li><Link to={"/user/profile"} className={"dropdown-item"}>Your profile</Link></li>
-                                                <li><Link to="/" className={"dropdown-item"} onClick={this.logOut}>Log out</Link></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    :
-                                    <ul className="navbar-nav navbar-end">
-                                        <li className="nav-item">
-                                            {/* TODO: call API to check token validity in order to define if we are login or logout*/}
-                                            <Link to={"/user/login"} className={"nav-link"}>Log in</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to={"/user/registration"} className={"nav-link signupLink"}>Sign up</Link>
-                                        </li>
-                                    </ul>
-                                }
                             </div>
                         </div>
                     </nav>

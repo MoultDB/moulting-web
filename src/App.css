@@ -146,6 +146,8 @@ p {
 
 #moulting-content {
   background: url('./assets/images/uploads/background.png') fixed center;
+  height: 100vh;
+  overflow-y: scroll;
 }
 #moulting-body {
   padding-top: 130px !important;

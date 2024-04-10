@@ -121,7 +121,7 @@
   filter: alpha(opacity=25);
 }
 .photo-items .photo-item:hover h6 {
-  color: #dcf836;
+  /*color: #dcf836;*/
 }
 
 

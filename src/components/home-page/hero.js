@@ -46,15 +46,15 @@ class TaxonItem extends React.Component {
 
         const href = "/explore/" + taxonName;
         return <div className="photo-item">
-            <Link to={href}>
+            {/*<Link to={href}>*/}
                 <div className="ph-img">
                     <img src={src} alt={taxonName}/>
                 </div>
                 <div className="title-in">
                     <h6>{taxonName}</h6>
-                    <p><span>{speciesCount}</span> photos uploaded</p>
+                    {/*<p><span>{speciesCount}</span> photos uploaded</p>*/}
                 </div>
-            </Link>
+            {/*</Link>*/}
         </div>
     }
 }
@@ -140,11 +140,8 @@ export default class Hero extends React.Component {
                     <HeroSlider />
 
                     <div className="hero-button">
-                        {(this.state.currentUser) ?
-                            <Link to="./contribute/photo-upload">Let's start</Link>
-                            :
-                            <Link to="./user/login">Let's start</Link>
-                        }
+                        <a href={"https://www.inaturalist.org/projects/arthropods-moulting-exuviae-in-the-world"}
+                           rel={"noopener noreferrer"} target={"_blank"}>Let's start</a>
                     </div>
 
                 </div>

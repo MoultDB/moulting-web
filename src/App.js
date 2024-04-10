@@ -37,7 +37,6 @@ function App() {
                 </CookieConsent>
 
             </div>
-            <Footer />
             <AuthVerify />
         </BrowserRouter>
     );
@@ -50,24 +49,12 @@ function CustomRoutes() {
     return (
         <Routes>
             <Route exact path="/" element={<HomePage />} />
-            <Route path="/explore" element={<Explore key="main-explore"/>} />
-            <Route path="/explore/:taxon" element={<Explore key="taxon-explore"/>} />
-            <Route path="/data/:id" element={<ImageAnnotations />} />
-            <Route path="/contribute/photo-upload" element={<UploadFiles />} />
-            <Route path="/contribute/video-upload" element={<ComingSoon />} />
-            <Route path="/contribute/find-species" element={<ComingSoon />} />
+            <Route path="/contribute/photo-upload" element={<ComingSoon />} />
             <Route path="/about" element={<Navigate replace to="/about/moulting" />}  />
             <Route path="/about/moulting" element={<MarkdownPage pageTitle={"About"} />} />
             <Route path="/about/publications" element={<ComingSoon />} />
             <Route path="/about/blog" element={<ComingSoon />} />
             <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
-            <Route path="/user/registration" element={<Registration />} />
-            <Route path="/user/email-validation" element={<Validation />} />
-            <Route path="/user/login" element={<LoginForm />} />
-            <Route path="/user/forgot-password" element={<ForgotPassword />} />
-            <Route path="/user/reset-password" element={<ResetPassword />} />
-            <Route path="/user/profile" element={<UserProfile />} />
-            <Route path="/help" element={<ComingSoon />} />
             <Route path="/news" element={<MarkdownPage key="news-summary" pagePath={"news/summary"} pageTitle={"News"} />} />
             <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
             <Route path="/404" element={<Notfound />} />
