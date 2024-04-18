@@ -8,7 +8,7 @@ export default function HomePage() {
     return (
         <main>
             <Hero />
-            <LastUpdates />
+            {/*<LastUpdates />*/}
             {/*<VideoViewer />*/}
         </main>
     );
