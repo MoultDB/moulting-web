@@ -5,20 +5,8 @@ import ComingSoon from "./components/coming-soon";
 import Header from "./components/navs/header";
 import HomePage from "./components/home-page/home-page";
 import Notfound from "./components/notfound";
-import Footer from "./components/navs/footer";
-import UserProfile from "./components/user/user-profile";
-import LoginForm from "./components/user/login";
-import Registration from "./components/user/registration";
 import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
-import Validation from "./components/user/validation";
-import AuthVerify from "./services/auth-verify";
-import UploadFiles from "./components/upload/upload-files";
-import Explore from "./components/data/explore";
-import ResetPassword from "./components/user/reset-password";
-import ForgotPassword from "./components/user/forgot-password";
-import ImageAnnotations from "./components/data/image-annotations";
-// import AuthVerify from "./services/auth-verify";
 
 function App() {
     return (
@@ -37,7 +25,6 @@ function App() {
                 </CookieConsent>
 
             </div>
-            <AuthVerify />
         </BrowserRouter>
     );
 }
