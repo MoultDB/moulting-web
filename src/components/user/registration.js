@@ -83,11 +83,20 @@ class Registration extends Component {
         });
 
         AuthService.register(this.state.name, this.state.email, this.state.password, this.state.orcidId).then(
-            () => {
-                this.setState({
-                    successful: true,
-                    message: "User created, check your mailbox to activate your account."
-                });
+            (response) => {
+                if (response.error) {
+                    this.setState({
+                        successful: false,
+                        message: "Your account is NOT created. Please contact our support team for assistance.\nError: "
+                            + response.error.message
+                    });
+
+                } else {
+                    this.setState({
+                        successful: true,
+                        message: "User created, check your mailbox to activate your account."
+                    });
+                }
             },
             error => {
                 const resMessage =
