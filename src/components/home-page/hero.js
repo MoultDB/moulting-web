@@ -140,7 +140,7 @@ export default class Hero extends React.Component {
                     <HeroSlider />
 
                     <div className="hero-button">
-                        <a href={"https://www.inaturalist.org/projects/arthropods-moulting-exuviae-in-the-world"}
+                        <a href={"https://www.inaturalist.org/projects/moulting-arthropoda"}
                            rel={"noopener noreferrer"} target={"_blank"}>Let's start</a>
                     </div>
 

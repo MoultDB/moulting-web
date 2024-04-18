@@ -44,7 +44,7 @@ export default class Header extends React.Component {
                             <div className="collapse navbar-collapse" id="moultingNavNav">
                                 <ul className="navbar-nav navbar-end">
                                     <li className="nav-item">
-                                        <a href={"https://www.inaturalist.org/projects/arthropods-moulting-exuviae-in-the-world"}
+                                        <a href={"https://www.inaturalist.org/projects/moulting-arthropoda"}
                                            className={"nav-link"} rel={"noopener noreferrer"} target={"_blank"}>Explore</a>
                                     </li>
                                     <li className="nav-item dropdown">
