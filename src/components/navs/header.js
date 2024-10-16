@@ -34,7 +34,7 @@ export default class Header extends React.Component {
                         <div className="container-fluid">
                             <Link to="/" className="navbar-brand">
                                 <img src={Logo} className="d-inline-block align-top" alt="MoultDB logo" width="300"
-                                     height="150"/>
+                                     height="200"/>
                             </Link>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#moultingNav" aria-controls="moultingNav" aria-expanded="false"
@@ -43,25 +43,21 @@ export default class Header extends React.Component {
                             </button>
                             <div className="collapse navbar-collapse" id="moultingNavNav">
                                 <ul className="navbar-nav navbar-end">
+                                    
                                     <li className="nav-item">
-                                        <a href={"https://www.inaturalist.org/projects/moulting-arthropods"}
-                                           className={"nav-link"} rel={"noopener noreferrer"} target={"_blank"}>Explore</a>
+                                        <Link to="/" className={"nav-link"}>Home</Link>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <Link role={"button"} className={"nav-link dropdown-toggle"}
-                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>Contribute</Link>
-                                        <ul className="dropdown-menu">
-                                            <li><Link to={"/contribute/photo-upload"} className={"dropdown-item"}>Photo upload</Link></li>
-                                            <li><a href="http://131.175.120.138:61111/GeMI/" className={"dropdown-item"}
-                                                   rel={"noopener noreferrer"} target={"_blank"}>
-                                                Machine Learning for citizen science</a></li>
-                                        </ul>
+
+                                    <li className="nav-item">
+                                        <Link role={"button"} className={"nav-link"}
+                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>MoultDB</Link>
                                     </li>
+
                                     <li className="nav-item dropdown">
                                         <Link role={"button"} className={"nav-link dropdown-toggle"}
                                               data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</Link>
                                         <ul className="dropdown-menu">
-                                            <li><Link to={"/about"} className={"dropdown-item"}>The MoultDB</Link></li>
+                                            <li><Link to={"/about"} className={"dropdown-item"}>The MoultDB project</Link></li>
                                             <li><Link to={"/news"} className={"dropdown-item"}>MoultDB news</Link></li>
                                             {/*<li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB publication</Link></li>*/}
                                             {/*<li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link></li>*/}
@@ -76,15 +72,14 @@ export default class Header extends React.Component {
                             </div>
                         </div>
                     </nav>
-                    {/*<div className="top-search">*/}
-                    {/*    <select>*/}
-                    {/*        <option value="saab">ALL</option>*/}
-                    {/*        <option value="united">SPECIES</option>*/}
-                    {/*        <option value="saab">GENUS</option>*/}
-                    {/*    </select>*/}
-                    {/*    <input type="text"*/}
-                    {/*           placeholder="Search for an hashtag, a genus or a species that you are looking for"/>*/}
-                    {/*</div>*/}
+                    {/*<div className="top-search">
+                        <select>
+                            <option value="saab">ALL</option>
+                            <option value="united">FOSSILS</option>
+                        </select>
+                        <input type="text"
+                               placeholder="Search for a keyword, a genus or a species that you are looking for"/>
+                    </div>*/}
 
                 </div>
             </header>

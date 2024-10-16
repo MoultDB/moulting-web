@@ -3,12 +3,16 @@ import './App.css';
 import CookieConsent from "react-cookie-consent";
 import ComingSoon from "./components/coming-soon";
 import Header from "./components/navs/header";
+import Footer from "./components/navs/footer";
 import HomePage from "./components/home-page/home-page";
 import Notfound from "./components/notfound";
 import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
+import SpeciesGrid from './components/species/SpeciesPage';
+import ImageDetailsPage from './components/species/ImageDetailsPage';  
 
 function App() {
+    console.log('App component is rendering');
     return (
         <BrowserRouter>
             <Header />
@@ -23,8 +27,8 @@ function App() {
                     This website requires cookies, and limited processing of your personal data in order to function.
                     By using the site you are agreeing to this as outlined in our <Link to="/about/privacy-notice">privacy notice</Link>.
                 </CookieConsent>
-
             </div>
+            <Footer />
         </BrowserRouter>
     );
 }
@@ -32,7 +36,6 @@ function App() {
 export default App;
 
 function CustomRoutes() {
-
     return (
         <Routes>
             <Route exact path="/" element={<HomePage />} />
@@ -44,9 +47,13 @@ function CustomRoutes() {
             <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
             <Route path="/news" element={<MarkdownPage key="news-summary" pagePath={"news/summary"} pageTitle={"News"} />} />
             <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
+            <Route path="/species/:taxonName" element={<SpeciesGrid />} />
+            <Route path="/species/:taxonName/details" element={<ImageDetailsPage />} />
+
+            {/* Add new route for displaying all images of a specific species */}
+            <Route path="/species/:taxonName/details/:index" element={<ImageDetailsPage />} />
             <Route path="/404" element={<Notfound />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
         </Routes>
     );
 }
-

@@ -1,5 +1,3 @@
-/* Legacy
-***********************/
 html {
   -webkit-text-size-adjust: 100%;
   /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
@@ -86,6 +84,7 @@ a:hover {
 }
 p {
   margin-bottom: 10px;
+  font-size: 50px;
 }
 b,
 strong {

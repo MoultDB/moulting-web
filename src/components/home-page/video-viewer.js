@@ -58,7 +58,7 @@ export default class VideoViewer extends React.Component {
                     <div className="col-md-12">
                         <div className="title-hd">
                             <h2>Youtube</h2>
-                            <Link to="/explore/videos" className="viewall">View all <ChevronRight/></Link>
+                            <Link to="/explore/videos"></Link>
                         </div>
                         <div className="videos">
                             <div id={"video-slider"} className="video-ft">

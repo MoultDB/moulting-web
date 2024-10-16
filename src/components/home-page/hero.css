@@ -5,8 +5,8 @@
 }
 .hero-button a {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color: #FFFFFF;
+    font-weight: 600;
+    color: #d0d5db;
     text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
     background-color: #dd003f;
     padding: 7px 15px;
@@ -17,6 +17,7 @@
 }
 .hero-button a:hover {
     border: 2px solid white;
+    color: white
 }
 
 .slider .social-link {
@@ -53,3 +54,46 @@
         margin-top: 10px;;
     }
 }
+
+.photo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+.photo-item .title-in h6 {
+    transition: color 0.3s ease, text-decoration 0.3s ease; 
+}
+
+.photo-item:hover .title-in h6 {
+    color: #DCF835 !important; 
+    
+}
+
+.ph-img img {
+    width: 200%; 
+    height: 400px; 
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 10px; 
+}
+
+.description{
+    margin-top: 80px;
+}
+
+.description h1 {
+    color: white;
+}
+
+.description p {
+    margin-top: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; 
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+

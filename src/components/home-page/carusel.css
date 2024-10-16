@@ -1,0 +1,79 @@
+.carousel-section {
+  padding: 20px 0;
+}
+
+.title-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-hd h2 {
+  font-size: 24px;
+  color: #fff;
+}
+
+.viewall {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.viewall i {
+  margin-left: 5px;
+}
+
+.tabs {
+  position: relative;
+}
+
+.tab-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab-links li {
+  margin-right: 15px;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.tab-links li.active {
+  color: #DCF835;
+}
+
+.slick-slide img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.species-item {
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.species-item .mv-img img {
+  width: 185px;
+  height: 284px;
+}
+
+.species-item:hover {
+  transform: translateY(-10px);
+}
+
+.title-in h6 {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.title-in p {
+  color: #f1c40f;
+  font-size: 14px;
+}

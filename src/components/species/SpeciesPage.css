@@ -1,0 +1,315 @@
+html,
+body,
+div,
+span,
+h1,
+h4,
+h6,
+p,
+a,
+ul,
+li,
+form,
+label {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+*,
+*:before,
+*:after {
+  /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+  -webkit-box-sizing: border-box;
+  /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+  -moz-box-sizing: border-box;
+  /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+ul {
+  list-style: none;
+}
+a:focus {
+  outline: none;
+}
+a:hover,
+a:active {
+  outline: 0;
+}
+/*--------------------------------------------
+Initial Setup
+----------------------------------------------*/
+a {
+  text-decoration: none;
+}
+input:focus {
+  outline: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+h1,
+h4,
+h6 {
+  margin: 0;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 150px;
+  font-size: 15rem;
+  font-size: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+body,
+input,
+select {
+  font-family: 'OpenSans', sans-serif;
+  line-height: 1.5;
+}
+h1,
+h4,
+h6 {
+  font-family: 'OpenSans', sans-serif;
+  font-weight: 700;
+  clear: both;
+  line-height: 1;
+}
+h1 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+a {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  color: #666;
+  border-bottom: 1px solid dotted;
+}
+a:hover {
+  color: #020d18;
+}
+p {
+  margin-bottom: 10px;
+}
+i {
+  font-style: italic;
+}
+ul {
+  margin: 0 0 1.6em 1.3333em;
+}
+ul {
+  list-style: disc;
+}
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+/* Placeholder text color -- selectors need to be separate to work. */
+::-webkit-input-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+  font-family: "Noto Sans", sans-serif;
+}
+:-moz-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+  font-family: "Noto Sans", sans-serif;
+}
+::-moz-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+  font-family: "Noto Sans", sans-serif;
+  opacity: 1;
+  /* Since FF19 lowers the opacity of the placeholder by default */
+}
+:-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.7);
+  font-family: "Noto Sans", sans-serif;
+}
+/* III. COMPONENT
+***********************/
+
+/* Text align
+--------------------------*/
+select {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+}
+p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: 300;
+  text-transform: none;
+  line-height: 24px !important;
+}
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+
+
+.page-single {
+  background-color: #020d18;
+  padding: 5px 0;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.container,
+.row {
+  *zoom: 1;
+}
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.container:after,
+.row:after {
+  clear: both;
+}
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.container:after,
+.row:after {
+  clear: both;
+}
+@-ms-viewport {
+  width: device-width;
+}
+
+@media (max-width: 991px) {
+  .ipad-width {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    margin-left: 0;
+  }
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.col-md-4, .col-md-6, .col-md-8, .col-xs-12, .col-sm-12, .col-md-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-xs-12 {
+  float: left;
+}
+.col-xs-12 {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-4, .col-md-6, .col-md-8, .col-md-12 {
+    float: left;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-8 {
+    width: 66.66666667%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+}
+
+.row {
+  *zoom: 1;
+}
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
