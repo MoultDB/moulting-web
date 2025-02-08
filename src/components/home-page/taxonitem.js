@@ -1,11 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const TaxonItem = ({ src, taxonName, path }) => {
+const TaxonItem = ({ src, taxonName, path, description }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        // Naviga verso il percorso dinamico
         console.log(`Clicked on taxon: ${taxonName}`);
         navigate(`/species/${path}`);
     };
@@ -17,6 +16,7 @@ const TaxonItem = ({ src, taxonName, path }) => {
             </div>
             <div className="title-in">
                 <h6>{taxonName}</h6>
+                <p className="author-description">{description}</p>
             </div>
         </div>
     );

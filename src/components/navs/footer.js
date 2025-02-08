@@ -24,7 +24,11 @@ export default function Footer() {
             </div>
 
             <div className="footer-legal">
-                <p>©2024 moulting.org | All image rights are reserved by their respective owners</p>
+            <p>©2025 moulting.org | All image rights are reserved by their respective owners.</p>
+            <p>
+            Images are sourced from <a href="https://www.inaturalist.org/" target="_blank" rel="noopener noreferrer">iNaturalist </a> 
+            and are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+            </p>
             </div>
         </footer>
     );

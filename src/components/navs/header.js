@@ -49,16 +49,15 @@ export default class Header extends React.Component {
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link role={"button"} className={"nav-link"}
-                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>MoultDB</Link>
+                                        <a href="https://moultdb.org" className={"nav-link"}>MoultDB</a>
                                     </li>
 
                                     <li className="nav-item dropdown">
-                                        <Link role={"button"} className={"nav-link dropdown-toggle"}
-                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</Link>
+                                        <a href="https://moultdb.org/about" className={"nav-link dropdown-toggle"}
+                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</a>
                                         <ul className="dropdown-menu">
-                                            <li><Link to={"/about"} className={"dropdown-item"}>The MoultDB project</Link></li>
-                                            <li><Link to={"/news"} className={"dropdown-item"}>MoultDB news</Link></li>
+                                            <li><a href="https://moultdb.org/about" className={"dropdown-item"}>The MoultDB project</a></li>
+                                            {/*<li><Link to={"/news"} className={"dropdown-item"}>MoultDB news</Link></li>*/}
                                             {/*<li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB publication</Link></li>*/}
                                             {/*<li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link></li>*/}
                                             <li><Link to={"/about/privacy-notice"} className={"dropdown-item"}>MoultDB privacy notice</Link></li>
@@ -72,14 +71,14 @@ export default class Header extends React.Component {
                             </div>
                         </div>
                     </nav>
-                    {/*<div className="top-search">
+                      {/* <div className="top-search">
                         <select>
                             <option value="saab">ALL</option>
                             <option value="united">FOSSILS</option>
                         </select>
                         <input type="text"
                                placeholder="Search for a keyword, a genus or a species that you are looking for"/>
-                    </div>*/}
+                        </div> */}
 
                 </div>
             </header>

@@ -67,6 +67,7 @@
     transition: color 0.3s ease, text-decoration 0.3s ease; 
 }
 
+
 .photo-item:hover .title-in h6 {
     color: #DCF835 !important; 
     
@@ -96,4 +97,6 @@
     color: #f0f0f0;
 }
 
-
+.hero .hero-ct {
+    padding-top: 10px;
+    }

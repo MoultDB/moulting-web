@@ -5,7 +5,6 @@ import VideoViewer from "./video-viewer";
 import Carousel from './carusel';
 import Sidebar from '../common/sidebar';
 import Contributors from './contributors';
-import InatWidget from './inat-widget';
 
 export default function HomePage() {
     return (
@@ -19,7 +18,7 @@ export default function HomePage() {
                             <Carousel />
                         </div>
                         <div className="col-md-4">
-                            {/*<Sidebar />*/}
+                            {/* <Sidebar /> */}
                             <Contributors />
                         </div>
                     </div>
