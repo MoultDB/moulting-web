@@ -132,7 +132,7 @@
 }
 
 .description{
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 .description h1 {
@@ -141,6 +141,7 @@
 
 .description p {
     margin-top: 35px;
+    margin-bottom: 10px;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px; 
     line-height: 1.6;
