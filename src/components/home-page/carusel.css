@@ -63,9 +63,10 @@
   height: 284px;
 }
 
-.species-item:hover {
-  transform: translateY(-10px);
-}
+/*TODO to be uncommented when a link is set up */
+/*.species-item:hover {*/
+/*  transform: translateY(-10px);*/
+/*}*/
 
 
 

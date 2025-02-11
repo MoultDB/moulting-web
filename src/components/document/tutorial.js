@@ -4,7 +4,7 @@ import "./tutorial.css";
 
 const Tutorial = () => {
   return (
-    <div className="container">
+    <div className="tutorial container">
       <h1>How to Upload Images to the Project</h1>
       <p>Follow these steps to successfully upload an image.</p>
 

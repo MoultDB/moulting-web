@@ -1,4 +1,4 @@
-.container {
+.tutorial.container {
   max-width: 900px;
   margin: auto;
   padding: 40px 20px;
@@ -7,18 +7,18 @@
   color: #333;
 }
 
-.container p {
+.tutorial.container p {
   margin-bottom: 50px;
 }
 
 
-h1 {
+.tutorial > h1 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-h2 {
+.tutorial > h2 {
   font-size: 24px;
   color: #007bff;
   margin-bottom: 10px;
@@ -56,7 +56,7 @@ h2 {
 }
 
 
-.footer-note {
+.tutorial > .footer-note {
   font-size: 16px;
   color: white;
   margin-top: 20px;
