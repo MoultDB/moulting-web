@@ -48,7 +48,8 @@ class ImageService {
                     latitude: !isNaN(latitude) ? latitude : null,
                     longitude: !isNaN(longitude) ? longitude : null,
                     description: result.description || 'No description available',
-                    categories // Object containing fixed categories with their respective values
+                    categories, // Object containing fixed categories with their respective values
+                    uri: result.uri || null
                 };
             });
 

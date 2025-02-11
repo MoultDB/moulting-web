@@ -44,27 +44,34 @@ export default class Header extends React.Component {
                             <div className="collapse navbar-collapse" id="moultingNavNav">
                                 <ul className="navbar-nav navbar-end">
                                     
-                                    <li className="nav-item">
-                                        <Link to="/" className={"nav-link"}>Home</Link>
-                                    </li>
+                                <li className="nav-item">
+                                    <Link to="/" className="nav-link">Home</Link>
+                                </li>
 
-                                    <li className="nav-item">
-                                        <a href="https://moultdb.org" className={"nav-link"}>MoultDB</a>
-                                    </li>
+                                <li className="nav-item">
+                                    <a href="https://moultdb.org" className="nav-link" target="_blank" rel="noopener noreferrer">
+                                        MoultDB
+                                    </a>
+                                </li>
 
-                                    <li className="nav-item dropdown">
-                                        <a href="https://moultdb.org/about" className={"nav-link dropdown-toggle"}
-                                              data-bs-toggle={"dropdown"} aria-expanded={"false"}>About us</a>
-                                        <ul className="dropdown-menu">
-                                            <li><a href="https://moultdb.org/about" className={"dropdown-item"}>The MoultDB project</a></li>
-                                            {/*<li><Link to={"/news"} className={"dropdown-item"}>MoultDB news</Link></li>*/}
-                                            {/*<li><Link to={"/about/publications"} className={"dropdown-item"}>MoultDB publication</Link></li>*/}
-                                            {/*<li><Link to={"/about/blog"} className={"dropdown-item"}>MoultDB blog</Link></li>*/}
-                                            <li><Link to={"/about/privacy-notice"} className={"dropdown-item"}>MoultDB privacy notice</Link></li>
-                                            <li><a href="https://github.com/MoultDB/" className={"dropdown-item"}
-                                                   rel={"noopener noreferrer"} target={"_blank"}>Source code</a></li>
-                                        </ul>
-                                    </li>
+                                <li className="nav-item">
+                                    <Link to="/tutorial" className="nav-link dropdown-item">
+                                        Tutorial
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item dropdown">
+                                    <Link role="button" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        About us
+                                    </Link>
+                                    <ul className="dropdown-menu">
+                                        <li><Link to="https://moultdb.org/about" className="dropdown-item">The MoultDB project</Link></li>
+                                        <li><Link to="/about/privacy-notice" className="dropdown-item">MoultDB privacy notice</Link></li>
+                                        <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noopener noreferrer">
+                                            Source code
+                                        </a></li>
+                                    </ul>
+                                </li>
 
                                 </ul>
 

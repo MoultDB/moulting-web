@@ -4,7 +4,7 @@ import "./TopBarFilter.css"
 const TopBarFilter = ({ totalSpecies, handleSortChange }) => {
     return (
         <div className="topbar-filter">
-            <p>Found <span>{totalSpecies} observations</span> in total</p> {/* Dynamic observation count */}
+            <p>Found <span>{totalSpecies} observations</span> in total</p> 
             <label>Sort by:</label>
             <select onChange={(e) => handleSortChange(e.target.value)}>
                 <option value="desc">Release date Descending</option>

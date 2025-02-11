@@ -1,24 +1,74 @@
-
 .hero-button {
-    display:block;
-    text-align:center;
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    text-align: center;
 }
+
+
+.hero-button .button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;  
+    margin-left: -12px
+}
+
+
 .hero-button a {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
-    color: #d0d5db;
     text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-    background-color: #dd003f;
-    padding: 7px 15px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
+    padding: 12px 24px;
     border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    min-width: 200px; 
+    max-width: 200px; 
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hero-button .red-button {
+    color: white;
+    background-color: #dd003f;
     border: 2px solid #dd003f;
 }
-.hero-button a:hover {
-    border: 2px solid white;
-    color: white
+
+.hero-button .red-button:hover {
+    border-color: white;
 }
+
+
+.hero-button .white-button {
+    color: #dd003f;
+    background-color: white;
+    border: 2px solid transparent;
+}
+
+.hero-button .white-button:hover {
+    border-color: #dd003f;
+    color: #dd003f;
+}
+
+
+@media (max-width: 768px) {
+    .hero-button .button-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-button a {
+        min-width: 80%;
+        max-width: 250px;
+        font-size: 0.9em;
+    }
+}
+
+
 
 .slider .social-link {
     display: -webkit-flex;

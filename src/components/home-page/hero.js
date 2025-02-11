@@ -41,10 +41,10 @@ const HeroSlider = ({ images }) => {
 
     // Taxon images with path mapping
     const taxonImages = [
-        { src: images[0], taxonName: "Chelicerata", path: "chelicerata", description: "Photo by Huttonia" },
-        { src: images[1], taxonName: "Myriapoda", path: "myriapoda", description: "Photo by Melvynyeo" },
-        { src: images[2], taxonName: "Crustacea", path: "crustacea", description: "Photo by Melvynyeo" }, 
-        { src: images[3], taxonName: "Hexapoda", path: "hexapoda", description: "Photo by Gillessanmartin"}
+        { src: images[0], taxonName: "Chelicerata", path: "chelicerata", description: "Photo by huttonia" },
+        { src: images[1], taxonName: "Myriapoda", path: "myriapoda", description: "Photo by melvynyeo" },
+        { src: images[2], taxonName: "Crustacea", path: "crustacea", description: "Photo by melvynyeo" }, 
+        { src: images[3], taxonName: "Hexapoda", path: "hexapoda", description: "Photo by gillessanmartin"}
     ];
 
     return (
@@ -105,16 +105,20 @@ export default class Hero extends React.Component {
                         <HeroSlider images={this.state.images} />
 
                         <div className="hero-button">
-                            <a href="https://www.inaturalist.org/projects/moulting-arthropods"
-                               rel="noopener noreferrer"
-                               target="_blank"
-                               className="pushable">
-                                <span className="front">
-                                    Go to iNaturalist
-                                </span>
-                            </a>
-                        </div>
+                            <div className="button-wrapper">
+                                <a href="https://www.inaturalist.org/projects/moulting-arthropods"
+                                   rel="noopener noreferrer"
+                                   target="_blank"
+                                   className="pushable red-button">
+                                    <span className="front">Go to iNaturalist</span>
+                                </a>
 
+                                <a href="/tutorial"
+                                   className="pushable white-button">
+                                    <span className="front">How to upload</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

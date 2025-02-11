@@ -6,6 +6,7 @@ import Header from "./components/navs/header";
 import Footer from "./components/navs/footer";
 import HomePage from "./components/home-page/home-page";
 import Notfound from "./components/notfound";
+import Tutorial from "./components/document/tutorial";
 import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
 import SpeciesGrid from './components/species/SpeciesPage';
@@ -39,13 +40,10 @@ function CustomRoutes() {
     return (
         <Routes>
             <Route exact path="/" element={<HomePage />} />
-            <Route path="/contribute/photo-upload" element={<ComingSoon />} />
             <Route path="/about" element={<Navigate replace to="/about/moulting" />}  />
             <Route path="/about/moulting" element={<MarkdownPage pageTitle={"About"} />} />
-            <Route path="/about/publications" element={<ComingSoon />} />
-            <Route path="/about/blog" element={<ComingSoon />} />
             <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
-            <Route path="/news" element={<MarkdownPage key="news-summary" pagePath={"news/summary"} pageTitle={"News"} />} />
+            <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
             <Route path="/species/:taxonName" element={<SpeciesGrid />} />
             <Route path="/species/:taxonName/details" element={<ImageDetailsPage />} />

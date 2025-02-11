@@ -7,7 +7,7 @@
 
 .footer-socials {
     display: flex;
-    justify-content: center; /* Center the icons horizontally */
+    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -16,7 +16,7 @@
     font-size: 24px;
     color: white;
     transition: color 0.3s ease;
-    display: inline-block; /* Ensure the icons are displayed inline */
+    display: inline-block; 
 }
 
 .social-links:hover {

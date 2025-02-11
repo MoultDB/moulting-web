@@ -24,7 +24,18 @@ const ImageDetailsPage = () => {
     return (
         <div className="page-container">
             <h1 className="card-title">{image.taxonName}</h1>
-            <p className="contributor">Contributed by: <span className="font-semibold">{image.login}</span></p>
+
+            <p className="contributor">
+                Contributed by: <span className="font-semibold">{image.login}</span> 
+                {image.uri && (
+                    <>
+                        {'  '}
+                        <a href={image.uri} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                            (iNaturalist link)
+                        </a>
+                    </>
+                )}
+            </p>
             
             {/* Main container */}
             <div className="image-card">

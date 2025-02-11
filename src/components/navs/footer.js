@@ -1,7 +1,7 @@
 import React from "react";
 import Obfuscate from 'react-obfuscate';
 import { Link } from "react-router-dom";
-import { Facebook, TwitterX, Instagram, Mastodon, Github } from 'react-bootstrap-icons'; // Import icons
+import { Facebook, TwitterX, Instagram, Mastodon, Github } from 'react-bootstrap-icons';
 import './footer.css';
 
 export default function Footer() {
@@ -17,8 +17,8 @@ export default function Footer() {
             
             <div className="footer-nav">
                 <Link to="/">Home</Link>
-                <Link to="/about/moulting">About</Link>
-                <Link to="/services">Services</Link>
+                <Link to="https://moultdb.org/about">About</Link>
+                <Link to="https://github.com/MoultDB">Source</Link>
                 <Link to="/team">Team</Link>
                 <Link to="/contact">Contact</Link>
             </div>
