@@ -31,7 +31,6 @@ const SpeciesPage = () => {
         fetchImages();
     }, [taxonName]);
 
-    // Calcolo degli indici per la paginazione
     const indexOfLastSpecies = currentPage * speciesPerPage;
     const indexOfFirstSpecies = indexOfLastSpecies - speciesPerPage;
     const currentImages = images.slice(indexOfFirstSpecies, indexOfLastSpecies);

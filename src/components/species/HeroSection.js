@@ -10,7 +10,7 @@ const HeroSection = () => {
                         <div className="hero-ct">
                             <h1>Species listing</h1>
                             <ul className="breadcumb">
-                                <li className="active"><a href="#">Home</a></li>
+                                <li className="active"><a href="/">Home</a></li>
                                 <li> <span className="ion-ios-arrow-right"></span> Species listing</li>
                             </ul>
                         </div>

@@ -30,7 +30,7 @@ const Carusel = () => {
   const moultingImages = [
     { title: 'Halyomorpha halys', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/435512412/medium.jpeg', author: 'smpierce' },
     { title: 'Oncopeltus fasciatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410552760/medium.jpeg', author: 'jerryfinlayson'},
-    { title: 'Limacodidae', img: 'https://static.inaturalist.org/photos/406869813/medium.jpeg', author: 'savitha3'},
+    { title: 'Coenomorpha nervosa', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/468972970/medium.jpeg', author: 'christopher1201'},
     { title: 'Acacesia hamata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/419244473/medium.jpeg', author: 'aperturesciencebydan'}
   ];
 
@@ -44,7 +44,7 @@ const Carusel = () => {
   const exuviaeImages = [
     { title: 'Araneomorphae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/440375476/medium.jpeg', author: 'ncb1221' },
     { title: 'Neotibicen canicularis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/413959289/medium.jpeg', author: 'sandplainwanderer' },
-    { title: 'Grapsus grapsus', img: 'https://static.inaturalist.org/photos/439899294/medium.jpeg', author: 'peterbergeson' },
+    { title: 'Huntsman Spiders', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/465064108/medium.jpeg', author: 'spidercat' },
     { title: 'Zygina flammigera', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/437583036/medium.jpeg', author: 'sascha_n' }
   ];
 
@@ -52,14 +52,14 @@ const Carusel = () => {
   const cicadaImages = [
     { title: 'Subfamily Cicadinae', img:'https://inaturalist-open-data.s3.amazonaws.com/photos/403333252/medium.jpg', author: 'gemela-dos' },
     { title: 'Genus Magicicada', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/378390004/medium.jpg', author: 'rhondahw' },
-    { title: 'Genus Magicicada', img: 'https://static.inaturalist.org/photos/378536683/medium.jpeg', author: 'looghna__dainty_mac__bay' },
+    { title: 'Subfamily Cicadinae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/453442487/medium.jpg', author: 'scml1961' },
     { title: 'Megatibicen resh', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410415802/medium.jpeg', author: 'dragondrew74' }
   ];
 
   const horseshoeCrabImages = [
     { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/333099014/medium.jpeg', author: 'livanescudero' },
-    { title: 'Limulus polyphemus', img: 'https://static.inaturalist.org/photos/26636128/medium.jpg', author: 'jrudolph94' },
-    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/11616612/medium.jpg', author: 'ewilhi' },
+    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/28830536/medium.jpeg', author: 'musicheer' },
+    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/11616611/medium.jpg', author: 'ewilhi' },
     { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/10970136/medium.jpg', author: 'crbwriter' }
   ];
 
@@ -74,7 +74,7 @@ const Carusel = () => {
     { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/412688650/medium.jpeg', author: 'blueranchu' },
     { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/300544000/medium.jpg', author: 'frances123' },
     { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/207420039/medium.jpg', author: 'seigmond' },
-    { title: 'Harmonia axyridis', img: 'https://static.inaturalist.org/photos/231509297/medium.jpg', author: 'nehall' }
+    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/358134799/medium.jpeg', author: 'cephalogoddess' }
   ];
 
 
