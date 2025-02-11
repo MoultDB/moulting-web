@@ -29,9 +29,9 @@ const ImageDetailsPage = () => {
                 Contributed by: <span className="font-semibold">{image.login}</span> 
                 {image.uri && (
                     <>
-                        {'  '}
+                        &nbsp;- iNaturalist observation:&nbsp;
                         <a href={image.uri} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                            (iNaturalist link)
+                             {image.inatId}
                         </a>
                     </>
                 )}

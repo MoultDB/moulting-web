@@ -41,6 +41,7 @@ class ImageService {
                 }
 
                 return {
+                    inatId: result.id,
                     taxonName: result.taxon?.name || 'Unknown Taxon',
                     firstImageUrl: result.photos.length > 0 ? result.photos[0].url.replace('square', 'large') : null,
                     allImageUrls: result.photos.map(photo => photo.url.replace('square', 'large')),
