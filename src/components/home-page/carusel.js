@@ -21,60 +21,60 @@ const Carusel = () => {
 
   // Images for the first carousel (MOULTING STAGE)
   const preMoultImages = [
-    { title: 'Acleris placidana', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/377481839/large.jpeg', author: 'osmeterium' },
-    { title: 'Acronicta interrupta', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/367717228/large.jpeg', author: 'osmeterium' },
-    { title: 'Hypagyrtis unipunctata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/262476487/large.jpeg', author: 'osmeterium' },
-    { title: 'Acronicta radcliffei', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/222116513/large.jpg', author: 'osmeterium' }
+    { title: 'Acleris placidana', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/377481839/medium.jpeg', author: 'osmeterium' },
+    { title: 'Acronicta interrupta', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/367717228/medium.jpeg', author: 'osmeterium' },
+    { title: 'Hypagyrtis unipunctata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/262476487/medium.jpeg', author: 'osmeterium' },
+    { title: 'Acronicta radcliffei', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/222116513/medium.jpg', author: 'osmeterium' }
   ];
 
   const moultingImages = [
-    { title: 'Halyomorpha halys', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/435512412/large.jpeg', author: 'smpierce' },
-    { title: 'Oncopeltus fasciatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410552760/large.jpeg', author: 'jerryfinlayson'},
-    { title: 'Limacodidae', img: 'https://static.inaturalist.org/photos/406869813/large.jpeg', author: 'savitha3'},
-    { title: 'Acacesia hamata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/419244473/large.jpeg', author: 'aperturesciencebydan'}
+    { title: 'Halyomorpha halys', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/435512412/medium.jpeg', author: 'smpierce' },
+    { title: 'Oncopeltus fasciatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410552760/medium.jpeg', author: 'jerryfinlayson'},
+    { title: 'Limacodidae', img: 'https://static.inaturalist.org/photos/406869813/medium.jpeg', author: 'savitha3'},
+    { title: 'Acacesia hamata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/419244473/medium.jpeg', author: 'aperturesciencebydan'}
   ];
 
   const postMoultImages = [
-    { title: 'Zelus longipes', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/405022670/large.jpg', author: 'calvertm' },
-    { title: 'Arilus cristatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/396976230/large.jpeg', author: 'hmstarnes' },
-    { title: 'Lygaeus turcicus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/404874175/large.jpeg', author: 'gmzelle' },
-    { title: 'Lycorma delicatula', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/405237143/large.jpeg', author: 'wachzim' }
+    { title: 'Zelus longipes', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/405022670/medium.jpg', author: 'calvertm' },
+    { title: 'Arilus cristatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/396976230/medium.jpeg', author: 'hmstarnes' },
+    { title: 'Lygaeus turcicus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/404874175/medium.jpeg', author: 'gmzelle' },
+    { title: 'Lycorma delicatula', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/405237143/medium.jpeg', author: 'wachzim' }
   ];
 
   const exuviaeImages = [
-    { title: 'Araneomorphae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/440375476/large.jpeg', author: 'ncb1221' },
-    { title: 'Neotibicen canicularis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/413959289/large.jpeg', author: 'sandplainwanderer' },
-    { title: 'Grapsus grapsus', img: 'https://static.inaturalist.org/photos/439899294/large.jpeg', author: 'peterbergeson' },
-    { title: 'Zygina flammigera', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/437583036/large.jpeg', author: 'sascha_n' }
+    { title: 'Araneomorphae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/440375476/medium.jpeg', author: 'ncb1221' },
+    { title: 'Neotibicen canicularis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/413959289/medium.jpeg', author: 'sandplainwanderer' },
+    { title: 'Grapsus grapsus', img: 'https://static.inaturalist.org/photos/439899294/medium.jpeg', author: 'peterbergeson' },
+    { title: 'Zygina flammigera', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/437583036/medium.jpeg', author: 'sascha_n' }
   ];
 
   // Images for the second carousel (KEYWORDS)
   const cicadaImages = [
-    { title: 'Subfamily Cicadinae', img:'https://inaturalist-open-data.s3.amazonaws.com/photos/403333252/large.jpg', author: 'gemela-dos' },
-    { title: 'Genus Magicicada', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/378390004/large.jpg', author: 'rhondahw' },
-    { title: 'Genus Magicicada', img: 'https://static.inaturalist.org/photos/378536683/large.jpeg', author: 'looghna__dainty_mac__bay' },
-    { title: 'Megatibicen resh', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410415802/large.jpeg', author: 'dragondrew74' }
+    { title: 'Subfamily Cicadinae', img:'https://inaturalist-open-data.s3.amazonaws.com/photos/403333252/medium.jpg', author: 'gemela-dos' },
+    { title: 'Genus Magicicada', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/378390004/medium.jpg', author: 'rhondahw' },
+    { title: 'Genus Magicicada', img: 'https://static.inaturalist.org/photos/378536683/medium.jpeg', author: 'looghna__dainty_mac__bay' },
+    { title: 'Megatibicen resh', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410415802/medium.jpeg', author: 'dragondrew74' }
   ];
 
   const horseshoeCrabImages = [
-    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/333099014/large.jpeg', author: 'livanescudero' },
-    { title: 'Limulus polyphemus', img: 'https://static.inaturalist.org/photos/26636128/large.jpg', author: 'jrudolph94' },
-    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/11616612/large.jpg', author: 'ewilhi' },
-    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/10970136/large.jpg', author: 'crbwriter' }
+    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/333099014/medium.jpeg', author: 'livanescudero' },
+    { title: 'Limulus polyphemus', img: 'https://static.inaturalist.org/photos/26636128/medium.jpg', author: 'jrudolph94' },
+    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/11616612/medium.jpg', author: 'ewilhi' },
+    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/10970136/medium.jpg', author: 'crbwriter' }
   ];
 
   const spiderImages = [
-    { title: 'Thomisinae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/357704005/large.jpeg', author: 'dianechattaway' },
-    { title: 'Eustala', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/315146549/large.jpeg', author: 'emiliocorrea320' },
-    { title: 'Argiope aurantia', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/286945520/large.jpg', author: 'heritage226' },
-    { title: 'Eriophora ravilla', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/227209417/large.jpg', author: 'sylshessa' }
+    { title: 'Thomisinae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/357704005/medium.jpeg', author: 'dianechattaway' },
+    { title: 'Eustala', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/315146549/medium.jpeg', author: 'emiliocorrea320' },
+    { title: 'Argiope aurantia', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/286945520/medium.jpg', author: 'heritage226' },
+    { title: 'Eriophora ravilla', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/227209417/medium.jpg', author: 'sylshessa' }
   ];
 
   const ladybugImages = [
-    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/412688650/large.jpeg', author: 'blueranchu' },
-    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/300544000/large.jpg', author: 'frances123' },
-    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/207420039/large.jpg', author: 'seigmond' },
-    { title: 'Harmonia axyridis', img: 'https://static.inaturalist.org/photos/231509297/large.jpg', author: 'nehall' }
+    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/412688650/medium.jpeg', author: 'blueranchu' },
+    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/300544000/medium.jpg', author: 'frances123' },
+    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/207420039/medium.jpg', author: 'seigmond' },
+    { title: 'Harmonia axyridis', img: 'https://static.inaturalist.org/photos/231509297/medium.jpg', author: 'nehall' }
   ];
 
 
