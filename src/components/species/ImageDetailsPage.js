@@ -56,7 +56,7 @@ const ImageDetailsPage = () => {
                             </button>
                         </div>
                         <div className="thumbnail-gallery">
-                            {image.allImageUrls.map((url, index) => (
+                            {image.allThumbImageUrls.map((url, index) => (
                                 <img 
                                     key={index} 
                                     src={url} 

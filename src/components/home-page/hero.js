@@ -74,8 +74,8 @@ export default class Hero extends React.Component {
 
         const urls = [
             'https://inaturalist-open-data.s3.amazonaws.com/photos/405101307/medium.jpeg', // Chelicerata
-            'https://inaturalist-open-data.s3.amazonaws.com/photos/412140258/large.jpg', // Myriapoda
-            'https://inaturalist-open-data.s3.amazonaws.com/photos/412460648/large.jpg', // Crustacea
+            'https://inaturalist-open-data.s3.amazonaws.com/photos/412140258/medium.jpg', // Myriapoda
+            'https://inaturalist-open-data.s3.amazonaws.com/photos/412460648/medium.jpg', // Crustacea
             'https://inaturalist-open-data.s3.amazonaws.com/photos/384958717/medium.jpg' // Hexapoda
         ];
 

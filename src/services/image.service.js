@@ -49,8 +49,9 @@ class ImageService {
                 return {
                     inatId: result.id,
                     taxonName: result.taxon?.name || 'Unknown Taxon',
-                    firstImageUrl: validPhotos.length > 0 ? validPhotos[0].url.replace('square', 'large') : null,
-                    allImageUrls: validPhotos.map(photo => photo.url.replace('square', 'large')),
+                    firstImageUrl: validPhotos.length > 0 ? validPhotos[0].url.replace('square', 'small') : null,
+                    allImageUrls: validPhotos.map(photo => photo.url.replace('square', 'medium')),
+                    allThumbImageUrls: validPhotos.map(photo => photo.url.replace('square', 'thumb')),
                     login: result.user?.login || 'Unknown User',
                     latitude: !isNaN(latitude) ? latitude : null,
                     longitude: !isNaN(longitude) ? longitude : null,
