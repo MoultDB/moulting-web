@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ImageService from '../../services/image.service';
 import './contributors.css';
 
+
+export const getContributorUrl = (login) => {
+    return "https://www.inaturalist.org/people/" + login ;
+};
+
 const Contributors = () => {
     const [contributors, setContributors] = useState([]);
     const [error, setError] = useState(null);
@@ -26,11 +31,13 @@ const Contributors = () => {
             {error && <p className="error">{error}</p>}
             {contributors.map((contributor, index) => (
                 <div key={index} className="contr-item">
-                    <a href="#">
+                    <a href={getContributorUrl(contributor.login)}>
                         <img src={contributor.iconUrl} alt={contributor.login} width="70" height="70" />
                     </a>
                     <div className="contr-author">
-                        <h6><a href="#">{contributor.login}</a></h6>
+                        <h6>
+                            <a href={getContributorUrl(contributor.login)}>{contributor.login}</a>
+                        </h6>
                         <span>{contributor.observationCount} observations</span>
                     </div>
                 </div>
