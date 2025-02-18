@@ -19,16 +19,17 @@ export default function Footer() {
                 <Link to="/">Home</Link>
                 <Link to="https://moultdb.org/about">About</Link>
                 <Link to="https://github.com/MoultDB">Source</Link>
-                <Link to="/team">Team</Link>
-                <Link to="/contact">Contact</Link>
+                <Obfuscate email={process.env.REACT_APP_CONTACT_EMAIL}
+                           headers={{subject: '[MoultDB] Contact'}}>Contact</Obfuscate>
             </div>
 
             <div className="footer-legal">
-            <p>©2025 moulting.org | All image rights are reserved by their respective owners.</p>
-            <p>
-            Images are sourced from <a href="https://www.inaturalist.org/" target="_blank" rel="noopener noreferrer">iNaturalist </a> 
-            and are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
-            </p>
+                <p>&copy; 2025 moulting.org - All image rights are reserved by their respective owners.</p>
+                <p>
+                    Images are sourced from <a href="https://www.inaturalist.org/" target="_blank" rel="noopener noreferrer">
+                    iNaturalist</a> and are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">
+                    CC BY-NC 4.0</a> or more permissive.
+                </p>
             </div>
         </footer>
     );
