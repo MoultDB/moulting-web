@@ -20,7 +20,7 @@ export default function Footer() {
                 <Link to="https://moultdb.org/about">About</Link>
                 <Link to="https://github.com/MoultDB">Source</Link>
                 <Obfuscate email={process.env.REACT_APP_CONTACT_EMAIL}
-                           headers={{subject: '[MoultDB] Contact'}}>Contact</Obfuscate>
+                           headers={{subject: '[moulting.org] Contact'}}>Contact</Obfuscate>
             </div>
 
             <div className="footer-legal">

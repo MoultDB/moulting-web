@@ -66,7 +66,7 @@ export default class Header extends React.Component {
                                     </Link>
                                     <ul className="dropdown-menu">
                                         <li><Link to="https://moultdb.org/about" className="dropdown-item">The MoultDB project</Link></li>
-                                        <li><Link to="/about/privacy-notice" className="dropdown-item">MoultDB privacy notice</Link></li>
+                                        <li><Link to="/about/privacy-notice" className="dropdown-item">moulting.org privacy notice</Link></li>
                                         <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noopener noreferrer">
                                             Source code
                                         </a></li>
