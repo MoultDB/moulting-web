@@ -9,6 +9,8 @@
   align-items: inherit;
   margin-right: -30px;
   display: grid;
+  min-height: 500px; 
+  width: 100%;
   grid-template-columns: repeat(4, 1fr); /* 4 images per row */
   margin-left: -35px;
 }
@@ -24,3 +26,4 @@
     margin: 0 auto;
   }
 }
+

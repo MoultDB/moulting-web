@@ -14,20 +14,23 @@ const SpeciesPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [speciesPerPage, setSpeciesPerPage] = useState(20); // Default: 20 species per page
     const [error, setError] = useState(null);
-
+    const [loading, setLoading] = useState(true); 
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchImages = async () => {
+            setLoading(true); 
             try {
-                const results = await ImageService.fetchImagesForGroup(taxonName); // Fetch images
+                const results = await ImageService.fetchImagesForGroup(taxonName);
                 setImages(results);
             } catch (error) {
                 console.error('Error fetching images:', error);
                 setError('Failed to load images. Please try again later.');
+            } finally {
+                setLoading(false); 
             }
         };
-
+    
         fetchImages();
     }, [taxonName]);
 
@@ -57,8 +60,12 @@ const SpeciesPage = () => {
                     <div className="col-md-8 col-sm-12 col-xs-12">
                         <TopBarFilter totalSpecies={images.length} />
                         {error && <p className="error">{error}</p>}
-                        <SpeciesGrid images={currentImages} onImageClick={handleImageClick} />
-                        <Pagination
+                        <SpeciesGrid 
+                                images={currentImages} 
+                                onImageClick={handleImageClick} 
+                                loading={loading}
+                            />
+                            <Pagination
                             speciesPerPage={speciesPerPage}
                             totalSpecies={images.length}
                             paginate={paginate}
