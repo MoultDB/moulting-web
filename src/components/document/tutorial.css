@@ -1,16 +1,14 @@
 .tutorial.container {
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
   color: white;
 }
 
 .tutorial.container p {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
-
 
 .tutorial > h1 {
   font-size: 32px;
