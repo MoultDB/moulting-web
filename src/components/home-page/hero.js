@@ -41,17 +41,17 @@ const HeroSlider = ({ images }) => {
 
     // Taxon images with path mapping
     const taxonImages = [
-        { src: images[0], taxonName: "Chelicerata", path: "chelicerata", description: "Photo by huttonia" },
-        { src: images[1], taxonName: "Myriapoda", path: "myriapoda", description: "Photo by melvynyeo" },
-        { src: images[2], taxonName: "Crustacea", path: "crustacea", description: "Photo by melvynyeo" }, 
-        { src: images[3], taxonName: "Hexapoda", path: "hexapoda", description: "Photo by gillessanmartin"}
+        { src: images[0], taxonName: "Chelicerata", taxonId: "245097", description: "Photo by huttonia" },
+        { src: images[1], taxonName: "Myriapoda", taxonId: "144128", description: "Photo by melvynyeo" },
+        { src: images[2], taxonName: "Crustacea", taxonId: "85493", description: "Photo by melvynyeo" }, 
+        { src: images[3], taxonName: "Hexapoda", taxonId: "372739", description: "Photo by gillessanmartin"}
     ];
 
     return (
         <div className="hero-slider">
             <Slider {...settings}>
                 {taxonImages.map((item, index) => (
-                    <TaxonItem key={index} src={item.src} taxonName={item.taxonName} path={item.path} description={item.description} />
+                    <TaxonItem key={index} src={item.src} taxonName={item.taxonName} path={item.taxonId} description={item.description} />
                 ))}
             </Slider>
         </div>

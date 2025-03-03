@@ -5,17 +5,13 @@ const VALID_LICENSES = ['cc0', 'cc-by', 'cc-by-nc'];
 const BLOCKED_IMAGE_URL = 'https://static.inaturalist.org';
 
 class ImageService {
-    async fetchImagesForGroup(group) {
-        const TAXON_IDS = {
-            chelicerata: '245097',
-            myriapoda: '144128',
-            crustacea: '85493',
-            hexapoda: '372739'
-        };
-
+    
+    async fetchImagesForGroup(taxonId, obsId) {
+        
         const params = {
             project_id: 'moulting-arthropods',
-            taxon_id: TAXON_IDS[group.toLowerCase()],
+            taxon_id: taxonId,
+            id: obsId,
             per_page: 200,
             order: 'desc',
             order_by: 'created_at',
@@ -26,7 +22,7 @@ class ImageService {
         try {
             const response = await axios.get(API_URL, { params });
 
-            return response.data.results.map(result => {
+            return response.data?.results?.map(result => {
                 const validPhotos = result.photos.filter(photo => 
                     VALID_LICENSES.includes(photo.license_code) &&
                     !photo.url.startsWith(BLOCKED_IMAGE_URL)
@@ -48,6 +44,7 @@ class ImageService {
 
                 return {
                     inatId: result.id,
+                    taxonId: result.taxon?.id || 0,
                     taxonName: result.taxon?.name || 'Unknown Taxon',
                     firstImageUrl: validPhotos.length > 0 ? validPhotos[0].url.replace('square', 'small') : null,
                     allImageUrls: validPhotos.map(photo => photo.url.replace('square', 'medium')),

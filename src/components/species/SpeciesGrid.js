@@ -1,9 +1,9 @@
 import React from 'react';
 import "./SpeciesGrid.css";
 import SpeciesItem from './SpeciesItem';
-import Loader from '../common/Loader'; 
+import Loader from '../common/Loader';
 
-const SpeciesGrid = ({ images, onImageClick, loading }) => {
+const SpeciesGrid = ({ images, loading }) => {
     return (
         <div className="flex-wrap-specieslist">
             {loading ? (
@@ -14,7 +14,6 @@ const SpeciesGrid = ({ images, onImageClick, loading }) => {
                         <SpeciesItem 
                             key={index} 
                             image={image} 
-                            onClick={() => onImageClick(image)}
                         />
                     ))
                 ) : (

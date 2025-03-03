@@ -1,16 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 const TaxonItem = ({ src, taxonName, path, description }) => {
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        console.log(`Clicked on taxon: ${taxonName}`);
-        navigate(`/species/${path}`);
-    };
 
     return (
-        <div className="photo-item" onClick={handleClick}>
+        <Link to={"/species/" + path} className="photo-item" >
             <div className="ph-img">
                 <img src={src} alt={taxonName} />
             </div>
@@ -18,7 +12,7 @@ const TaxonItem = ({ src, taxonName, path, description }) => {
                 <h6>{taxonName}</h6>
                 <p className="author-description">{description}</p>
             </div>
-        </div>
+        </Link>
     );
 };
 

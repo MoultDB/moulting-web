@@ -5,10 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background-color: #0b1a2a;
-    margin-top: -10px;
-    background: url('../../assets/images/uploads/background.png') no-repeat;
+    min-height: 200px;
 }
 
 .page-container h1 {

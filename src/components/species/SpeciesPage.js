@@ -9,7 +9,7 @@ import Pagination from './Pagination';
 import './SpeciesPage.css';
 
 const SpeciesPage = () => {
-    const { taxonName } = useParams();
+    let params = useParams();
     const [images, setImages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [speciesPerPage, setSpeciesPerPage] = useState(20); // Default: 20 species per page
@@ -21,7 +21,7 @@ const SpeciesPage = () => {
         const fetchImages = async () => {
             setLoading(true); 
             try {
-                const results = await ImageService.fetchImagesForGroup(taxonName);
+                const results = await ImageService.fetchImagesForGroup(params.taxonId);
                 setImages(results);
             } catch (error) {
                 console.error('Error fetching images:', error);
@@ -32,7 +32,7 @@ const SpeciesPage = () => {
         };
     
         fetchImages();
-    }, [taxonName]);
+    }, [params.taxonId]);
 
     const indexOfLastSpecies = currentPage * speciesPerPage;
     const indexOfFirstSpecies = indexOfLastSpecies - speciesPerPage;
@@ -46,12 +46,7 @@ const SpeciesPage = () => {
         setSpeciesPerPage(speciesPerPage);
         setCurrentPage(1); 
     };
-
-    // Go to image's details page
-    const handleImageClick = (image) => {
-        navigate(`/species/${taxonName}/details`, { state: { image } });
-    };
-
+    
     return (
         <div className="page-single">
             <HeroSection />
@@ -61,11 +56,10 @@ const SpeciesPage = () => {
                         <TopBarFilter totalSpecies={images.length} />
                         {error && <p className="error">{error}</p>}
                         <SpeciesGrid 
-                                images={currentImages} 
-                                onImageClick={handleImageClick} 
-                                loading={loading}
-                            />
-                            <Pagination
+                            images={currentImages} 
+                            loading={loading}
+                        />
+                        <Pagination
                             speciesPerPage={speciesPerPage}
                             totalSpecies={images.length}
                             paginate={paginate}
