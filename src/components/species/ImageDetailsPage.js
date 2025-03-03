@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './ImageDetailsPage.css';
 import ImageService from "../../services/image.service";
 import Loader from "../common/Loader";
+import {getContributorUrl} from "../home-page/contributors";
 
 const ImageDetailsPage = () => {
     let params = useParams();
@@ -46,26 +47,25 @@ const ImageDetailsPage = () => {
 
     return (
         <div className="page-container">
-            <h1>{image.taxonName}</h1>
             {error && <p className="error">{error}</p>}
-            {/*<Loader />*/}
             {loading ? (
                 <Loader />
             ) : (
                 <>
+                    <h1>{image.taxonName}</h1>
+
                     <p className="contributor">
-                        Contributed by: <span className="font-semibold">{image.login}</span>
+                        Contributed by: <a href={getContributorUrl(image.login)}>{image.login}</a>
                         {image.uri && (
                             <>
                                 &nbsp;- iNaturalist observation:&nbsp;
-                                <a href={image.uri} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                                <a href={image.uri} target="_blank" rel="noopener noreferrer">
                                     {image.inatId}
                                 </a>
                             </>
                         )}
                     </p>
             
-                    {/* Main container */}
                     <div className="image-card">
                         <div className="top-section">
                             {/* Image section */}
