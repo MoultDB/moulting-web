@@ -23,11 +23,12 @@ export default function PrivacyNotice() {
                             Biology and Medicine of UNIL respects these prerogatives.</p>
                         <p>By using this website, you signify that you have read this privacy policy and agree to our processing
                             your personal data as described in this privacy policy.</p>
-                        <p>This policy concerns the processing of your data collected as a user of the website
-                            https://moulting.org/.</p>
-                        <p>This policy is dated September, 2021. However, it is likely to be updated on a regular basis; if so,
-                            you will be informed via the website https://moulting.org/. Any use of our services after this
-                            notification has been published will be deemed acceptance of the latest version of this policy.</p>
+                        <p>This policy concerns the processing of your data collected as a user of the 
+                            website <a href="/">https://moulting.org/</a>.</p>
+                        <p>This policy is dated September, 2021. However, it is likely to be updated on a regular basis;
+                            if so, you will be informed via the website <a href="/">https://moulting.org/</a>. 
+                            Any use of our services after this notification has been published 
+                            will be deemed acceptance of the latest version of this policy.</p>
 
                         <h2>What is meant by personal data?</h2>
                         <p>Personal data are any data that can be used to identify an individual. These data may be able to
