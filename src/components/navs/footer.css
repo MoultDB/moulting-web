@@ -3,6 +3,7 @@
     text-align: center;
     padding: 20px 0;
     font-family: 'Arial', sans-serif;
+    background-color: rgba(15, 33, 51, 0.8);
 }
 
 .footer-socials {
@@ -49,8 +50,4 @@
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
-}
-
-.footer-legal a:hover {
-    color: #dcf836;
 }

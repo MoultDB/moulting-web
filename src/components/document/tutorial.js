@@ -1,4 +1,5 @@
 import React from "react";
+import Obfuscate from 'react-obfuscate';
 import "./tutorial.css"; 
 
 
@@ -36,7 +37,11 @@ const Tutorial = () => {
         <img src={require("../../assets/images/uploads/tutorial/4-save-observation.png")} alt="Save the observation" />
       </div>
 
-      <p className="footer-note">Need help? Contact our support team for assistance.</p>
+        <p className="footer-note">Need help? <Obfuscate email={process.env.REACT_APP_CONTACT_EMAIL}
+                                                         headers={{subject: '[moulting.org] Contact'}}>
+                Contact our support team for assistance.
+            </Obfuscate>
+        </p>
     </div>
   );
 };

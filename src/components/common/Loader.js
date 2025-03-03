@@ -9,7 +9,7 @@ const Loader = () => {
                 <div className="dot"></div>
                 <div className="dot"></div>
             </div>
-            <p className="loading-text">Loading species...</p> 
+            <p className="loading-text">Loading...</p> 
         </div>
     );
 };
