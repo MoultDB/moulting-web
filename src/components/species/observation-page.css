@@ -94,18 +94,25 @@
     border: 2px solid blue;
 }
 
-.info-section {
-    width: 38%;
+.subsection {
     padding: 15px;
+    background: #233a50;
     border-radius: 8px;
+    width: 33%;
+}
+
+.description-section {
+    text-align: left;
+}
+
+.list-section {
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
     color: #abb7c4;
     font-weight: 300;
     text-transform: none;
-    background-color: #233a50;
 }
 
-.info-section h2 {
+.info-title {
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -134,21 +141,6 @@
 .contributor:hover {
     /* color: #dcf836;*/
   }
-
-.description-section {
-    width: 61%;
-    text-align: left;
-    padding: 15px;
-    background: #233a50;
-    border-radius: 8px;
-}
-
-.description-section h2 {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
 
 .map-section {
     width: 40%;
