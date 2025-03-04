@@ -8,7 +8,7 @@ const SpeciesItem = ({ image }) => {
     return (
         <div className="species-item-style-2 species-item-style-1">
             <Link to={{
-                pathname: "/observation/" + image.inatId,
+                pathname: "/observations/" + image.inatId,
                 state: { image: image }
             }}>
                 <img src={image.firstImageUrl} alt={image.taxonName} />

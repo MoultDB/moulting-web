@@ -184,7 +184,7 @@ const Carusel = () => {
           {images.map((image, index) => (
             <div key={index} className="slide-it">
               <div className="species-item">
-                <Link to={"/observation/" + image.observationId}>
+                <Link to={"/observations/" + image.observationId}>
                 <div className="mv-img">
                   <img src={image.img} alt={image.title} />
                 </div>
@@ -216,7 +216,7 @@ const Carusel = () => {
           {Keywords.map((image, index) => (
             <div key={index} className="slide-it">
               <div className="species-item">
-                <Link to={"/observation/" + image.observationId}>
+                <Link to={"/observations/" + image.observationId}>
 
                 <div className="mv-img">
                   <img src={image.img} alt={image.title} />

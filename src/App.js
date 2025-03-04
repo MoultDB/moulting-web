@@ -46,7 +46,7 @@ function CustomRoutes() {
             <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
             <Route path="/species/:taxonId" element={<SpeciesPage />} />
-            <Route path="/observation/:observationId" element={<ObservationPage />} />
+            <Route path="/observations/:observationId" element={<ObservationPage />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
         </Routes>
