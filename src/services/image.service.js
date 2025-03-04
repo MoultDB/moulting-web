@@ -12,7 +12,6 @@ class ImageService {
             project_id: 'moulting-arthropods',
             taxon_id: taxonId,
             id: obsId,
-            per_page: 200,
             order: 'desc',
             order_by: 'created_at',
             license: 'cc0,cc-by,cc-by-nc',
