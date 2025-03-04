@@ -21,7 +21,7 @@ const SpeciesPage = () => {
         const fetchImages = async () => {
             setLoading(true); 
             try {
-                const results = await ImageService.fetchImagesForGroup(params.taxonId);
+                const results = await ImageService.fetchProjectImagesForTaxon(params.taxonId);
                 setImages(results);
             } catch (error) {
                 console.error('Error fetching images:', error);

@@ -131,6 +131,13 @@
     border-radius: 10px; 
 }
 
+.photo-item:hover .ph-img img {
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    -webkit-opacity: 0.5;
+    opacity: 0.5;
+}
+
 .description{
     margin-top: 20px;
 }

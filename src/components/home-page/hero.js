@@ -3,6 +3,7 @@ import './hero.css';
 import Slider from "react-slick";
 import SocialLinks from "../common/social-links";
 import TaxonItem from './taxon-item';
+import {PROJECT_URL} from "../../services/image.service";
 
 const HeroSlider = ({ images }) => {
     const settings = {
@@ -102,7 +103,7 @@ export default class Hero extends React.Component {
 
                         <div className="hero-button">
                             <div className="button-wrapper">
-                                <a href="https://www.inaturalist.org/projects/moulting-arthropods"
+                                <a href={PROJECT_URL}
                                    rel="noopener noreferrer"
                                    target="_blank"
                                    className="pushable red-button">

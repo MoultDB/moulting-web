@@ -63,12 +63,16 @@
   height: 284px;
 }
 
-/*TODO to be uncommented when a link is set up */
-/*.species-item:hover {*/
-/*  transform: translateY(-10px);*/
-/*}*/
+.species-item:hover img {
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
 
-
+.species-item:hover h6 {
+  color: #DCF835;
+}
 
 .title-in h6 {
   color: #fff;

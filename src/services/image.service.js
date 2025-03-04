@@ -1,22 +1,36 @@
 import axios from 'axios';
 
 const API_URL = 'https://api.inaturalist.org/v1/observations';
+const PROJECT_ACC = "moulting-arthropods";
+const PROJECT_ID = 200497;
+export const PROJECT_URL = "https://www.inaturalist.org/projects/" + PROJECT_ACC;
 const VALID_LICENSES = ['cc0', 'cc-by', 'cc-by-nc'];
 const BLOCKED_IMAGE_URL = 'https://static.inaturalist.org';
 
 class ImageService {
     
-    async fetchImagesForGroup(taxonId, obsId) {
-        
+    async fetchProjectImagesForTaxon(taxonId) {
         const params = {
-            project_id: 'moulting-arthropods',
+            project_id: PROJECT_ACC,
             taxon_id: taxonId,
-            id: obsId,
+            per_page: 300,
             order: 'desc',
             order_by: 'created_at',
             license: 'cc0,cc-by,cc-by-nc',
             photo_license: 'cc0,cc-by,cc-by-nc'
         };
+        return await this.fetchImagesFromInaturalist(params);
+    }
+
+    async fetchImagesForObservation(obsId) {
+        const params = {
+            id: obsId
+        };
+        return await this.fetchImagesFromInaturalist(params);
+    }
+
+    async fetchImagesFromInaturalist(params) {
+        // FIXME do loop to get all images if results.length > total_results
 
         try {
             const response = await axios.get(API_URL, { params });
@@ -53,7 +67,8 @@ class ImageService {
                     longitude: !isNaN(longitude) ? longitude : null,
                     description: result.description || 'No description available',
                     categories, 
-                    uri: result.uri || null 
+                    uri: result.uri || null,
+                    inProject: result.project_ids?.includes(PROJECT_ID)
                 };
             }).filter(observation => observation !== null);
         } catch (error) {
@@ -64,10 +79,8 @@ class ImageService {
 
     async fetchTopContributors() {
         const params = {
-            project_id: 'moulting-arthropods',
-            per_page: 200,
-            order: 'desc',
-            order_by: 'created_at',
+            project_id: PROJECT_ACC,
+            per_page: 300
         };
 
         try {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './observation-page.css';
-import ImageService from "../../services/image.service";
+import ImageService, {PROJECT_URL} from "../../services/image.service";
 import Loader from "../common/loader";
 import {getContributorUrl} from "../home-page/contributors";
 
@@ -18,7 +18,7 @@ const ObservationPage = () => {
         const fetchImages = async () => {
             setLoading(true);
             try {
-                const results = await ImageService.fetchImagesForGroup(params.taxonId, params.observationId);
+                const results = await ImageService.fetchImagesForObservation(params.observationId);
                 if (results.length > 0) {
                     setImage(results[0]);
                 }
@@ -121,10 +121,13 @@ const ObservationPage = () => {
                             <div className="info-section">
                                 <h2 className="info-title">Details</h2>
                                 <ul className="info-list">
+                                    <li>
+                                        <span className="font-medium">In <a href={PROJECT_URL} rel="noopener noreferrer"
+                                               target="_blank">Moulting arthropods</a> project:</span>
+                                        {image.inProject ? "yes" : "no"}
+                                    </li>
                                     {image.categories && Object.entries(image.categories).map(([key, value]) => (
-                                        <li key={key}>
-                                            <span className="font-medium">{key}:</span> <span>{value}</span>
-                                        </li>
+                                        <li key={key}><span className="font-medium">{key}:</span> {value}</li>
                                     ))}
                                 </ul>
                             </div>
