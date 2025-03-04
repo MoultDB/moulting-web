@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import './video-viewer.css';
-import { ChevronRight } from 'react-bootstrap-icons';
 import brachypelmaphoto from "../../assets/images/uploads/youtube_preview/brachypelma.png";
 import butterflyphoto from "../../assets/images/uploads/youtube_preview/butterfly.png";
 import cicadaphoto from "../../assets/images/uploads/youtube_preview/cicada.png";

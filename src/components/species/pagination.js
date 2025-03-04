@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Pagination.css"
+import "./pagination.css"
 
 const Pagination = ({ speciesPerPage, totalSpecies, paginate, currentPage, handleSpeciesPerPageChange }) => {
     const pageNumbers = [];

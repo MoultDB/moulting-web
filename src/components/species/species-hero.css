@@ -1,4 +1,4 @@
-.hero {
+.species-hero {
   background-position: center;
   text-align: center;
   background-size: cover;
@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
 }
-.hero h1 {
+.species-hero h1 {
   font-family: 'Dosis', sans-serif;
   font-size: 36px;
   color: #ffffff;
@@ -18,14 +18,14 @@
   text-transform: uppercase;
   margin-bottom: 20px;
 }
-.hero ul.breadcumb {
+.species-hero ul.breadcumb {
   list-style-type: none;
 }
-.hero ul.breadcumb li.active a {
+.species-hero ul.breadcumb li.active a {
   color: #4280bf;
 }
-.hero ul.breadcumb li,
-.hero ul.breadcumb a {
+.species-hero ul.breadcumb li,
+.species-hero ul.breadcumb a {
   display: inline-block;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
@@ -33,11 +33,11 @@
   font-weight: 300;
   text-transform: uppercase;
 }
-.hero ul.breadcumb span {
+.species-hero ul.breadcumb span {
   margin-left: 15px;
   margin-right: 15px;
 }
-.hero:before {
+.species-hero:before {
   position: absolute;
   content: '';
   width: 100%;

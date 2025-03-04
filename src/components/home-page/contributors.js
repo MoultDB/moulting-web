@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ImageService from '../../services/image.service';
 import './contributors.css';
-import Loader from "../common/Loader";
+import Loader from "../common/loader";
 
 
 export const getContributorUrl = (login) => {

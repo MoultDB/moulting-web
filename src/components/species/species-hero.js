@@ -1,9 +1,9 @@
 import React from 'react';
-import "./HeroSection.css"
+import "./species-hero.css"
 
-const HeroSection = () => {
+const SpeciesHero = () => {
     return (
-        <div className="hero">
+        <div className="species-hero">
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
@@ -19,4 +19,4 @@ const HeroSection = () => {
     );
 };
 
-export default HeroSection;
+export default SpeciesHero;

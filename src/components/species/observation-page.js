@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import './ImageDetailsPage.css';
+import './observation-page.css';
 import ImageService from "../../services/image.service";
-import Loader from "../common/Loader";
+import Loader from "../common/loader";
 import {getContributorUrl} from "../home-page/contributors";
 
-const ImageDetailsPage = () => {
+const ObservationPage = () => {
     let params = useParams();
     const [image, setImage] = useState(true);
     const [loading, setLoading] = useState(true);
@@ -137,4 +137,4 @@ const ImageDetailsPage = () => {
     );
 };
 
-export default ImageDetailsPage;
+export default ObservationPage;

@@ -1,9 +1,8 @@
 import React from 'react';
 import './hero.css';
 import Slider from "react-slick";
-import AuthService from "../../services/auth.service";
 import SocialLinks from "../common/social-links";
-import TaxonItem from './taxonitem';
+import TaxonItem from './taxon-item';
 
 const HeroSlider = ({ images }) => {
     const settings = {
@@ -63,14 +62,11 @@ export default class Hero extends React.Component {
         super(props);
 
         this.state = {
-            currentUser: null,
             images: []
         };
     }
 
     componentDidMount() {
-        const currentUser = AuthService.getCurrentUser();
-        this.setState({ currentUser });
 
         const urls = [
             'https://inaturalist-open-data.s3.amazonaws.com/photos/405101307/medium.jpeg', // Chelicerata

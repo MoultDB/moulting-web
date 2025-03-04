@@ -1,8 +1,8 @@
 import React from "react";
 import ChangePageTitle from "../common/change-page-title";
-import "./notfound.css"; 
+import "./not-found.css"; 
 
-export default function Notfound() {
+export default function NotFound() {
   return (
     <main className="notfound-container">
       <ChangePageTitle pageTitle="Not found" />

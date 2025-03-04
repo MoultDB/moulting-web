@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TopBarFilter.css"
+import "./top-bar-filter.css"
 
 const TopBarFilter = ({ totalSpecies, handleSortChange }) => {
     return (

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ImageService from '../../services/image.service';
-import HeroSection from './HeroSection';
-import TopBarFilter from './TopBarFilter';
-import SpeciesGrid from './SpeciesGrid';
+import SpeciesHero from './species-hero';
+import TopBarFilter from './top-bar-filter';
+import SpeciesGrid from './species-grid';
 import Sidebar from '../common/sidebar';
-import Pagination from './Pagination';
-import './SpeciesPage.css';
+import Pagination from './pagination';
+import './species-page.css';
 
 const SpeciesPage = () => {
     let params = useParams();
@@ -49,7 +49,7 @@ const SpeciesPage = () => {
     
     return (
         <div className="page-single">
-            <HeroSection />
+            <SpeciesHero />
             <div className="container">
                 <div className="row ipad-width">
                     <div className="col-md-8 col-sm-12 col-xs-12">

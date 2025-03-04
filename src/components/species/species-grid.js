@@ -1,7 +1,7 @@
 import React from 'react';
-import "./SpeciesGrid.css";
-import SpeciesItem from './SpeciesItem';
-import Loader from '../common/Loader';
+import "./species-grid.css";
+import SpeciesItem from './species-item';
+import Loader from '../common/loader';
 
 const SpeciesGrid = ({ images, loading }) => {
     return (
