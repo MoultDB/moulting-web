@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ImageService from '../../services/image.service';
+import imageService from '../../services/image.service';
 import './contributors.css';
 import Loader from "../common/loader";
 
@@ -17,7 +17,7 @@ const Contributors = () => {
         const loadContributors = async () => {
             setLoading(true);
             try {
-                const data = await ImageService.fetchTopContributors();
+                const data = await imageService.fetchTopContributors();
                 setContributors(data);
             } catch (error) {
                 console.error('Error fetching contributors:', error);

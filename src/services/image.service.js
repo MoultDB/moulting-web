@@ -7,13 +7,41 @@ export const PROJECT_URL = "https://www.inaturalist.org/projects/" + PROJECT_ACC
 const VALID_LICENSES = ['cc0', 'cc-by', 'cc-by-nc'];
 const BLOCKED_IMAGE_URL = 'https://static.inaturalist.org';
 
+async function fetchAllResults(params) {
+    let allResults = [];
+    let page = 1;
+    let totalResults = 0;
+
+    do {
+        // Update query parameters with current page number
+        params.page = page;
+
+        try {
+            const response = await axios.get(API_URL, { params });
+
+            // Check that the results are present in the answer
+            if (response?.data?.results) {
+                allResults.push(...response.data.results);
+            }
+
+            totalResults = response.data.total_results;
+            page++;
+        } catch (error) {
+            console.error('Error fetching images:', error);
+            throw error;
+        }
+    } while ((page - 1) * params.per_page < totalResults); // Continue until all results have been retrieved
+
+    return allResults;
+}
+
 class ImageService {
     
     async fetchProjectImagesForTaxon(taxonId) {
         const params = {
             project_id: PROJECT_ACC,
             taxon_id: taxonId,
-            per_page: 300,
+            per_page: 200,
             order: 'desc',
             order_by: 'created_at',
             license: 'cc0,cc-by,cc-by-nc',
@@ -33,9 +61,9 @@ class ImageService {
         // FIXME do loop to get all images if results.length > total_results
 
         try {
-            const response = await axios.get(API_URL, { params });
+            const results = await fetchAllResults(params);
 
-            return response.data?.results?.map(result => {
+            return results?.map(result => {
                 const validPhotos = result.photos.filter(photo => 
                     VALID_LICENSES.includes(photo.license_code) &&
                     !photo.url.startsWith(BLOCKED_IMAGE_URL)
@@ -80,12 +108,15 @@ class ImageService {
     async fetchTopContributors() {
         const params = {
             project_id: PROJECT_ACC,
-            per_page: 300
+            per_page: 200,
+            order: 'desc',
+            order_by: 'created_at',
+            license: 'cc0,cc-by,cc-by-nc',
+            photo_license: 'cc0,cc-by,cc-by-nc'
         };
 
         try {
-            const response = await axios.get(API_URL, { params });
-            const results = response.data.results;
+            const results = await fetchAllResults(params);
 
             const contributorMap = {};
 
@@ -112,4 +143,5 @@ class ImageService {
     }
 }
 
-export default new ImageService();
+const imageService = new ImageService();
+export default imageService;

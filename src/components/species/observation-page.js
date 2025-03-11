@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './observation-page.css';
-import ImageService, {PROJECT_URL} from "../../services/image.service";
+import imageService, { PROJECT_URL } from "../../services/image.service";
 import Loader from "../common/loader";
-import {getContributorUrl} from "../home-page/contributors";
+import { getContributorUrl } from "../home-page/contributors";
 
 const ObservationPage = () => {
     let params = useParams();
@@ -18,7 +18,7 @@ const ObservationPage = () => {
         const fetchImages = async () => {
             setLoading(true);
             try {
-                const results = await ImageService.fetchImagesForObservation(params.observationId);
+                const results = await imageService.fetchImagesForObservation(params.observationId);
                 if (results.length > 0) {
                     setImage(results[0]);
                 }

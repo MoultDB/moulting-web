@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import ImageService from '../../services/image.service';
+import { useParams } from 'react-router-dom';
 import SpeciesHero from './species-hero';
 import TopBarFilter from './top-bar-filter';
 import SpeciesGrid from './species-grid';
 import Sidebar from '../common/sidebar';
 import Pagination from './pagination';
 import './species-page.css';
+import imageService from "../../services/image.service";
 
 const SpeciesPage = () => {
     let params = useParams();
@@ -15,13 +15,12 @@ const SpeciesPage = () => {
     const [speciesPerPage, setSpeciesPerPage] = useState(20); // Default: 20 species per page
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true); 
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchImages = async () => {
             setLoading(true); 
             try {
-                const results = await ImageService.fetchProjectImagesForTaxon(params.taxonId);
+                const results = await imageService.fetchProjectImagesForTaxon(params.taxonId);
                 setImages(results);
             } catch (error) {
                 console.error('Error fetching images:', error);
