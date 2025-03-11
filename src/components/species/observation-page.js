@@ -73,7 +73,7 @@ const ObservationPage = () => {
                                 <div className="relative w-full">
                                     <img
                                         src={image.allImageUrls[currentIndex]}
-                                        alt={`Photo of ${image.taxonName}, image ${currentIndex + 1}`}
+                                        alt={`${image.taxonName}, view ${currentIndex + 1}`}
                                         className="image-display"
                                     />
                                     <button onClick={prevImage} className="navigation-btn prev-btn">
@@ -106,6 +106,7 @@ const ObservationPage = () => {
                                     height="350"
                                     style={{ border: "1px solid black", borderRadius: "8px" }}
                                     scrollwheel="false"
+                                    title={`Map showing location of observation ${image.inatId} (${image.taxonName})`}
                                 ></iframe>
                             </div>
                         </div>
