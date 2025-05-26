@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './observation-page.css';
 import imageService, { PROJECT_URL } from "../../services/image.service";
@@ -53,17 +53,8 @@ const ObservationPage = () => {
             ) : (
                 <>
                     <h1>{image.taxonName}</h1>
-
                     <p className="contributor">
                         Contributed by: <a href={getContributorUrl(image.login)}>{image.login}</a>
-                        {image.uri && (
-                            <>
-                                &nbsp;- iNaturalist observation:&nbsp;
-                                <a href={image.uri} target="_blank" rel="noopener noreferrer">
-                                    {image.inatId}
-                                </a>
-                            </>
-                        )}
                     </p>
             
                     <div className="image-card">
@@ -112,14 +103,14 @@ const ObservationPage = () => {
                         </div>
             
                         <div className="bottom-section">
-                            {/* Description section under the carusel */}
-                            <div className="description-section">
+                            {/* Description section */}
+                            <div className="description-section subsection">
                                 <h2 className="info-title">Description</h2>
                                 <p>{image.description}</p>
                             </div>
             
                             {/* Details section */}
-                            <div className="info-section">
+                            <div className="list-section subsection">
                                 <h2 className="info-title">Details</h2>
                                 <ul className="info-list">
                                     <li>
@@ -130,6 +121,25 @@ const ObservationPage = () => {
                                     {image.categories && Object.entries(image.categories).map(([key, value]) => (
                                         <li key={key}><span className="font-medium">{key}:</span> {value}</li>
                                     ))}
+                                </ul>
+                            </div>
+
+                            {/* Link section */}
+                            <div className="list-section subsection">
+                                <h2 className="info-title">Links</h2>
+                                <ul className="info-list">
+                                    <li>Species observations: <Link to={"/species/" + image.taxonId}>{image.taxonId}</Link></li>
+                                    <li>MoultDB data: <a href={"https://moultdb.org/species/inaturalist/" + image.taxonId} target="_blank" rel="noopener noreferrer">
+                                        {image.taxonId}
+                                    </a></li>
+                                    {image.uri && (
+                                        <li>
+                                        <span className="font-medium">iNaturalist observation:</span>
+                                            <a href={image.uri} target="_blank" rel="noopener noreferrer">
+                                                {image.inatId}
+                                            </a>
+                                        </li>
+                                    )}
                                 </ul>
                             </div>
                         </div>
