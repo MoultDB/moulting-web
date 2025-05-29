@@ -1,0 +1,45 @@
+.species-hero {
+  background-position: center;
+  text-align: center;
+  background-size: cover;
+  position: relative;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.species-hero h1 {
+  font-family: 'Dosis', sans-serif;
+  font-size: 36px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.species-hero ul.breadcumb {
+  list-style-type: none;
+}
+.species-hero ul.breadcumb li.active a {
+  color: #4280bf;
+}
+.species-hero ul.breadcumb li,
+.species-hero ul.breadcumb a {
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.species-hero ul.breadcumb span {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.species-hero:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+}

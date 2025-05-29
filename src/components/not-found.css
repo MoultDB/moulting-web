@@ -1,0 +1,30 @@
+.notfound-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.notfound-content {
+  text-align: center;
+}
+
+.notfound-image {
+  max-width: 400px;
+  width: 100%;
+}
+
+.notfound-text {
+  font-size: 18px;
+  color: black;
+  margin-top: 10px;
+}
+
+.notfound-content li {
+  color:darkblue;
+}
+
+.notfound-content p {
+  color:darkblue;
+}

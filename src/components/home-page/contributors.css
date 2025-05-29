@@ -1,0 +1,65 @@
+.contributors .contr-item {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.contributors .contr-item img {
+  margin-right: 20px;
+  border-radius: 3px;
+  width: 70px;  /* Set a fixed width */
+  height: 70px; /* Set a fixed height */
+  object-fit: cover; /* Crop the image to fit the container */
+  object-position: center; /* Center the cropped image */
+}
+
+.contributors .contr-item .contr-author h6 a {
+  font-family: 'Dosis', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: none;
+}
+.contributors .contr-item .contr-author span {
+  font-family: 'Dosis', sans-serif;
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.contributors .contr-item:hover h6 a {
+  color: #dcf836;
+}
+.contributors a.btn {
+  font-family: 'Dosis', sans-serif;
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.contributors a.btn i {
+  margin-left: 5px;
+}
+.contributors a.btn:hover {
+  color: #dcf836;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    margin-left: 0;
+  }
+}
+
+.contributors{
+  margin-left: 60px;
+
+}
+
+.sb-title{
+  color: white;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  clear: both;
+  line-height: 1;
+}

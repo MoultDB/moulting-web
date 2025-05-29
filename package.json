@@ -1,6 +1,6 @@
 {
   "name": "moulting-web",
-  "version": "0.2.0-SNAPSHOT",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -11,6 +11,7 @@
     "bootstrap": "5.2.3",
     "bootstrap-icons": "^1.10.5",
     "jquery": "^3.7.0",
+    "lucide-react": "^0.475.0",
     "markdown-to-jsx": "^7.2.1",
     "react": "^18.2.0",
     "react-bootstrap-icons": "^1.10.3",

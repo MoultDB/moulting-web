@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Markdown from 'markdown-to-jsx';
-import Notfound from "../notfound";
+import NotFound from "../not-found";
 import {withRouter} from '../../common/with-router';
 import ChangePageTitle from "../../common/change-page-title";
 
@@ -54,7 +54,7 @@ class MarkdownPage extends Component {
                     </div>
                 </div>
         } else {
-            text = <Notfound />;
+            text = <NotFound />;
         }
         return <main>{text}</main>
     }

@@ -1,65 +1,11 @@
 import React from 'react';
 import './hero.css';
-import { Link } from "react-router-dom";
-import chelicherata from "../../assets/images/uploads/main_slider/chelicherata.jpg";
-import myriapoda from "../../assets/images/uploads/main_slider/myriapoda.jpg";
-import crostacea from "../../assets/images/uploads/main_slider/crostacea.jpg";
-import hexapoda from "../../assets/images/uploads/main_slider/hexapoda.jpg";
 import Slider from "react-slick";
-import AuthService from "../../services/auth.service";
 import SocialLinks from "../common/social-links";
-import ImageService from "../../services/image.service";
+import TaxonItem from './taxon-item';
+import {PROJECT_URL} from "../../services/image.service";
 
-class TaxonItem extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            files: undefined
-        };
-
-    }
-
-    componentDidMount() {
-        if (this.props.taxonName) {
-            ImageService.getFilesFromTaxon(this.props.taxonName)
-                .then((response) => {
-                    this.setState({
-                        files: response.data.data
-                    });
-                })
-                .catch(() => {
-                    this.setState({
-                        files: undefined
-                    });
-                });
-        }
-    }
-
-    render() {
-        let {src, taxonName} = this.props;
-        let {files} = this.state;
-        let speciesCount = 0;
-        if (files) {
-            speciesCount = files.length;
-        }
-
-        const href = "/explore/" + taxonName;
-        return <div className="photo-item">
-            {/*<Link to={href}>*/}
-                <div className="ph-img">
-                    <img src={src} alt={taxonName}/>
-                </div>
-                <div className="title-in">
-                    <h6>{taxonName}</h6>
-                    {/*<p><span>{speciesCount}</span> photos uploaded</p>*/}
-                </div>
-            {/*</Link>*/}
-        </div>
-    }
-}
-
-const HeroSlider = () => {
+const HeroSlider = ({ images }) => {
     const settings = {
         slidesToShow: 4,
         dots: false,
@@ -92,60 +38,87 @@ const HeroSlider = () => {
             }
         ]
     };
+
+    // Taxon images with path mapping
+    const taxonImages = [
+        { src: images[0], taxonName: "Chelicerata", taxonId: "245097", description: "Photo by huttonia" },
+        { src: images[1], taxonName: "Myriapoda", taxonId: "144128", description: "Photo by melvynyeo" },
+        { src: images[2], taxonName: "Crustacea", taxonId: "85493", description: "Photo by melvynyeo" }, 
+        { src: images[3], taxonName: "Hexapoda", taxonId: "372739", description: "Photo by gillessanmartin"}
+    ];
+
     return (
         <div className="hero-slider">
             <Slider {...settings}>
-                <TaxonItem src={chelicherata} taxonName={"Chelicerata"}/>
-                <TaxonItem src={myriapoda} taxonName={"Myriapoda"}/>
-                <TaxonItem src={crostacea} taxonName={"Crustacea"}/>
-                <TaxonItem src={hexapoda} taxonName={"Hexapoda"}/>
+                {taxonImages.map((item, index) => (
+                    <TaxonItem key={index} src={item.src} taxonName={item.taxonName} path={item.taxonId} description={item.description} />
+                ))}
             </Slider>
         </div>
     );
-}
+};
 
 export default class Hero extends React.Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
-            currentUser: null
+            images: []
         };
     }
 
     componentDidMount() {
-        const currentUser = AuthService.getCurrentUser();
-        this.setState({ currentUser: currentUser })
+
+        const urls = [
+            'https://inaturalist-open-data.s3.amazonaws.com/photos/405101307/medium.jpeg', // Chelicerata
+            'https://inaturalist-open-data.s3.amazonaws.com/photos/412140258/medium.jpg', // Myriapoda
+            'https://inaturalist-open-data.s3.amazonaws.com/photos/412460648/medium.jpg', // Crustacea
+            'https://inaturalist-open-data.s3.amazonaws.com/photos/384958717/medium.jpg' // Hexapoda
+        ];
+
+        this.setState({ images: urls });
     }
 
     render() {
-        return <div className="slider photo-items">
-            <div className="container">
-                <div className="row">
-                    <div className="social-link">
-                        <p>Follow us: </p>
-                        <SocialLinks />
+        return (
+            <div className="slider photo-items">
+                <div className="container">
+                    <div className="row">
+                        <div className="social-link">
+                            <p>Follow us: </p>
+                            <SocialLinks />
+                        </div>
+
+                        <div className="description">
+                            <h1>Contribute to Science!</h1>
+                            <p>
+                            This site is dedicated to citizen science, focusing on the study of arthropod molting through our 
+                            iNaturalist project. Join us by contributing photos or observations of this fascinating process. 
+                            Your contributions will be shared online, with full credit to you. Explore the diverse collection 
+                            of images and data directly from iNaturalist and help advance our understanding of arthropod biology.
+                            </p>
+                        </div>
+
+                        <HeroSlider images={this.state.images} />
+
+                        <div className="hero-button">
+                            <div className="button-wrapper">
+                                <a href={PROJECT_URL}
+                                   rel="noopener noreferrer"
+                                   target="_blank"
+                                   className="pushable red-button">
+                                    <span className="front">Go to iNaturalist</span>
+                                </a>
+
+                                <a href="/tutorial"
+                                   className="pushable white-button">
+                                    <span className="front">How to upload</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="description">
-                        <h1> Contribute to Science! </h1>
-                        This is a citizen science project to gather information on arthropod moulting. You will
-                        become a nature reporter, posting photos, videos or any kind of information you can glean
-                        about this fashinating process. As part of this community and working together towards the
-                        same goal, all the information are posted online, acknowledging the reporter who contributed
-                        the data.
-                    </div>
-
-                    <HeroSlider />
-
-                    <div className="hero-button">
-                        <a href={"https://www.inaturalist.org/projects/moulting-arthropods"}
-                           rel={"noopener noreferrer"} target={"_blank"}>Let's start</a>
-                    </div>
-
                 </div>
             </div>
-        </div>;
+        );
     }
 }

@@ -2,7 +2,7 @@ header {
     position: absolute;
     z-index: 100;
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(15, 33, 51, 0.8);
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
