@@ -133,13 +133,20 @@ export default function Header() {
                     />
                     {suggestions.length > 0 && (
                         <ul className="autocomplete-list">
-                            {suggestions.map((s) => (
+                            
+                            {suggestions.slice(0, 20).map((s) => (
                                 <li key={s.scientificName} onClick={() => handleSelectSuggestion(s)}>
                                     {s.scientificName}
                                 </li>
                             ))}
+
+
+
+                            
                         </ul>
                     )}
+
+
                 </div>
 
                 <div className="social-link">
