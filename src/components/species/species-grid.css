@@ -19,3 +19,10 @@
   }
 }
 
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* o 100vh se vuoi centrare a piena pagina */
+  width: 100%;
+}

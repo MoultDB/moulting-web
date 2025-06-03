@@ -150,3 +150,49 @@ header .top-search input {
     display: none;
 }
 
+.social-link {
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-end;
+}
+.social-link p {
+    font-family: 'Dosis', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.social-link a{
+    margin-top: 10px;
+}
+
+.autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 17%;
+    width: 80%;
+    background-color: #233a50;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.autocomplete-list li {
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+.autocomplete-list li:hover,
+.autocomplete-list li.highlighted {
+    background-color: #dcf836;
+    color: #000;
+}

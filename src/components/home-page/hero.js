@@ -1,7 +1,6 @@
 import React from 'react';
 import './hero.css';
 import Slider from "react-slick";
-import SocialLinks from "../common/social-links";
 import TaxonItem from './taxon-item';
 import {PROJECT_URL} from "../../services/image.service";
 
@@ -84,11 +83,6 @@ export default class Hero extends React.Component {
             <div className="slider photo-items">
                 <div className="container">
                     <div className="row">
-                        <div className="social-link">
-                            <p>Follow us: </p>
-                            <SocialLinks />
-                        </div>
-
                         <div className="description">
                             <h1>Contribute to Science!</h1>
                             <p>

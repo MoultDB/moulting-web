@@ -4,24 +4,29 @@ import SpeciesItem from './species-item';
 import Loader from '../common/loader';
 
 const SpeciesGrid = ({ images, loading }) => {
+    if (loading) {
+        return (
+            <div className="loader-wrapper">
+                <Loader />
+            </div>
+        );
+    }
+
     return (
         <div className="flex-wrap-specieslist">
-            {loading ? (
-                <Loader /> 
+            {images.length > 0 ? (
+                images.map((image, index) => (
+                    <SpeciesItem 
+                        key={index} 
+                        image={image} 
+                    />
+                ))
             ) : (
-                images.length > 0 ? (
-                    images.map((image, index) => (
-                        <SpeciesItem 
-                            key={index} 
-                            image={image} 
-                        />
-                    ))
-                ) : (
-                    <p className="no-results">No images found.</p>
-                )
+                <p className="no-results">No images found.</p>
             )}
         </div>
     );
 };
+
 
 export default SpeciesGrid;

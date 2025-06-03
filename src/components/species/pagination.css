@@ -115,3 +115,9 @@
 .topbar-filter .pagination2 a:hover {
   color: #dcf836;
 }
+
+.pagination-ellipsis {
+  padding: 0 5px;
+  color: #999;
+  cursor: default;
+}

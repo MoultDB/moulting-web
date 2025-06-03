@@ -70,22 +70,7 @@
 
 
 
-.slider .social-link {
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: flex-end;
-}
-.slider .social-link p {
-    font-family: 'Dosis', sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    margin-right: 15px;
-}
+
 
 .slider .hero-slider {
     padding-bottom: 30px;
@@ -139,7 +124,7 @@
 }
 
 .description{
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 .description h1 {
@@ -158,3 +143,8 @@
 .species-hero .hero-ct {
     padding-top: 10px;
     }
+
+
+.photo-item{
+    margin-top: 100 px ;
+}

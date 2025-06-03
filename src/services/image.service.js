@@ -94,10 +94,12 @@ class ImageService {
                     latitude: !isNaN(latitude) ? latitude : null,
                     longitude: !isNaN(longitude) ? longitude : null,
                     description: result.description || 'No description available',
-                    categories, 
+                    categories,
                     uri: result.uri || null,
-                    inProject: result.project_ids?.includes(PROJECT_ID)
+                    inProject: result.project_ids?.includes(PROJECT_ID),
+                    observed_on: result.observed_on || null
                 };
+
             }).filter(observation => observation !== null);
         } catch (error) {
             console.error('Error fetching images:', error);

@@ -306,3 +306,21 @@ ul {
 .row:after {
   clear: both;
 }
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.page-content {
+  flex: 1;
+}

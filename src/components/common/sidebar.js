@@ -1,54 +1,79 @@
-import React from 'react';
-import './sidebar.css'
+import React, { useState } from 'react';
+import './sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({ onSearch, minYear, maxYear }) => {
+    const [stage, setStage] = useState('');
+    const [sex, setSex] = useState('');
+    const [yearFrom, setYearFrom] = useState('');
+    const [yearTo, setYearTo] = useState('');
+    const [captive, setCaptive] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSearch({ stage, sex, yearFrom, yearTo, captive });
+    };
+
+    const yearOptions = Array.from({ length: maxYear - minYear + 1 }, (_, i) => minYear + i);
+
     return (
         <div className="sidebar">
             <div className="search-form">
                 <h4 className="sb-title">Advanced Search</h4>
-                <form className="form-style-1" action="#">
+                <form className="form-style-1" onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-md-12 form-it">
-                            <label>Species name</label>
-                            <input type="text" placeholder="Enter keywords" />
-                        </div>
-                        <div className="col-md-12 form-it">
                             <label>Moulting Stage</label>
-                            <select>
-                                <option value="range">Pre-Moult</option>
-                                <option value="saab">Moulting</option>
-                                <option value="range">Post-Moult</option>
-                                <option value="saab">Exuviae</option>
+                            <select value={stage} onChange={(e) => setStage(e.target.value)}>
+                                <option value="">Any</option>
+                                <option value="Pre-Moult">Pre-Moult</option>
+                                <option value="Moulting">Moulting</option>
+                                <option value="Post-Moult">Post-Moult</option>
+                                <option value="Exuviae">Exuviae</option>
                             </select>
                         </div>
+
                         <div className="col-md-12 form-it">
                             <label>Sex</label>
-                            <select>
-                                <option value="range">Male</option>
-                                <option value="saab">Female</option>
+                            <select value={sex} onChange={(e) => setSex(e.target.value)}>
+                                <option value="">Any</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
                             </select>
                         </div>
+
+                        <div className="col-md-12 form-it">
+                            <label>Captivity</label>
+                            <select value={captive} onChange={(e) => setCaptive(e.target.value)}>
+                                <option value="">Any</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
                         <div className="col-md-12 form-it">
                             <label>Release Year</label>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <select>
-                                        <option value="range">From</option>
-                                        <option value="number">2010</option>
-                                        <option value="number">2011</option>
+                                    <select value={yearFrom} onChange={(e) => setYearFrom(e.target.value)}>
+                                        <option value="">From</option>
+                                        {yearOptions.map(y => (
+                                            <option key={y} value={y}>{y}</option>
+                                        ))}
                                     </select>
                                 </div>
                                 <div className="col-md-6">
-                                    <select>
-                                        <option value="range">To</option>
-                                        <option value="number">2020</option>
-                                        <option value="number">2021</option>
+                                    <select value={yearTo} onChange={(e) => setYearTo(e.target.value)}>
+                                        <option value="">To</option>
+                                        {yearOptions.map(y => (
+                                            <option key={y} value={y}>{y}</option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>
                         </div>
+
                         <div className="col-md-12">
-                            <input className="submit" type="submit" value="submit" />
+                            <input className="submit" type="submit" value="Apply Filters" />
                         </div>
                     </div>
                 </form>
