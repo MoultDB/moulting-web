@@ -84,6 +84,25 @@ const SpeciesPage = () => {
         setCurrentPage(1);
     };
 
+
+    const handleSortChange = (order) => {
+    const listToSort = filteredImages.length > 0 ? [...filteredImages] : [...images];
+
+    const sorted = listToSort.sort((a, b) => {
+        const dateA = new Date(a.observed_on);
+        const dateB = new Date(b.observed_on);
+        return order === 'asc' ? dateA - dateB : dateB - dateA;
+    });
+
+    if (filteredImages.length > 0) {
+        setFilteredImages(sorted);
+    } else {
+        setImages(sorted);
+    }
+
+    setCurrentPage(1);
+    };
+
     return (
         <div className="page-wrapper">
             <div className="page-content">
@@ -92,7 +111,10 @@ const SpeciesPage = () => {
                     <div className="container">
                         <div className="row ipad-width">
                             <div className="col-md-8 col-sm-12 col-xs-12">
-                                <TopBarFilter totalSpecies={activeList.length} />
+                                <TopBarFilter 
+                                  totalSpecies={activeList.length} 
+                                  handleSortChange={handleSortChange}
+                                />
                                 {error && <p className="error">{error}</p>}
                                 <SpeciesGrid
                                     images={currentImages}
