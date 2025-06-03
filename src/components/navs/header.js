@@ -17,7 +17,6 @@ export default function Header() {
         if (value.length > 1) {
             try {
                 const results = await taxonService.searchTaxaByName(value);
-                console.log("[DEBUG] Autocomplete results:", results);
                 setSuggestions(results);
             } catch (err) {
                 console.error("Autocomplete error", err);

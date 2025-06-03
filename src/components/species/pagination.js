@@ -2,9 +2,11 @@ import React from 'react';
 import "./pagination.css";
 
 const Pagination = ({ speciesPerPage, totalSpecies, paginate, currentPage, handleSpeciesPerPageChange }) => {
+    
+    // Calculate the total number of pages
     const totalPages = Math.ceil(totalSpecies / speciesPerPage);
 
-    // Genera la sequenza paginata con ellissi
+    // Generates the paginated sequence with ellipses
     const getPageRange = (totalPages, currentPage, delta = 2) => {
         const range = [];
         const rangeWithDots = [];

@@ -26,6 +26,7 @@ const SpeciesPage = () => {
                 setImages(results);
                 setFilteredImages([]);
             } catch (error) {
+                console.error('Error fetching images:', error);
                 setError('Failed to load images. Please try again later.');
             } finally {
                 setLoading(false);
@@ -44,29 +45,27 @@ const SpeciesPage = () => {
     const handleSearch = (filters) => {
         const { stage, sex, yearFrom, yearTo } = filters;
 
-    const filtered = images.filter(img => {
-        const categories = img.categories || {};
-        const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
-        const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
-        const date = img.observed_on;
-        let pass = true;
+        const filtered = images.filter(img => {
+            const categories = img.categories || {};
+            const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
+            const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
+            const date = img.observed_on;
+            let pass = true;
 
-        if (stage && !stageValue.includes(stage.toLowerCase())) pass = false;
-        if (sex && !sexValue.includes(sex.toLowerCase())) pass = false;
+            if (stage && !stageValue.includes(stage.toLowerCase())) pass = false;
+            if (sex && !sexValue.includes(sex.toLowerCase())) pass = false;
 
-        if (yearFrom && date) {
-            const y = new Date(date).getFullYear();
-            if (y < parseInt(yearFrom)) pass = false;
-        }
+            if (yearFrom && date) {
+                const y = new Date(date).getFullYear();
+                if (y < parseInt(yearFrom)) pass = false;
+            }
 
-        if (yearTo && date) {
-            const y = new Date(date).getFullYear();
-            if (y > parseInt(yearTo)) pass = false;
-        }
-
-        return pass;
-    });
-
+            if (yearTo && date) {
+                const y = new Date(date).getFullYear();
+                if (y > parseInt(yearTo)) pass = false;
+            }
+            return pass;
+        });
 
         setFilteredImages(filtered);
         setCurrentPage(1);
@@ -77,6 +76,7 @@ const SpeciesPage = () => {
     const activeList = filteredImages.length > 0 ? filteredImages : images;
     const currentImages = activeList.slice(indexOfFirstSpecies, indexOfLastSpecies);
 
+    // Update current page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const handleSpeciesPerPageChange = (speciesPerPage) => {

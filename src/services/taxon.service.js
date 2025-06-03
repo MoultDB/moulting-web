@@ -1,10 +1,7 @@
-import axios from 'axios';
-
-const BASE_URL = "https://www.moultdb.org/moultdb-api";
 
 const searchTaxaByName = async (text) => {
     try {
-        const url = `${BASE_URL}/search/taxon_autocomplete?q=${encodeURIComponent(text)}`;
+        const url = process.env.REACT_APP_API_URL + `/search/taxon_autocomplete?q=${encodeURIComponent(text)}`;
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
@@ -23,10 +20,8 @@ const searchTaxaByName = async (text) => {
             return { ...obj, score };
         });
 
-        const sorted = scored.sort((a, b) => a.score - b.score).slice(0, 5);
+        return scored.sort((a, b) => a.score - b.score).slice(0, 5);
 
-        console.log("[DEBUG] Sorted autocomplete results:", sorted);
-        return sorted;
     } catch (error) {
         console.error("Autocomplete fetch error:", error);
         throw error;
