@@ -7,11 +7,10 @@ import Loader from "../common/loader";
 import { getContributorUrl } from "../home-page/contributors";
 
 const ObservationPage = () => {
-    let params = useParams();
+    const params = useParams();
     const [image, setImage] = useState(true);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -56,10 +55,9 @@ const ObservationPage = () => {
                     <p className="contributor">
                         Contributed by: <a href={getContributorUrl(image.login)}>{image.login}</a>
                     </p>
-            
+
                     <div className="image-card">
                         <div className="top-section">
-                            {/* Image section */}
                             <div className="image-section">
                                 <div className="relative w-full">
                                     <img
@@ -86,8 +84,7 @@ const ObservationPage = () => {
                                     ))}
                                 </div>
                             </div>
-            
-                            {/* Maps top right */}
+
                             <div className="map-section">
                                 <iframe
                                     id="mapsource"
@@ -101,50 +98,87 @@ const ObservationPage = () => {
                                 ></iframe>
                             </div>
                         </div>
-            
-                        <div className="bottom-section">
-                            {/* Description section */}
-                            <div className="description-section subsection">
-                                <h2 className="info-title">Description</h2>
-                                <p>{image.description}</p>
-                            </div>
-            
-                            {/* Details section */}
-                            <div className="list-section subsection">
-                                <h2 className="info-title">Details</h2>
-                                <ul className="info-list">
-                                    <li>
-                                        <span className="font-medium">In <a href={PROJECT_URL} rel="noopener noreferrer"
-                                               target="_blank">Moulting arthropods</a> project:</span>
-                                        {image.inProject ? "yes" : "no"}
-                                    </li>
-                                    {image.categories && Object.entries(image.categories).map(([key, value]) => (
-                                        <li key={key}><span className="font-medium">{key}:</span> {value}</li>
-                                    ))}
-                                </ul>
+
+                        <div className="bottom-section new-layout">
+                            <div className="left-column">
+                                <div className="description-section subsection">
+                                    <h2 className="info-title">Description</h2>
+                                    <p>{image.description || "No description provided."}</p>
+                                </div>
                             </div>
 
-                            {/* Link section */}
-                            <div className="list-section subsection">
-                                <h2 className="info-title">Links</h2>
-                                <ul className="info-list">
-                                    <li>Species observations: <Link to={"/species/" + image.taxonId}>{image.taxonId}</Link></li>
-                                    <li>MoultDB data: <a href={"https://moultdb.org/species/inaturalist/" + image.taxonId} target="_blank" rel="noopener noreferrer">
-                                        {image.taxonId}
-                                    </a></li>
-                                    {image.uri && (
+                            <div className="right-column">
+                                <div className="combined-box subsection">
+                                    <div className="details-subbox">
+                                        <h2 className="info-title">Details</h2>
+                                        <ul className="info-list">
+                                            <li>
+                                                <span className="font-medium">
+                                                    In <a href={PROJECT_URL} target="_blank" rel="noopener noreferrer">
+                                                        Moulting arthropods
+                                                    </a> project:
+                                                </span>{" "}
+                                                {image.inProject ? "Yes" : "No"}
+                                            </li>
+
+                                            {image.categories && (
+                                                <>
+                                                    {["Moulting Stage", "Sex (if identifiable)", "Captive/cultivated", "Fossil"].map((key) => {
+                                                        const value = image.categories[key];
+                                                        if (!value) return null;
+
+                                                        const labelMap = {
+                                                            "Moulting Stage": "Moulting Stage",
+                                                            "Sex (if identifiable)": "Sex",
+                                                            "Captive/cultivated": "Captivity",
+                                                            "Fossil": "Fossil"
+                                                        };
+
+                                                        return (
+                                                            <li key={key}>
+                                                                <span className="font-medium">{labelMap[key]}:</span> {value}
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </>
+                                            )}
+                                        </ul>
+                                    </div>
+
+                                    <hr className="section-divider" />
+
+                                    <div className="links-subbox">
+                                      <h2 className="info-title">Links</h2>
+                                      <ul className="info-list">
                                         <li>
-                                        <span className="font-medium">iNaturalist observation:</span>
-                                            <a href={image.uri} target="_blank" rel="noopener noreferrer">
-                                                {image.inatId}
-                                            </a>
+                                          <Link to={"/species/" + image.taxonId}>Species observations</Link>
                                         </li>
-                                    )}
-                                </ul>
+                                        <li>
+                                          <a
+                                            href={"https://moultdb.org/species/inaturalist/" + image.taxonId}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                          >
+                                            MoultDB data
+                                          </a>
+                                        </li>
+                                        {image.uri && (
+                                          <li>
+                                            <a href={image.uri} target="_blank" rel="noopener noreferrer">
+                                              iNaturalist observation
+                                            </a>
+                                          </li>
+                                        )}
+                                      </ul>
+                                    </div>
+
+
+
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
-            
                 </>
             )}
         </div>
