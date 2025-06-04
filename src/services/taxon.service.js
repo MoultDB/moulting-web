@@ -1,4 +1,3 @@
-
 const searchTaxaByName = async (text) => {
     try {
         const url = process.env.REACT_APP_API_URL + `/search/taxon_autocomplete?q=${encodeURIComponent(text)}`;
@@ -20,8 +19,8 @@ const searchTaxaByName = async (text) => {
             return { ...obj, score };
         });
 
-        return scored.sort((a, b) => a.score - b.score).slice(0, 5);
-
+        const sorted = scored.sort((a, b) => a.score - b.score).slice(0, 20);
+        return sorted;
     } catch (error) {
         console.error("Autocomplete fetch error:", error);
         throw error;

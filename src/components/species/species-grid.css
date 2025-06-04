@@ -3,8 +3,7 @@
   display: grid;
   min-height: 500px; 
   width: 100%;
-  grid-template-columns: repeat(4, 1fr); /* 4 images per row */
-  margin-left: -35px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media (max-width: 991px) {
@@ -23,6 +22,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh; /* o 100vh se vuoi centrare a piena pagina */
+  height: 60vh;
   width: 100%;
+}
+
+.no-results-wrapper {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  width: 100%;
+}
+
+.no-results-message {
+  color: #fff;
+  font-size: 18px;
+  opacity: 0.85;
+  
 }

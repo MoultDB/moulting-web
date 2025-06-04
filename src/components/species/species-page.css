@@ -324,3 +324,11 @@ html, body, #root {
 .page-content {
   flex: 1;
 }
+
+.no-results-message {
+  color: #abb7c4;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 20px;
+  text-align: center;
+}

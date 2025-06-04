@@ -13,20 +13,25 @@ const SpeciesGrid = ({ images, loading }) => {
     }
 
     return (
-        <div className="flex-wrap-specieslist">
+        <>
             {images.length > 0 ? (
-                images.map((image, index) => (
-                    <SpeciesItem 
-                        key={index} 
-                        image={image} 
-                    />
-                ))
+                <div className="flex-wrap-specieslist">
+                    {images.map((image, index) => (
+                        <SpeciesItem key={index} image={image} />
+                    ))}
+                </div>
             ) : (
-                <p className="no-results">No images found.</p>
+                <div className="no-results-wrapper">
+                    <p className="no-results-message">
+                        No observations match the selected filters.
+                    </p>
+                </div>
             )}
-        </div>
+        </>
     );
+
 };
+
 
 
 export default SpeciesGrid;

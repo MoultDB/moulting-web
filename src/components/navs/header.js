@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// header.js
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './header.css';
 import Logo from "../../assets/images/moultdb-logo.png";
@@ -9,17 +10,28 @@ import axios from "axios";
 export default function Header() {
     const [query, setQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const [activeIndex, setActiveIndex] = useState(-1);
+    const wrapperRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setSuggestions([]);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const handleInputChange = async (e) => {
         const value = e.target.value;
         setQuery(value);
-
+        setActiveIndex(-1);
         if (value.length > 1) {
             try {
                 const results = await taxonService.searchTaxaByName(value);
                 setSuggestions(results);
-            } catch (err) {
-                console.error("Autocomplete error", err);
+            } catch {
                 setSuggestions([]);
             }
         } else {
@@ -33,50 +45,35 @@ export default function Header() {
                 params: { q: name }
             });
             return response.data.results[0]?.id || null;
-        } catch (err) {
-            console.error("Fallback iNaturalist lookup failed:", err);
+        } catch {
             return null;
         }
     };
 
-    const redirectToSpecies = (inatId) => {
-        if (inatId) {
-            window.location.href = `/species/${inatId}`;
-        } else {
-            alert("No matching iNaturalist taxon ID found.");
-        }
+    const redirectToSpecies = (id) => {
+        if (id) window.location.href = `/species/${id}`;
+        else alert("No matching iNaturalist taxon ID found.");
     };
 
-    const handleSelectSuggestion = async (suggestion) => {
-        const inatId = suggestion.dbXrefs?.find(
-            (xref) => xref.dataSource?.shortName === "inaturalist"
-        )?.accession;
-
-        if (inatId) {
-            redirectToSpecies(inatId);
-        } else {
-            const fallbackId = await fetchInatIdFromName(suggestion.scientificName);
-            redirectToSpecies(fallbackId);
-        }
+    const handleSelectSuggestion = async (s) => {
+        const inatId = s.dbXrefs?.find(x => x.dataSource?.shortName === "inaturalist")?.accession;
+        redirectToSpecies(inatId || await fetchInatIdFromName(s.scientificName));
     };
 
     const handleKeyDown = async (e) => {
-        if (e.key === 'Enter' && query.length > 1) {
-            try {
+        if (e.key === 'ArrowDown') {
+            setActiveIndex(i => Math.min(i + 1, Math.min(suggestions.length, 20) - 1));
+        } else if (e.key === 'ArrowUp') {
+            setActiveIndex(i => Math.max(i - 1, 0));
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (activeIndex >= 0 && activeIndex < suggestions.length) {
+                handleSelectSuggestion(suggestions[activeIndex]);
+            } else if (query.length > 1) {
                 const results = await taxonService.searchTaxaByName(query);
                 const first = results[0];
-
-                let inatId = first?.dbXrefs?.find(
-                    (xref) => xref.dataSource?.shortName === "inaturalist"
-                )?.accession;
-
-                if (!inatId) {
-                    inatId = await fetchInatIdFromName(first?.scientificName);
-                }
-
-                redirectToSpecies(inatId);
-            } catch (err) {
-                console.error("Search error on Enter", err);
+                let inatId = first?.dbXrefs?.find(x => x.dataSource?.shortName === "inaturalist")?.accession;
+                redirectToSpecies(inatId || await fetchInatIdFromName(first?.scientificName));
             }
         }
     };
@@ -90,27 +87,20 @@ export default function Header() {
                             <img src={Logo} alt="MoultDB logo" width="300" height="200" />
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#moultingNav" aria-controls="moultingNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
+                            data-bs-target="#moultingNav">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="moultingNav">
                             <ul className="navbar-nav navbar-end">
                                 <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-                                <li className="nav-item">
-                                    <a href="https://moultdb.org" className="nav-link" target="_blank" rel="noopener noreferrer">
-                                        MoultDB
-                                    </a>
-                                </li>
+                                <li className="nav-item"><a href="https://moultdb.org" className="nav-link" target="_blank" rel="noreferrer">MoultDB</a></li>
                                 <li className="nav-item"><Link to="/tutorial" className="nav-link dropdown-item">Tutorial</Link></li>
                                 <li className="nav-item dropdown">
-                                    <Link role="button" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        About us
-                                    </Link>
+                                    <Link role="button" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">About us</Link>
                                     <ul className="dropdown-menu">
                                         <li><a href="https://moultdb.org/about" className="dropdown-item">The MoultDB project</a></li>
                                         <li><Link to="/about/privacy-notice" className="dropdown-item">moulting.org privacy notice</Link></li>
-                                        <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noopener noreferrer">Source code</a></li>
+                                        <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noreferrer">Source code</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -118,12 +108,8 @@ export default function Header() {
                     </div>
                 </nav>
 
-                {/* Search bar with autocomplete */}
-                <div className="top-search" style={{ position: "relative" }}>
-                    <select>
-                        <option value="all">ALL</option>
-                        {/* <option value="fossils">FOSSILS</option>*/}
-                    </select>
+                <div className="top-search" style={{ position: "relative" }} ref={wrapperRef}>
+                    <select><option value="all">ALL</option></select>
                     <input
                         type="text"
                         placeholder="Search for a clade, a genus or a species that you are looking for"
@@ -132,21 +118,27 @@ export default function Header() {
                         onKeyDown={handleKeyDown}
                     />
                     {suggestions.length > 0 && (
-                        <ul className="autocomplete-list">
-                            
-                            {suggestions.slice(0, 20).map((s) => (
-                                <li key={s.scientificName} onClick={() => handleSelectSuggestion(s)}>
-                                    {s.scientificName}
-                                </li>
-                            ))}
 
-
-
-                            
+                        <ul className="autocomplete-list" role="listbox">
+                          {suggestions.slice(0, 20).map((s, index) => (
+                            <li
+                              key={s.scientificName}
+                              onClick={() => handleSelectSuggestion(s)}
+                              className={index === activeIndex ? "active-suggestion" : ""}
+                              role="option"
+                              aria-selected={index === activeIndex}
+                              ref={el => {
+                                if (index === activeIndex && el) {
+                                  el.scrollIntoView({ block: 'nearest' });
+                                }
+                              }}
+                            >
+                              {s.scientificName}
+                            </li>
+                          ))}
                         </ul>
+
                     )}
-
-
                 </div>
 
                 <div className="social-link">

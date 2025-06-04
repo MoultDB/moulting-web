@@ -45,12 +45,13 @@ const SpeciesPage = () => {
     const handleSearch = (filters) => {
         const { stage, sex, yearFrom, yearTo } = filters;
 
-        const filtered = images.filter(img => {
-            const categories = img.categories || {};
-            const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
-            const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
-            const date = img.observed_on;
-            let pass = true;
+    setFilterApplied(true);
+    const filtered = images.filter(img => {
+        const categories = img.categories || {};
+        const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
+        const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
+        const date = img.observed_on;
+        let pass = true;
 
             if (stage && !stageValue.includes(stage.toLowerCase())) pass = false;
             if (sex && !sexValue.includes(sex.toLowerCase())) pass = false;
@@ -73,7 +74,7 @@ const SpeciesPage = () => {
 
     const indexOfLastSpecies = currentPage * speciesPerPage;
     const indexOfFirstSpecies = indexOfLastSpecies - speciesPerPage;
-    const activeList = filteredImages.length > 0 ? filteredImages : images;
+    const activeList = filterApplied ? filteredImages : images;
     const currentImages = activeList.slice(indexOfFirstSpecies, indexOfLastSpecies);
 
     // Update current page
@@ -115,10 +116,10 @@ const SpeciesPage = () => {
                                   totalSpecies={activeList.length} 
                                   handleSortChange={handleSortChange}
                                 />
-                                {error && <p className="error">{error}</p>}
+                                {error && <p className="error">{error}</p>}                                
                                 <SpeciesGrid
-                                    images={currentImages}
-                                    loading={loading}
+                                  images={currentImages}
+                                  loading={loading}
                                 />
                                 <Pagination
                                     speciesPerPage={speciesPerPage}
