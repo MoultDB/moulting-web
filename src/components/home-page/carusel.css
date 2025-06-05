@@ -118,3 +118,7 @@
   max-width: 220px;
   margin: 0 auto;
 }
+
+.viewall {
+  cursor: pointer;
+}

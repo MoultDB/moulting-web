@@ -13,32 +13,56 @@ const Carusel = () => {
 
   const navigate = useNavigate();
 
-  const handleViewAllClick = () => {
+  const handleViewAllClickStage = () => {
+    const stageMap = {
+      '#Pre-Moult': 'pre-moult',
+      '#Moulting': 'moulting',
+      '#Post-Moult': 'post-moult',
+      '#Exuviae': 'exuviae'
+    };
 
-    navigate(`/species/${selectedTab}`);
+    const stageParam = stageMap[selectedTab] || 'moulting';
+    const taxonId = '47120'; // Arthropoda
+
+    navigate(`/species/${taxonId}?stage=${encodeURIComponent(stageParam)}`);
+  };
+
+
+  const handleViewAllClickKeyword = () => {
+    const tabToAccession = {
+      '#Cicada': 372849,
+      '#Limulidae': 326110,
+      '#Araneae': 47118,
+      '#Coccinellidae': 48486
+    };
+
+    const accession = tabToAccession[selectedTab2];
+    if (accession) {
+      navigate(`/species/${accession}`);
+    }
   };
 
   // Images for the first carousel (MOULTING STAGE)
   const preMoultImages = [
-    { title: 'Acleris placidana', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/377481839/small.jpeg',
-      author: 'osmeterium', observationId: 213591256 },
-    { title: 'Acronicta interrupta', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/367717228/small.jpeg',
-      author: 'osmeterium', observationId: 207862827 },
-    { title: 'Hypagyrtis unipunctata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/262476487/small.jpeg',
-      author: 'osmeterium', observationId: 152075960 },
+    { title: 'Hypselistes florens', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/454305404/small.png',
+      author: 'justinchans', observationId: 253697088 },
+    { title: 'Papilio machaon', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/394711013/small.jpg',
+      author: 'mathieu_h', observationId: 222808123 },
+    { title: 'Phosphila miselioides', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/220080620/small.jpeg',
+      author: 'craigbiegler', observationId: 129500699 },
     { title: 'Acronicta radcliffei', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/222116513/small.jpg',
       author: 'osmeterium', observationId: 130200855 }
   ];
 
   const moultingImages = [
-    { title: 'Halyomorpha halys', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/435512412/small.jpeg',
-      author: 'smpierce', observationId: 244180279 },
-    { title: 'Oncopeltus fasciatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410552760/small.jpeg',
-      author: 'jerryfinlayson', observationId: 231174202 },
-    { title: 'Coenomorpha nervosa', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/468972970/small.jpeg',
-      author: 'christopher1201', observationId: 261078824 },
-    { title: 'Acacesia hamata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/419244473/small.jpeg',
-      author: 'aperturesciencebydan', observationId: 235715975 }
+    { title: 'Porcellio scaber', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/483372653/small.jpeg',
+      author: 'commoncopper', observationId: 268882753 },
+    { title: 'Boisea trivittata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/455744483/small.jpg',
+      author: 'nvertebrained', observationId: 254436129 },
+    { title: 'Uresiphita reversalis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/402636072/small.jpg',
+      author: 'kim_fleming', observationId: 226993160 },
+    { title: 'Trichonephila clavata', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/392516139/small.jpg',
+      author: 'drchancey', observationId: 221637481 }
   ];
 
   const postMoultImages = [
@@ -65,43 +89,43 @@ const Carusel = () => {
 
   // Images for the second carousel (KEYWORDS)
   const cicadaImages = [
-    { title: 'Subfamily Cicadinae', img:'https://inaturalist-open-data.s3.amazonaws.com/photos/403333252/small.jpg',
+    { title: 'Subfamily Cicadinae', img:'https://inaturalist-open-data.s3.amazonaws.com/photos/403333253/small.jpg',
       author: 'gemela-dos', observationId: 227361456 },
-    { title: 'Genus Magicicada', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/378390004/small.jpg',
-      author: 'rhondahw', observationId: 214094702 },
-    { title: 'Subfamily Cicadinae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/453442487/small.jpg',
-      author: 'scml1961', observationId: 253262114 }, // not in project
+    { title: 'Magicicada cassinii', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/383715946/small.jpg',
+      author: 'peterwchen', observationId: 216940156 },
+    { title: 'Psaltoda plaga', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/446784208/small.jpeg',
+      author: 'erinkidd', observationId: 249884643 },
     { title: 'Megatibicen resh', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410415802/small.jpeg',
       author: 'dragondrew7', observationId: 230943284 }
   ];
 
-  const horseshoeCrabImages = [
+  const limulidaeImages = [
     { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/333099014/small.jpeg',
       author: 'livanescudero', observationId: 190067890 },
-    { title: 'Tachypleus tridentatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/28830536/small.jpeg',
-      author: 'musicheer', observationId: 18821768 }, // not in project
-    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/11616611/small.jpg',
+    { title: 'Tachypleus tridentatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/431670497/small.jpeg',
+      author: 'christinanorman', observationId: 242152264 },
+    { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/11616612/small.jpg',
       author: 'ewilhi', observationId: 8671168 },
     { title: 'Limulus polyphemus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/10970136/small.jpg',
       author: 'crbnaturalist', observationId: 8270635 }
   ];
 
-  const spiderImages = [
-    { title: 'Thomisinae', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/357704005/small.jpeg',
-      author: 'dianechattaway', observationId: 202529825 }, // not in project
+  const araneaeImages = [
+    { title: 'Pseudeuophrys lanigera', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/435020081/small.png',
+      author: 'justinchans', observationId: 243920395 },
     { title: 'Eustala', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/315146549/small.jpeg',
       author: 'emiliocorrea320', observationId: 180874175 },
-    { title: 'Argiope aurantia', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/286945520/small.jpg',
-      author: 'heritage226', observationId: 165747862 }, // not in project
-    { title: 'Eriophora ravilla', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/227209417/small.jpg',
-      author: 'sylshessa', observationId: 133394813 } // not in project
+    { title: 'Badumna longinqua', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/394711589/small.jpeg',
+      author: 'aynature', observationId: 222802384 },
+    { title: 'Phidippus johnsoni', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/486208393/small.jpeg',
+      author: 'calebcam', observationId: 270611184 }
   ];
 
-  const ladybugImages = [
+  const coccinellidaeImages = [
     { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/412688650/small.jpeg',
       author: 'blueranchu', observationId: 232300987 },
-    { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/300544000/small.jpg',
-      author: 'frances123', observationId: 173084279 }, // not in project
+    { title: 'Illeis koebelei', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/410856402/small.jpg',
+      author: 'melvynyeo', observationId: 231335115 },
     { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/207420039/small.jpg',
       author: 'seigmond', observationId: 122508700 },
     { title: 'Harmonia axyridis', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/358134799/small.jpeg',
@@ -142,14 +166,14 @@ const Carusel = () => {
       case '#Cicada':
         setKeywords(cicadaImages);
         break;
-      case '#HorseshoeCrab':
-        setKeywords(horseshoeCrabImages);
+      case '#Limulidae':
+        setKeywords(limulidaeImages);
         break;
-      case '#Spider':
-        setKeywords(spiderImages);
+      case '#Araneae':
+        setKeywords(araneaeImages);
         break;
-      case '#Ladybug':
-        setKeywords(ladybugImages);
+      case '#Coccinellidae':
+        setKeywords(coccinellidaeImages);
         break;
 
       default:
@@ -171,7 +195,7 @@ const Carusel = () => {
       {/* First carousel */}
       <div className="title-hd">
         <h2>MOULTING STAGE</h2>
-                <a href="#" className="viewall">View all {'>'}</a>
+        <a className="viewall" onClick={handleViewAllClickStage}>View all {'>'}</a>
       </div>
       <div className="tabs">
         <ul className="tab-links">
@@ -201,15 +225,15 @@ const Carusel = () => {
 
       {/* Second carousel */}
       <div className="title-hd">
-        <h2>KEYWORD</h2>
-        <a href="#" className="viewall">View all {'>'}</a>
+        <h2>TAXONOMIC GROUP</h2>
+        <a className="viewall" onClick={handleViewAllClickKeyword}>View all {'>'}</a>
       </div>
       <div className="tabs">
         <ul className="tab-links">
           <li className={selectedTab2 === '#Cicada' ? 'active' : ''} onClick={() => handleTabClick2('#Cicada')}>#CICADA</li>
-          <li className={selectedTab2 === '#HorseshoeCrab' ? 'active' : ''} onClick={() => handleTabClick2('#HorseshoeCrab')}>#HORSESHOE CRAB</li>
-          <li className={selectedTab2 === '#Spider' ? 'active' : ''} onClick={() => handleTabClick2('#Spider')}>#SPIDER</li>
-          <li className={selectedTab2 === '#Ladybug' ? 'active' : ''} onClick={() => handleTabClick2('#Ladybug')}>#LADYBUG</li>
+          <li className={selectedTab2 === '#Limulidae' ? 'active' : ''} onClick={() => handleTabClick2('#Limulidae')}>#LIMULIDAE</li>
+          <li className={selectedTab2 === '#Araneae' ? 'active' : ''} onClick={() => handleTabClick2('#Araneae')}>#ARANEAE</li>
+          <li className={selectedTab2 === '#Coccinellidae' ? 'active' : ''} onClick={() => handleTabClick2('#Coccinellidae')}>#COCCINELLIDAE</li>
 
         </ul>
         <Slider {...settings}>

@@ -36,6 +36,21 @@ const SpeciesPage = () => {
         fetchImages();
     }, [params.taxonId]);
 
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const stage = params.get('stage');
+        const sex = params.get('sex');
+        const yearFrom = params.get('yearFrom');
+        const yearTo = params.get('yearTo');
+
+        if (stage || sex || yearFrom || yearTo) {
+            handleSearch({ stage, sex, yearFrom, yearTo });
+        }
+    }, [images]);
+
+
+
     const allYears = images
       .map(img => new Date(img.observed_on).getFullYear())
       .filter(y => !isNaN(y));
