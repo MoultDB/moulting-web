@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'https://api.inaturalist.org/v1/observations';
 const PROJECT_ACC = "moulting-arthropods";
 const PROJECT_ID = 200497;
-export const PROJECT_URL = "https://www.inaturalist.org/projects/" + PROJECT_ACC;
+export const INAT_PROJECT_URL = "https://www.inaturalist.org/projects/" + PROJECT_ACC;
 const VALID_LICENSES = ['cc0', 'cc-by', 'cc-by-nc'];
 const BLOCKED_IMAGE_URL = 'https://static.inaturalist.org';
 

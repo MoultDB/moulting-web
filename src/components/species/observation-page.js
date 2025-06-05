@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './observation-page.css';
-import imageService, { PROJECT_URL } from "../../services/image.service";
+import imageService, { INAT_PROJECT_URL } from "../../services/image.service";
 import Loader from "../common/loader";
 import { getContributorUrl } from "../home-page/contributors";
 
@@ -114,7 +114,7 @@ const ObservationPage = () => {
                                         <ul className="info-list">
                                             <li>
                                                 <span className="font-medium">
-                                                    In <a href={PROJECT_URL} target="_blank" rel="noopener noreferrer">
+                                                    In <a href={INAT_PROJECT_URL} target="_blank" rel="noopener noreferrer">
                                                         Moulting arthropods
                                                     </a> project:
                                                 </span>{" "}
