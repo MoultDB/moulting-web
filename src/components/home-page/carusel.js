@@ -171,7 +171,7 @@ const Carusel = () => {
       {/* First carousel */}
       <div className="title-hd">
         <h2>MOULTING STAGE</h2>
-                {/* <a href="#" className="viewall" onClick={handleViewAllClick}>View all <ChevronRight/></a>*/}
+                <a href="#" className="viewall">View all {'>'}</a>
       </div>
       <div className="tabs">
         <ul className="tab-links">
@@ -202,7 +202,7 @@ const Carusel = () => {
       {/* Second carousel */}
       <div className="title-hd">
         <h2>KEYWORD</h2>
-        {/* <a href="#" className="viewall">View all <ChevronRight/></a> */}
+        <a href="#" className="viewall">View all {'>'}</a>
       </div>
       <div className="tabs">
         <ul className="tab-links">

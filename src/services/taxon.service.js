@@ -1,15 +1,20 @@
 const searchTaxaByName = async (text) => {
     try {
-        const url = process.env.REACT_APP_API_URL + `/search/taxon_autocomplete?q=${encodeURIComponent(text)}`;
+        // Production version with env variable:
+        const url = process.env.REACT_APP_API_URL + `/search/inat_search?q=${encodeURIComponent(text)}`;
+
+        // Local or temporary direct version:
+        // const url = `https://moultdb.org/moultdb-api/search/inat_search?q=${encodeURIComponent(text)}`;
+
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const json = await response.json();
-        const allResults = (json.data || []).map(name => ({ scientificName: name }));
+        const results = json.data || [];
 
         const normalizedText = text.toLowerCase();
 
-        const scored = allResults.map(obj => {
+        const scored = results.map(obj => {
             const name = obj.scientificName.toLowerCase();
             const startsWith = name.startsWith(normalizedText) ? 0 : 1;
             const index = name.indexOf(normalizedText);
@@ -19,8 +24,7 @@ const searchTaxaByName = async (text) => {
             return { ...obj, score };
         });
 
-        const sorted = scored.sort((a, b) => a.score - b.score).slice(0, 20);
-        return sorted;
+        return scored.sort((a, b) => a.score - b.score).slice(0, 20);
     } catch (error) {
         console.error("Autocomplete fetch error:", error);
         throw error;
