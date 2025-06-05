@@ -93,14 +93,14 @@ export default function Header() {
                         <div className="collapse navbar-collapse" id="moultingNav">
                             <ul className="navbar-nav navbar-end">
                                 <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-                                <li className="nav-item"><a href="https://moultdb.org" className="nav-link" target="_blank" rel="noreferrer">MoultDB</a></li>
+                                <li className="nav-item"><a href="https://moultdb.org" className="nav-link" target="_blank" rel="noreferrer noopener">MoultDB</a></li>
                                 <li className="nav-item"><Link to="/tutorial" className="nav-link dropdown-item">Tutorial</Link></li>
                                 <li className="nav-item dropdown">
                                     <Link role="button" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">About us</Link>
                                     <ul className="dropdown-menu">
                                         <li><a href="https://moultdb.org/about" className="dropdown-item">The MoultDB project</a></li>
                                         <li><Link to="/about/privacy-notice" className="dropdown-item">moulting.org privacy notice</Link></li>
-                                        <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noreferrer">Source code</a></li>
+                                        <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noreferrer noopener">Source code</a></li>
                                     </ul>
                                 </li>
                             </ul>
