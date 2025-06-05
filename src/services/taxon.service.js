@@ -1,10 +1,10 @@
 const searchTaxaByName = async (text) => {
     try {
         // Production version with env variable:
-        // const url = process.env.REACT_APP_API_URL + `/search/inat_search?q=${encodeURIComponent(text)}`;
+        const url = process.env.REACT_APP_API_URL + `/search/inat_search?q=${encodeURIComponent(text)}`;
 
         // Local or temporary direct version:
-        const url = `https://moultdb.org/moultdb-api/search/inat_search?q=${encodeURIComponent(text)}`;
+        // const url = `https://moultdb.org/moultdb-api/search/inat_search?q=${encodeURIComponent(text)}`;
 
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
