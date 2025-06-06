@@ -66,14 +66,14 @@ const Carusel = () => {
   ];
 
   const postMoultImages = [
-    { title: 'Eurymerodesmus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/461444941/medium.jpg',
+    { title: 'Eurymerodesmus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/461444941/small.jpg',
       author: 'joshvuh', observationId: 257254151 },
     { title: 'Arilus cristatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/396976230/small.jpeg',
       author: 'hmstarnes', observationId: 224012626 },
-    { title: 'Lygaeus turcicus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/404874175/small.jpeg',
-      author: 'gmzelle', observationId: 228178080 },
-    { title: 'Lycorma delicatula', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/405237143/small.jpeg',
-      author: 'wachzim', observationId: 228365538 }
+    { title: 'Stephanitis typica', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/345812310/small.jpeg',
+      author: 'klearad', observationId: 196421662 },
+    { title: 'Musgraveia sulciventris', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/344195570/small.jpeg',
+      author: 'maxcampbell', observationId: 195621598 }
   ];
 
   const exuviaeImages = [

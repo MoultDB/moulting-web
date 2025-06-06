@@ -140,15 +140,17 @@ const ObservationPage = () => {
 
                                             {image.categories && (
                                                 <>
-                                                    {["Moulting Stage", "Sex (if identifiable)", "Captive/cultivated", "Fossil"].map((key) => {
+                                                   {["Moulting Stage", "Life Stage", "Sex (if identifiable)", "Captive/cultivated", "Fossil"].map((key) => {
+
                                                         const value = image.categories[key];
                                                         if (!value) return null;
 
                                                         const labelMap = {
-                                                            "Moulting Stage": "Moulting Stage",
-                                                            "Sex (if identifiable)": "Sex",
-                                                            "Captive/cultivated": "Captivity",
-                                                            "Fossil": "Fossil"
+                                                          "Moulting Stage": "Moulting Stage",
+                                                          "Life Stage": "Life Stage",
+                                                          "Sex (if identifiable)": "Sex",
+                                                          "Captive/cultivated": "Captivity",
+                                                          "Fossil": "Fossil"
                                                         };
 
                                                         return (

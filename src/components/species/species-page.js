@@ -19,6 +19,13 @@ const SpeciesPage = () => {
     const [loading, setLoading] = useState(true);
     const [filterApplied, setFilterApplied] = useState(false);
 
+    // Extract years for the year filter dropdowns
+    const allYears = images
+        .map(img => new Date(img.observed_on).getFullYear())
+        .filter(y => !isNaN(y));
+    const minYear = allYears.length > 0 ? Math.min(...allYears) : null;
+    const maxYear = allYears.length > 0 ? Math.max(...allYears) : null;
+
     useEffect(() => {
         const fetchImages = async () => {
             setLoading(true);
@@ -43,20 +50,15 @@ const SpeciesPage = () => {
         const sex = params.get('sex');
         const yearFrom = params.get('yearFrom');
         const yearTo = params.get('yearTo');
+        const lifeStage = params.get('lifeStage');
 
-        if (stage || sex || yearFrom || yearTo) {
-            handleSearch({ stage, sex, yearFrom, yearTo });
+        if (stage || sex || yearFrom || yearTo || lifeStage) {
+            handleSearch({ stage, sex, yearFrom, yearTo, lifeStage });
         }
     }, [images]);
 
-    const allYears = images
-        .map(img => new Date(img.observed_on).getFullYear())
-        .filter(y => !isNaN(y));
-    const minYear = allYears.length > 0 ? Math.min(...allYears) : null;
-    const maxYear = allYears.length > 0 ? Math.max(...allYears) : null;
-
     const handleSearch = (filters, updateUrl = false) => {
-        const { stage, sex, yearFrom, yearTo } = filters;
+        const { stage, sex, yearFrom, yearTo, lifeStage } = filters;
 
         if (updateUrl) {
             const searchParams = new URLSearchParams();
@@ -64,6 +66,7 @@ const SpeciesPage = () => {
             if (sex) searchParams.set("sex", sex);
             if (yearFrom) searchParams.set("yearFrom", yearFrom);
             if (yearTo) searchParams.set("yearTo", yearTo);
+            if (lifeStage) searchParams.set("lifeStage", lifeStage);
             navigate(`/species/${params.taxonId}?${searchParams.toString()}`);
         }
 
@@ -72,11 +75,16 @@ const SpeciesPage = () => {
             const categories = img.categories || {};
             const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
             const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
+            const lifeStageValue =
+                categories["Life Stage"]?.toLowerCase?.() ||
+                categories["Developmental Stage (Arthropods)"]?.toLowerCase?.() || '';
+
             const date = img.observed_on;
             let pass = true;
 
             if (stage && !stageValue.includes(stage.toLowerCase())) pass = false;
             if (sex && !sexValue.includes(sex.toLowerCase())) pass = false;
+            if (lifeStage && !lifeStageValue.includes(lifeStage.toLowerCase())) pass = false;
 
             if (yearFrom && date) {
                 const y = new Date(date).getFullYear();
@@ -87,12 +95,14 @@ const SpeciesPage = () => {
                 const y = new Date(date).getFullYear();
                 if (y > parseInt(yearTo)) pass = false;
             }
+
             return pass;
         });
 
         setFilteredImages(filtered);
         setCurrentPage(1);
     };
+
 
     const indexOfLastSpecies = currentPage * speciesPerPage;
     const indexOfFirstSpecies = indexOfLastSpecies - speciesPerPage;
@@ -108,12 +118,8 @@ const SpeciesPage = () => {
 
     const handleSortChange = (order) => {
         const listToSort = filteredImages.length > 0 ? [...filteredImages] : [...images];
-
-        const sorted = listToSort.sort((a, b) => {
-            const dateA = new Date(a.observed_on);
-            const dateB = new Date(b.observed_on);
-            return order === 'asc' ? dateA - dateB : dateB - dateA;
-        });
+        const sorted = listToSort.sort((a, b) => new Date(a.observed_on) - new Date(b.observed_on));
+        if (order === 'desc') sorted.reverse();
 
         if (filteredImages.length > 0) {
             setFilteredImages(sorted);
@@ -150,7 +156,11 @@ const SpeciesPage = () => {
                                 />
                             </div>
                             <div className="col-md-4 col-sm-12 col-xs-12">
-                                <Sidebar onSearch={(filters) => handleSearch(filters, true)} minYear={minYear} maxYear={maxYear} />
+                                <Sidebar
+                                    onSearch={(filters) => handleSearch(filters, true)}
+                                    minYear={minYear}
+                                    maxYear={maxYear}
+                                />
                             </div>
                         </div>
                     </div>
