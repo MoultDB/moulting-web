@@ -7,7 +7,7 @@ import './carusel.css';
 
 const Carusel = () => {
   const [selectedTab, setSelectedTab] = useState('#Moulting'); // Set #Moulting as default
-  const [selectedTab2, setSelectedTab2] = useState('#Cicada'); // Set #HorseshoeCrab as default
+  const [selectedTab2, setSelectedTab2] = useState('#Cicadomorpha'); // Set #Cicadomorpha as default
   const [images, setImages] = useState([]);
   const [Keywords, setKeywords] = useState([]);
 
@@ -30,7 +30,7 @@ const Carusel = () => {
 
   const handleViewAllClickKeyword = () => {
     const tabToAccession = {
-      '#Cicada': 372849,
+      '#Cicadomorpha': 372849,
       '#Limulidae': 326110,
       '#Araneae': 47118,
       '#Coccinellidae': 48486
@@ -163,7 +163,7 @@ const Carusel = () => {
   const handleTabClick2 = (tab) => {
     setSelectedTab2(tab);
     switch (tab) {
-      case '#Cicada':
+      case '#Cicadomorpha':
         setKeywords(cicadaImages);
         break;
       case '#Limulidae':
@@ -230,7 +230,7 @@ const Carusel = () => {
       </div>
       <div className="tabs">
         <ul className="tab-links">
-          <li className={selectedTab2 === '#Cicada' ? 'active' : ''} onClick={() => handleTabClick2('#Cicada')}>#CICADA</li>
+          <li className={selectedTab2 === '#Cicadomorpha' ? 'active' : ''} onClick={() => handleTabClick2('#Cicadomorpha')}>#CICADOMORPHA</li>
           <li className={selectedTab2 === '#Limulidae' ? 'active' : ''} onClick={() => handleTabClick2('#Limulidae')}>#LIMULIDAE</li>
           <li className={selectedTab2 === '#Araneae' ? 'active' : ''} onClick={() => handleTabClick2('#Araneae')}>#ARANEAE</li>
           <li className={selectedTab2 === '#Coccinellidae' ? 'active' : ''} onClick={() => handleTabClick2('#Coccinellidae')}>#COCCINELLIDAE</li>
