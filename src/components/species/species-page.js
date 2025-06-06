@@ -7,6 +7,7 @@ import Sidebar from '../common/sidebar';
 import Pagination from './pagination';
 import './species-page.css';
 import imageService from "../../services/image.service";
+import taxonService from "../../services/taxon.service";
 
 const SpeciesPage = () => {
     const params = useParams();
@@ -14,6 +15,7 @@ const SpeciesPage = () => {
     const [images, setImages] = useState([]);
     const [filteredImages, setFilteredImages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [speciesName, setSpeciesName] = useState("");
     const [speciesPerPage, setSpeciesPerPage] = useState(20);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -25,6 +27,7 @@ const SpeciesPage = () => {
         .filter(y => !isNaN(y));
     const minYear = allYears.length > 0 ? Math.min(...allYears) : null;
     const maxYear = allYears.length > 0 ? Math.max(...allYears) : null;
+    const { taxonId } = useParams();
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -43,6 +46,21 @@ const SpeciesPage = () => {
 
         fetchImages();
     }, [params.taxonId]);
+
+
+    useEffect(() => {
+        const fetchTaxon = async () => {
+            try {
+                const taxon = await taxonService.getTaxonById(taxonId);
+                setSpeciesName(taxon.name || "Species");
+            } catch (err) {
+                console.error("Failed to fetch taxon name", err);
+                setSpeciesName("Species");
+            }
+        };
+
+        if (taxonId) fetchTaxon();
+    }, [taxonId]);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -134,7 +152,7 @@ const SpeciesPage = () => {
         <div className="page-wrapper">
             <div className="page-content">
                 <div className="page-single">
-                    <SpeciesHero />
+                    <SpeciesHero speciesName={speciesName} />
                     <div className="container">
                         <div className="row ipad-width">
                             <div className="col-md-8 col-sm-12 col-xs-12">
