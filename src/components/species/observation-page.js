@@ -12,6 +12,7 @@ const ObservationPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [moultDBValid, setMoultDBValid] = useState(false);
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -31,6 +32,22 @@ const ObservationPage = () => {
 
         fetchImages();
     }, [params.taxonId, params.observationId]);
+
+    useEffect(() => {
+        const validateMoultDB = async () => {
+            try {
+                const res = await fetch(`https://moultdb.org/moultdb-api/taxa?datasource=inaturalist&accession=${image.taxonId}`);
+                const json = await res.json();
+                if (json.data) setMoultDBValid(true);
+            } catch (e) {
+                console.warn("Failed to validate MoultDB link", e);
+            }
+        };
+
+        if (image && image.taxonId) {
+            validateMoultDB();
+        }
+    }, [image]);
 
     if (!image) {
         return <p className="text-center text-red-500 font-semibold">Error: No image data available.</p>;
@@ -148,33 +165,31 @@ const ObservationPage = () => {
                                     <hr className="section-divider" />
 
                                     <div className="links-subbox">
-                                      <h2 className="info-title">Links</h2>
-                                      <ul className="info-list">
-                                        <li>
-                                          <Link to={"/species/" + image.taxonId}>Species observations</Link>
-                                        </li>
-                                        <li>
-                                          <a
-                                            href={"https://moultdb.org/species/inaturalist/" + image.taxonId}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                          >
-                                            MoultDB data
-                                          </a>
-                                        </li>
-                                        {image.uri && (
-                                          <li>
-                                            <a href={image.uri} target="_blank" rel="noopener noreferrer">
-                                              iNaturalist observation
-                                            </a>
-                                          </li>
-                                        )}
-                                      </ul>
+                                        <h2 className="info-title">Links</h2>
+                                        <ul className="info-list">
+                                            <li>
+                                                <Link to={"/species/" + image.taxonId}>Species observations</Link>
+                                            </li>
+                                            {moultDBValid && (
+                                              <li>
+                                                  <a
+                                                      href={"https://moultdb.org/species/inaturalist/" + image.taxonId}
+                                                      target="_blank"
+                                                      rel="noopener noreferrer"
+                                                  >
+                                                      MoultDB data
+                                                  </a>
+                                              </li>
+                                            )}
+                                            {image.uri && (
+                                                <li>
+                                                    <a href={image.uri} target="_blank" rel="noopener noreferrer">
+                                                        iNaturalist observation
+                                                    </a>
+                                                </li>
+                                            )}
+                                        </ul>
                                     </div>
-
-
-
-                                    
                                 </div>
                             </div>
                         </div>

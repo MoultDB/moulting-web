@@ -66,8 +66,8 @@ const Carusel = () => {
   ];
 
   const postMoultImages = [
-    { title: 'Zelus longipes', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/405022670/small.jpg',
-      author: 'calvertm', observationId: 228253495 },
+    { title: 'Eurymerodesmus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/461444941/medium.jpg',
+      author: 'joshvuh', observationId: 257254151 },
     { title: 'Arilus cristatus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/396976230/small.jpeg',
       author: 'hmstarnes', observationId: 224012626 },
     { title: 'Lygaeus turcicus', img: 'https://inaturalist-open-data.s3.amazonaws.com/photos/404874175/small.jpeg',
