@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import SpeciesHero from './species-hero';
 import TopBarFilter from './top-bar-filter';
 import SpeciesGrid from './species-grid';
@@ -10,6 +10,7 @@ import imageService from "../../services/image.service";
 
 const SpeciesPage = () => {
     const params = useParams();
+    const navigate = useNavigate();
     const [images, setImages] = useState([]);
     const [filteredImages, setFilteredImages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -36,7 +37,6 @@ const SpeciesPage = () => {
         fetchImages();
     }, [params.taxonId]);
 
-
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const stage = params.get('stage');
@@ -49,24 +49,31 @@ const SpeciesPage = () => {
         }
     }, [images]);
 
-
-
     const allYears = images
-      .map(img => new Date(img.observed_on).getFullYear())
-      .filter(y => !isNaN(y));
+        .map(img => new Date(img.observed_on).getFullYear())
+        .filter(y => !isNaN(y));
     const minYear = allYears.length > 0 ? Math.min(...allYears) : null;
     const maxYear = allYears.length > 0 ? Math.max(...allYears) : null;
 
-    const handleSearch = (filters) => {
+    const handleSearch = (filters, updateUrl = false) => {
         const { stage, sex, yearFrom, yearTo } = filters;
 
-    setFilterApplied(true);
-    const filtered = images.filter(img => {
-        const categories = img.categories || {};
-        const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
-        const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
-        const date = img.observed_on;
-        let pass = true;
+        if (updateUrl) {
+            const searchParams = new URLSearchParams();
+            if (stage) searchParams.set("stage", stage);
+            if (sex) searchParams.set("sex", sex);
+            if (yearFrom) searchParams.set("yearFrom", yearFrom);
+            if (yearTo) searchParams.set("yearTo", yearTo);
+            navigate(`/species/${params.taxonId}?${searchParams.toString()}`);
+        }
+
+        setFilterApplied(true);
+        const filtered = images.filter(img => {
+            const categories = img.categories || {};
+            const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
+            const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
+            const date = img.observed_on;
+            let pass = true;
 
             if (stage && !stageValue.includes(stage.toLowerCase())) pass = false;
             if (sex && !sexValue.includes(sex.toLowerCase())) pass = false;
@@ -92,7 +99,6 @@ const SpeciesPage = () => {
     const activeList = filterApplied ? filteredImages : images;
     const currentImages = activeList.slice(indexOfFirstSpecies, indexOfLastSpecies);
 
-    // Update current page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const handleSpeciesPerPageChange = (speciesPerPage) => {
@@ -100,23 +106,22 @@ const SpeciesPage = () => {
         setCurrentPage(1);
     };
 
-
     const handleSortChange = (order) => {
-    const listToSort = filteredImages.length > 0 ? [...filteredImages] : [...images];
+        const listToSort = filteredImages.length > 0 ? [...filteredImages] : [...images];
 
-    const sorted = listToSort.sort((a, b) => {
-        const dateA = new Date(a.observed_on);
-        const dateB = new Date(b.observed_on);
-        return order === 'asc' ? dateA - dateB : dateB - dateA;
-    });
+        const sorted = listToSort.sort((a, b) => {
+            const dateA = new Date(a.observed_on);
+            const dateB = new Date(b.observed_on);
+            return order === 'asc' ? dateA - dateB : dateB - dateA;
+        });
 
-    if (filteredImages.length > 0) {
-        setFilteredImages(sorted);
-    } else {
-        setImages(sorted);
-    }
+        if (filteredImages.length > 0) {
+            setFilteredImages(sorted);
+        } else {
+            setImages(sorted);
+        }
 
-    setCurrentPage(1);
+        setCurrentPage(1);
     };
 
     return (
@@ -127,14 +132,14 @@ const SpeciesPage = () => {
                     <div className="container">
                         <div className="row ipad-width">
                             <div className="col-md-8 col-sm-12 col-xs-12">
-                                <TopBarFilter 
-                                  totalSpecies={activeList.length} 
-                                  handleSortChange={handleSortChange}
+                                <TopBarFilter
+                                    totalSpecies={activeList.length}
+                                    handleSortChange={handleSortChange}
                                 />
-                                {error && <p className="error">{error}</p>}                                
+                                {error && <p className="error">{error}</p>}
                                 <SpeciesGrid
-                                  images={currentImages}
-                                  loading={loading}
+                                    images={currentImages}
+                                    loading={loading}
                                 />
                                 <Pagination
                                     speciesPerPage={speciesPerPage}
@@ -145,7 +150,7 @@ const SpeciesPage = () => {
                                 />
                             </div>
                             <div className="col-md-4 col-sm-12 col-xs-12">
-                                <Sidebar onSearch={handleSearch} minYear={minYear} maxYear={maxYear} />
+                                <Sidebar onSearch={(filters) => handleSearch(filters, true)} minYear={minYear} maxYear={maxYear} />
                             </div>
                         </div>
                     </div>
