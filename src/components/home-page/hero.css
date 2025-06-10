@@ -148,3 +148,48 @@
 .photo-item{
     margin-top: 100 px ;
 }
+
+
+@media (max-width: 767px) {
+  .slider,
+  .carousel,
+  .hero-slider,
+  .main-image {
+    margin-top: 20px !important;
+  }
+
+  .slider .container .row {
+    flex-direction: column;
+  }
+
+  .ph-img {
+    width: 100%;
+  }
+
+  .hero-slider {
+    order: -1;
+  }
+
+  .description p {
+    font-size: 17px;
+    padding: 0 5px;
+    line-height: 1.5;
+  }
+
+  .description h1 {
+    margin-top: -55px;
+  }
+
+  .hero-button .button-wrapper {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 12px;
+    width: 80%;
+  }
+
+  .hero-button a {
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 0;
+  }
+}

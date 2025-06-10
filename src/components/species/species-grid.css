@@ -6,18 +6,6 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-@media (max-width: 991px) {
-  .flex-wrap-specieslist{
-    margin-right: 10px;
-  }
-}
-@media (max-width: 767px) {
-  .flex-wrap-specieslist {
-    max-width: 200px;
-    margin: 0 auto;
-  }
-}
-
 .loader-wrapper {
   display: flex;
   justify-content: center;
@@ -41,4 +29,37 @@
   font-size: 18px;
   opacity: 0.85;
   
+}
+
+
+@media (max-width: 767px) {
+  .flex-wrap-specieslist {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    padding: 10px !important;
+  }
+
+  .species-item-style-2 {
+    width: 100% !important;
+  }
+
+  .species-item-style-2 img {
+    width: 100% !important;
+    height: 260px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    display: block !important;
+  }
+
+  .mv-item-infor {
+    padding: 6px 0 !important;
+    text-align: center !important;
+  }
+
+  .mv-item-infor h6,
+  .mv-item-infor p {
+    font-size: 14px !important;
+    margin: 0 !important;
+  }
 }

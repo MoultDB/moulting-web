@@ -3,15 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import './carusel.css'; 
+import './carusel.css';
 
 const Carusel = () => {
-  const [selectedTab, setSelectedTab] = useState('#Moulting'); // Set #Moulting as default
-  const [selectedTab2, setSelectedTab2] = useState('#Cicadomorpha'); // Set #Cicadomorpha as default
+  const [selectedTab, setSelectedTab] = useState('#Moulting');
+  const [selectedTab2, setSelectedTab2] = useState('#Cicadomorpha');
   const [images, setImages] = useState([]);
   const [Keywords, setKeywords] = useState([]);
+  const [sliderKey, setSliderKey] = useState(0);
+
 
   const navigate = useNavigate();
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 767;
 
   const handleViewAllClickStage = () => {
     const stageMap = {
@@ -20,13 +24,10 @@ const Carusel = () => {
       '#Post-Moult': 'post-moult',
       '#Exuviae': 'exuviae'
     };
-
     const stageParam = stageMap[selectedTab] || 'moulting';
-    const taxonId = '47120'; // Arthropoda
-
+    const taxonId = '47120';
     navigate(`/species/${taxonId}?stage=${encodeURIComponent(stageParam)}`);
   };
-
 
   const handleViewAllClickKeyword = () => {
     const tabToAccession = {
@@ -35,11 +36,8 @@ const Carusel = () => {
       '#Araneae': 47118,
       '#Coccinellidae': 48486
     };
-
     const accession = tabToAccession[selectedTab2];
-    if (accession) {
-      navigate(`/species/${accession}`);
-    }
+    if (accession) navigate(`/species/${accession}`);
   };
 
   // Images for the first carousel (MOULTING STAGE)
@@ -134,50 +132,33 @@ const Carusel = () => {
 
 
   useEffect(() => {
-    setImages(moultingImages); // Set #Moulting images as default
-    setKeywords(cicadaImages); // Set default images for the second carousel
+    setImages(moultingImages);
+    setKeywords(cicadaImages);
+
+   setTimeout(() => {
+      setSliderKey(prev => prev + 1);
+    }, 100);   
   }, []);
 
-  // Handle tab click for the first carousel
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
     switch (tab) {
-      case '#Pre-Moult':
-        setImages(preMoultImages);
-        break;
-      case '#Moulting':
-        setImages(moultingImages);
-        break;
-      case '#Post-Moult':
-        setImages(postMoultImages);
-        break;
-      case '#Exuviae':
-        setImages(exuviaeImages);
-        break;
-      default:
-        setImages(moultingImages);
+      case '#Pre-Moult': setImages(preMoultImages); break;
+      case '#Moulting': setImages(moultingImages); break;
+      case '#Post-Moult': setImages(postMoultImages); break;
+      case '#Exuviae': setImages(exuviaeImages); break;
+      default: setImages(moultingImages);
     }
   };
 
-  // Handle tab click for the second carousel
   const handleTabClick2 = (tab) => {
     setSelectedTab2(tab);
     switch (tab) {
-      case '#Cicadomorpha':
-        setKeywords(cicadaImages);
-        break;
-      case '#Limulidae':
-        setKeywords(limulidaeImages);
-        break;
-      case '#Araneae':
-        setKeywords(araneaeImages);
-        break;
-      case '#Coccinellidae':
-        setKeywords(coccinellidaeImages);
-        break;
-
-      default:
-        setKeywords(cicadaImages);
+      case '#Cicadomorpha': setKeywords(cicadaImages); break;
+      case '#Limulidae': setKeywords(limulidaeImages); break;
+      case '#Araneae': setKeywords(araneaeImages); break;
+      case '#Coccinellidae': setKeywords(coccinellidaeImages); break;
+      default: setKeywords(cicadaImages);
     }
   };
 
@@ -188,73 +169,78 @@ const Carusel = () => {
     slidesToScroll: 1,
     autoplay: false,
     arrows: true,
+    responsive: [
+      { breakpoint: 768, settings: { slidesToShow: 2 } }
+    ]
   };
 
   return (
     <div className="carousel-section">
-      {/* First carousel */}
+
+      {/* MOULTING STAGE */}
       <div className="title-hd">
         <h2>MOULTING STAGE</h2>
-        <a className="viewall" onClick={handleViewAllClickStage}>View all {'>'}</a>
-      </div>
-      <div className="tabs">
-        <ul className="tab-links">
-          <li className={selectedTab === '#Pre-Moult' ? 'active' : ''} onClick={() => handleTabClick('#Pre-Moult')}>#PRE-MOULT</li>
-          <li className={selectedTab === '#Moulting' ? 'active' : ''} onClick={() => handleTabClick('#Moulting')}>#MOULTING</li>
-          <li className={selectedTab === '#Post-Moult' ? 'active' : ''} onClick={() => handleTabClick('#Post-Moult')}>#POST-MOULT</li>
-          <li className={selectedTab === '#Exuviae' ? 'active' : ''} onClick={() => handleTabClick('#Exuviae')}>#EXUVIAE</li>
-        </ul>
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <div key={index} className="slide-it">
-              <div className="species-item">
-                <Link to={"/observations/" + image.observationId}>
-                <div className="mv-img">
-                  <img src={image.img} alt={image.title} />
-                </div>
-                <div className="title-in">
-                  <h6>{image.title}</h6>
-                  <p><i className="ion-android-star"></i><span>{image.author}</span></p>
-                </div>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </Slider>
+        <a className="viewall" onClick={e => { e.stopPropagation(); handleViewAllClickStage(); }}>View all {'>'}</a>
       </div>
 
-      {/* Second carousel */}
+      {(
+        <div className="tabs">
+          <ul className="tab-links">
+            <li className={selectedTab === '#Pre-Moult' ? 'active' : ''} onClick={() => handleTabClick('#Pre-Moult')}>#PRE-MOULT</li>
+            <li className={selectedTab === '#Moulting' ? 'active' : ''} onClick={() => handleTabClick('#Moulting')}>#MOULTING</li>
+            <li className={selectedTab === '#Post-Moult' ? 'active' : ''} onClick={() => handleTabClick('#Post-Moult')}>#POST-MOULT</li>
+            <li className={selectedTab === '#Exuviae' ? 'active' : ''} onClick={() => handleTabClick('#Exuviae')}>#EXUVIAE</li>
+          </ul>
+          <Slider key={sliderKey} {...settings}>
+            {images.map((img, i) => (
+              <div key={i} className="slide-it">
+                <div className="species-item">
+                  <Link to={`/observations/${img.observationId}`}>
+                    <div className="mv-img"><img src={img.img} alt={img.title} /></div>
+                    <div className="title-in">
+                      <h6>{img.title}</h6>
+                      <p><i className="ion-android-star"></i><span>{img.author}</span></p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      )}
+
+      {/* TAXONOMIC GROUP */}
       <div className="title-hd">
         <h2>TAXONOMIC GROUP</h2>
-        <a className="viewall" onClick={handleViewAllClickKeyword}>View all {'>'}</a>
+        <a className="viewall" onClick={e => { e.stopPropagation(); handleViewAllClickKeyword(); }}>View all {'>'}</a>
       </div>
-      <div className="tabs">
-        <ul className="tab-links">
-          <li className={selectedTab2 === '#Cicadomorpha' ? 'active' : ''} onClick={() => handleTabClick2('#Cicadomorpha')}>#CICADOMORPHA</li>
-          <li className={selectedTab2 === '#Limulidae' ? 'active' : ''} onClick={() => handleTabClick2('#Limulidae')}>#LIMULIDAE</li>
-          <li className={selectedTab2 === '#Araneae' ? 'active' : ''} onClick={() => handleTabClick2('#Araneae')}>#ARANEAE</li>
-          <li className={selectedTab2 === '#Coccinellidae' ? 'active' : ''} onClick={() => handleTabClick2('#Coccinellidae')}>#COCCINELLIDAE</li>
 
-        </ul>
-        <Slider {...settings}>
-          {Keywords.map((image, index) => (
-            <div key={index} className="slide-it">
-              <div className="species-item">
-                <Link to={"/observations/" + image.observationId}>
-
-                <div className="mv-img">
-                  <img src={image.img} alt={image.title} />
+      {(
+        <div className="tabs">
+          <ul className="tab-links">
+            <li className={selectedTab2 === '#Cicadomorpha' ? 'active' : ''} onClick={() => handleTabClick2('#Cicadomorpha')}>#CICADOMORPHA</li>
+            <li className={selectedTab2 === '#Limulidae' ? 'active' : ''} onClick={() => handleTabClick2('#Limulidae')}>#LIMULIDAE</li>
+            <li className={selectedTab2 === '#Araneae' ? 'active' : ''} onClick={() => handleTabClick2('#Araneae')}>#ARANEAE</li>
+            <li className={selectedTab2 === '#Coccinellidae' ? 'active' : ''} onClick={() => handleTabClick2('#Coccinellidae')}>#COCCINELLIDAE</li>
+          </ul>
+          <Slider key={sliderKey} {...settings}>
+            {Keywords.map((img, i) => (
+              <div key={i} className="slide-it">
+                <div className="species-item">
+                  <Link to={`/observations/${img.observationId}`}>
+                    <div className="mv-img"><img src={img.img} alt={img.title} /></div>
+                    <div className="title-in">
+                      <h6>{img.title}</h6>
+                      <p><i className="ion-android-star"></i><span>{img.author}</span></p>
+                    </div>
+                  </Link>
                 </div>
-                <div className="title-in">
-                  <h6>{image.title}</h6>
-                  <p><i className="ion-android-star"></i><span>{image.author}</span></p>
-                </div>
-                </Link>
               </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
+            ))}
+          </Slider>
+        </div>
+      )}
+
     </div>
   );
 };
