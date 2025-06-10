@@ -20,6 +20,8 @@ const SpeciesPage = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [filterApplied, setFilterApplied] = useState(false);
+    const [taxonLoaded, setTaxonLoaded] = useState(false);
+
 
     // Extract years for the year filter dropdowns
     const allYears = images
@@ -52,15 +54,24 @@ const SpeciesPage = () => {
         const fetchTaxon = async () => {
             try {
                 const taxon = await taxonService.getTaxonById(taxonId);
-                setSpeciesName(taxon.name || "Species");
+
+                if (!taxon || !taxon.id || !taxon.name || typeof taxon.name !== "string" || taxon.name.toLowerCase() === 'unknown') {
+                    navigate("/species/not-found", { replace: true });
+                    return;
+                }
+
+                setSpeciesName(taxon.name);
             } catch (err) {
                 console.error("Failed to fetch taxon name", err);
-                setSpeciesName("Species");
+                navigate("/species/not-found", { replace: true });
+                return;
+            } finally {
+                setTaxonLoaded(true);
             }
         };
 
-        if (taxonId) fetchTaxon();
-    }, [taxonId]);
+        fetchTaxon();
+    }, [taxonId, navigate]);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -133,6 +144,10 @@ const SpeciesPage = () => {
         setSpeciesPerPage(speciesPerPage);
         setCurrentPage(1);
     };
+
+    if (!taxonLoaded) {
+        return null; 
+    }
 
     const handleSortChange = (order) => {
         const listToSort = filteredImages.length > 0 ? [...filteredImages] : [...images];

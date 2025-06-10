@@ -70,12 +70,22 @@ export default function Header() {
             e.preventDefault();
             if (activeIndex >= 0 && activeIndex < suggestions.length) {
                 handleSelectSuggestion(suggestions[activeIndex]);
+            
+
             } else if (query.length > 1) {
                 const results = await taxonService.searchTaxaByName(query);
-                const first = results[0];
-                let inatId = first?.dbXrefs?.find(x => x.dataSource?.shortName === "inaturalist")?.accession;
-                redirectToSpecies(inatId || await fetchInatIdFromName(first?.scientificName));
+
+                const exactMatch = results.find(r => r.scientificName.toLowerCase() === query.toLowerCase());
+
+                if (exactMatch) {
+                    const inatId = exactMatch.dbXrefs?.find(x => x.dataSource?.shortName === "inaturalist")?.accession;
+                    redirectToSpecies(inatId || await fetchInatIdFromName(exactMatch.scientificName));
+                } else {
+                    window.location.href = `/species/not-found?query=${encodeURIComponent(query)}`;
+                }
             }
+
+
         }
     };
 

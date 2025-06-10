@@ -5,12 +5,13 @@ import ComingSoon from "./components/coming-soon";
 import Header from "./components/navs/header";
 import Footer from "./components/navs/footer";
 import HomePage from "./components/home-page/home-page";
-import NotFound from "./components/not-found";
+import E404 from "./components/404";
 import Tutorial from "./components/document/tutorial";
 import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
 import SpeciesPage from './components/species/species-page';
 import ObservationPage from './components/species/observation-page';
+import SpeciesNotFound from './components/not-found';
 
 function App() {
     console.log('App component is rendering');
@@ -47,8 +48,9 @@ function CustomRoutes() {
             <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
             <Route path="/species/:taxonId" element={<SpeciesPage />} />
             <Route path="/observations/:observationId" element={<ObservationPage />} />
-            <Route path="/404" element={<NotFound />} />
+            <Route path="/404" element={<E404 />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
+            <Route path="/species/not-found" element={<SpeciesNotFound />} />
         </Routes>
     );
 }

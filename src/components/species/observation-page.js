@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './observation-page.css';
 import imageService, { INAT_PROJECT_URL } from "../../services/image.service";
 import Loader from "../common/loader";
 import { getContributorUrl } from "../home-page/contributors";
 
+
+
 const ObservationPage = () => {
     const params = useParams();
-    const [image, setImage] = useState(true);
+    const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [moultDBValid, setMoultDBValid] = useState(false);
+    const { observationId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -21,17 +25,20 @@ const ObservationPage = () => {
                 const results = await imageService.fetchImagesForObservation(params.observationId);
                 if (results.length > 0) {
                     setImage(results[0]);
+                } else {
+                    navigate("/observations/not-found", { replace: true });
                 }
             } catch (error) {
                 console.error('Error fetching images:', error);
-                setError('Failed to load images. Please try again later.');
+                navigate("/observations/not-found", { replace: true });
             } finally {
                 setLoading(false);
             }
         };
 
         fetchImages();
-    }, [params.taxonId, params.observationId]);
+    }, [params.observationId, navigate]);
+
 
     useEffect(() => {
         const validateMoultDB = async () => {
