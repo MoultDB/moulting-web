@@ -12,6 +12,7 @@ export default function Header() {
     const [suggestions, setSuggestions] = useState([]);
     const [activeIndex, setActiveIndex] = useState(-1);
     const wrapperRef = useRef(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -86,25 +87,28 @@ export default function Header() {
                         <Link to="/" className="navbar-brand">
                             <img src={Logo} alt="MoultDB logo" width="300" height="200" />
                         </Link>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#moultingNav">
+                        <button className="navbar-toggler" type="button" onClick={() => setIsMenuOpen(true)}>
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="moultingNav">
+                        
+                        <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="moultingNav">
+                            {isMenuOpen && (<button className="close-menu-btn" onClick={() => setIsMenuOpen(false)}>&times;</button>)}
                             <ul className="navbar-nav navbar-end">
-                                <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
+                                <li className="nav-item"><Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
                                 <li className="nav-item"><a href="https://moultdb.org" className="nav-link" target="_blank" rel="noreferrer noopener">MoultDB</a></li>
-                                <li className="nav-item"><Link to="/tutorial" className="nav-link dropdown-item">Tutorial</Link></li>
+                                <li className="nav-item"><Link to="/tutorial" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tutorial</Link></li>
                                 <li className="nav-item dropdown">
-                                    <Link role="button" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">About us</Link>
+                                    <span className="nav-link dropdown-toggle">About us</span>
                                     <ul className="dropdown-menu">
                                         <li><a href="https://moultdb.org/about" className="dropdown-item">The MoultDB project</a></li>
-                                        <li><Link to="/about/privacy-notice" className="dropdown-item">moulting.org privacy notice</Link></li>
+                                        <li><Link to="/about/privacy-notice" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Privacy notice</Link></li>
                                         <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noreferrer noopener">Source code</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
+
+
                     </div>
                 </nav>
 
