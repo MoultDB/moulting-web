@@ -184,7 +184,7 @@ header .top-search input {
 .autocomplete-list li {
   padding: 10px 12px;
   cursor: pointer;
-  height: 40px;  /* <- imposta una altezza fissa */
+  height: 40px;
   box-sizing: border-box;
 }
 .autocomplete-list li:hover,
