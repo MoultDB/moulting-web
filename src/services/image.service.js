@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.inaturalist.org/v1/observations';
 const PROJECT_ACC = "moulting-arthropods";
 const PROJECT_ID = 200497;
 export const INAT_PROJECT_URL = "https://www.inaturalist.org/projects/" + PROJECT_ACC;
@@ -26,7 +25,7 @@ async function fetchAllResults(params) {
   do {
     params.page = page;
     try {
-      const response = await axios.get(API_URL, { params });
+      const response = await axios.get(`${process.env.REACT_APP_INAT_API_URL}/observations`, { params });
       if (response?.data?.results) {
         allResults.push(...response.data.results);
       }

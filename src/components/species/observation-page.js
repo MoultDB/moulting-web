@@ -43,7 +43,7 @@ const ObservationPage = () => {
     useEffect(() => {
         const validateMoultDB = async () => {
             try {
-                const res = await fetch(`https://moultdb.org/moultdb-api/taxa?datasource=inaturalist&accession=${image.taxonId}`);
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/taxa?datasource=inaturalist&accession=${image.taxonId}`);
                 const json = await res.json();
                 if (json.data) setMoultDBValid(true);
             } catch (e) {
