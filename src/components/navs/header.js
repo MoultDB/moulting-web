@@ -1,11 +1,9 @@
-// header.js
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './header.css';
 import Logo from "../../assets/images/moultdb-logo.png";
 import SocialLinks from "../common/social-links";
 import taxonService from "../../services/taxon.service";
-import axios from "axios";
 
 export default function Header() {
     const [query, setQuery] = useState("");
@@ -39,26 +37,14 @@ export default function Header() {
             setSuggestions([]);
         }
     };
-
-    const fetchInatIdFromName = async (name) => {
-        try {
-            const response = await axios.get("https://api.inaturalist.org/v1/taxa", {
-                params: { q: name }
-            });
-            return response.data.results[0]?.id || null;
-        } catch {
-            return null;
-        }
-    };
-
+    
     const redirectToSpecies = (id) => {
         if (id) window.location.href = `/species/${id}`;
         else alert("No matching iNaturalist taxon ID found.");
     };
 
     const handleSelectSuggestion = async (s) => {
-        const inatId = s.dbXrefs?.find(x => x.dataSource?.shortName === "inaturalist")?.accession;
-        redirectToSpecies(inatId || await fetchInatIdFromName(s.scientificName));
+        redirectToSpecies(s.accession);
     };
 
     const handleKeyDown = async (e) => {
@@ -78,14 +64,11 @@ export default function Header() {
                 const exactMatch = results.find(r => r.scientificName.toLowerCase() === query.toLowerCase());
 
                 if (exactMatch) {
-                    const inatId = exactMatch.dbXrefs?.find(x => x.dataSource?.shortName === "inaturalist")?.accession;
-                    redirectToSpecies(inatId || await fetchInatIdFromName(exactMatch.scientificName));
+                    redirectToSpecies(exactMatch.accession);
                 } else {
                     window.location.href = `/species/not-found?query=${encodeURIComponent(query)}`;
                 }
             }
-
-
         }
     };
 
