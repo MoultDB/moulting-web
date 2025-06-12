@@ -79,6 +79,7 @@ const SpeciesPage = () => {
         const sex = params.get('sex');
         const yearFrom = params.get('yearFrom');
         const yearTo = params.get('yearTo');
+        const captive = params.get('captive');
         const lifeStage = params.get('lifeStage');
 
         if (stage || sex || yearFrom || yearTo || lifeStage) {
@@ -87,14 +88,15 @@ const SpeciesPage = () => {
     }, [images]);
 
     const handleSearch = (filters, updateUrl = false) => {
-        const { stage, sex, yearFrom, yearTo, lifeStage } = filters;
-
+        const { stage, sex, yearFrom, yearTo, captive, lifeStage } = filters;
+        
         if (updateUrl) {
             const searchParams = new URLSearchParams();
             if (stage) searchParams.set("stage", stage);
             if (sex) searchParams.set("sex", sex);
             if (yearFrom) searchParams.set("yearFrom", yearFrom);
             if (yearTo) searchParams.set("yearTo", yearTo);
+            if (captive) searchParams.set("captive", captive);
             if (lifeStage) searchParams.set("lifeStage", lifeStage);
             navigate(`/species/${params.taxonId}?${searchParams.toString()}`);
         }
@@ -104,6 +106,7 @@ const SpeciesPage = () => {
             const categories = img.categories || {};
             const stageValue = categories["Moulting Stage"]?.toLowerCase?.() || '';
             const sexValue = categories["Sex (if identifiable)"]?.toLowerCase?.() || '';
+            const captiveValue = categories["Captive/cultivated"]?.toLowerCase?.() || '';
             const lifeStageValue =
                 categories["Life Stage"]?.toLowerCase?.() ||
                 categories["Developmental Stage (Arthropods)"]?.toLowerCase?.() || '';
@@ -113,6 +116,7 @@ const SpeciesPage = () => {
 
             if (stage && !stageValue.includes(stage.toLowerCase())) pass = false;
             if (sex && !sexValue.includes(sex.toLowerCase())) pass = false;
+            if (captive && !captiveValue.includes(captive.toLowerCase())) pass = false;
             if (lifeStage && !lifeStageValue.includes(lifeStage.toLowerCase())) pass = false;
 
             if (yearFrom && date) {
