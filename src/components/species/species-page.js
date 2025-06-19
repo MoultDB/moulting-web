@@ -82,8 +82,8 @@ const SpeciesPage = () => {
         const captive = params.get('captive');
         const lifeStage = params.get('lifeStage');
 
-        if (stage || sex || yearFrom || yearTo || lifeStage) {
-            handleSearch({ stage, sex, yearFrom, yearTo, lifeStage });
+        if (stage || sex || yearFrom || yearTo || captive || lifeStage) {
+            handleSearch({ stage, sex, yearFrom, yearTo, captive, lifeStage });
         }
     }, [images]);
 
