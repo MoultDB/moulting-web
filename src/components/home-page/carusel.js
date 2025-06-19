@@ -15,8 +15,6 @@ const Carusel = () => {
 
   const navigate = useNavigate();
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 767;
-
   const handleViewAllClickStage = () => {
     const stageMap = {
       '#Pre-Moult': 'pre-moult',
@@ -25,7 +23,7 @@ const Carusel = () => {
       '#Exuviae': 'exuviae'
     };
     const stageParam = stageMap[selectedTab] || 'moulting';
-    const taxonId = '47120';
+    const taxonId = '47120'; // Arthropoda
     navigate(`/species/${taxonId}?stage=${encodeURIComponent(stageParam)}`);
   };
 
@@ -135,9 +133,9 @@ const Carusel = () => {
     setImages(moultingImages);
     setKeywords(cicadaImages);
 
-   setTimeout(() => {
+    setTimeout(() => {
       setSliderKey(prev => prev + 1);
-    }, 100);   
+    }, 100);
   }, []);
 
   const handleTabClick = (tab) => {

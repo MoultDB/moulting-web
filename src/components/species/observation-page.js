@@ -12,10 +12,8 @@ const ObservationPage = () => {
     const params = useParams();
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [moultDBValid, setMoultDBValid] = useState(false);
-    const { observationId } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -70,7 +68,6 @@ const ObservationPage = () => {
 
     return (
         <div className="page-container">
-            {error && <p className="error">{error}</p>}
             {loading ? (
                 <Loader />
             ) : (
