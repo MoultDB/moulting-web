@@ -115,3 +115,25 @@
 .topbar-filter .pagination2 a:hover {
   color: #dcf836;
 }
+
+.pagination-ellipsis {
+  padding: 0 5px;
+  color: #999;
+  cursor: default;
+}
+
+@media (max-width: 767px) {
+  .topbar-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .topbar-filter label,
+  .topbar-filter select {
+    width: 90%;
+    max-width: 300px;
+    margin: 5px 0;
+  }
+}

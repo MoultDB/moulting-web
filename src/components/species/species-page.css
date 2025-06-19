@@ -306,3 +306,29 @@ ul {
 .row:after {
   clear: both;
 }
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.page-content {
+  flex: 1;
+}
+
+.no-results-message {
+  color: #abb7c4;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 20px;
+  text-align: center;
+}

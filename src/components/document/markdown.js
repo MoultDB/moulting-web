@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Markdown from 'markdown-to-jsx';
-import NotFound from "../not-found";
+import NotFound from "../404";
 import {withRouter} from '../../common/with-router';
 import ChangePageTitle from "../../common/change-page-title";
 

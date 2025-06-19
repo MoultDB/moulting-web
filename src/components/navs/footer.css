@@ -52,3 +52,35 @@
     font-size: 14px;
     transition: color 0.3s ease;
 }
+
+
+@media (max-width: 767px) {
+  .footer-socials {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-socials a {
+    font-size: 18px;
+    margin: 0 5px;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .footer-nav a {
+    font-size: 13px;
+  }
+
+  .footer-legal p {
+    font-size: 11px;
+    text-align: center;
+    padding: 0 15px;
+    line-height: 1.4;
+  }
+}
