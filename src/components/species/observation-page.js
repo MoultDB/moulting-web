@@ -43,7 +43,7 @@ const ObservationPage = () => {
             try {
                 const res = await fetch(`${process.env.REACT_APP_API_URL}/taxa?datasource=inaturalist&accession=${image.taxonId}`);
                 const json = await res.json();
-                if (json.data) setMoultDBValid(true);
+                json.data ? setMoultDBValid(true) : setMoultDBValid(false);
             } catch (e) {
                 console.warn("Failed to validate MoultDB link", e);
             }
@@ -179,7 +179,7 @@ const ObservationPage = () => {
                                             {moultDBValid && (
                                               <li>
                                                   <a
-                                                      href={"https://moultdb.org/species/inaturalist/" + image.taxonId}
+                                                      href={process.env.REACT_APP_MOULTDB_URL + "/taxon/inaturalist/" + image.taxonId}
                                                       target="_blank"
                                                       rel="noopener noreferrer"
                                                   >
