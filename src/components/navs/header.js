@@ -91,7 +91,7 @@ export default function Header() {
                                 <li className="nav-item"><a href="https://moultdb.org" className="nav-link" target="_blank" rel="noreferrer noopener">MoultDB</a></li>
                                 <li className="nav-item"><Link to="/tutorial" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tutorial</Link></li>
                                 <li className="nav-item dropdown">
-                                    <span className="nav-link dropdown-toggle">About us</span>
+                                    <span className="nav-link dropdown-toggle" data-bs-toggle="dropdown">About us</span>
                                     <ul className="dropdown-menu">
                                         <li><a href="https://moultdb.org/about" className="dropdown-item">The MoultDB project</a></li>
                                         <li><Link to="/about/privacy-notice" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Privacy notice</Link></li>
