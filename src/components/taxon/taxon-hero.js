@@ -1,16 +1,16 @@
 import React from 'react';
-import "./species-hero.css"
+import "./taxon-hero.css"
 
-const SpeciesHero = ({ speciesName }) => {
+const TaxonHero = ({ taxonName }) => {
     return (
-        <div className="species-hero">
+        <div className="taxon-hero">
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                        <h1>{speciesName || "Species"}</h1>
+                        <h1>{taxonName || "Taxon"}</h1>
                         <ul className="breadcumb">
                             <li className="active"><a href="/">Home</a></li>
-                            <li> <span className="ion-ios-arrow-right"></span> {speciesName || "Species"}</li>
+                            <li> <span className="ion-ios-arrow-right"></span> {taxonName || "Taxon"}</li>
                         </ul>
                     </div>
                 </div>
@@ -19,6 +19,4 @@ const SpeciesHero = ({ speciesName }) => {
     );
 };
 
-
-
-export default SpeciesHero;
+export default TaxonHero;

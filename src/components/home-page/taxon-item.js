@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 const TaxonItem = ({ src, taxonName, path, description }) => {
 
     return (
-        <Link to={"/species/" + path} className="photo-item" >
+        <Link to={"/taxon/" + path} className="photo-item" >
             <div className="ph-img">
                 <img src={src} alt={taxonName} />
             </div>

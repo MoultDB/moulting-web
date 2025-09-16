@@ -38,13 +38,13 @@ export default function Header() {
         }
     };
     
-    const redirectToSpecies = (id) => {
-        if (id) window.location.href = `/species/${id}`;
+    const redirectToTaxon = (id) => {
+        if (id) window.location.href = `/taxon/${id}`;
         else alert("No matching iNaturalist taxon ID found.");
     };
 
     const handleSelectSuggestion = async (s) => {
-        redirectToSpecies(s.accession);
+        redirectToTaxon(s.accession);
     };
 
     const handleKeyDown = async (e) => {
@@ -64,9 +64,9 @@ export default function Header() {
                 const exactMatch = results.find(r => r.scientificName.toLowerCase() === query.toLowerCase());
 
                 if (exactMatch) {
-                    redirectToSpecies(exactMatch.accession);
+                    redirectToTaxon(exactMatch.accession);
                 } else {
-                    window.location.href = `/species/not-found?query=${encodeURIComponent(query)}`;
+                    window.location.href = `/taxon/not-found?query=${encodeURIComponent(query)}`;
                 }
             }
         }

@@ -9,8 +9,8 @@ import E404 from "./components/404";
 import Tutorial from "./components/document/tutorial";
 import PrivacyNotice from "./components/document/privacy-notice";
 import MarkdownPage from "./components/document/markdown";
-import SpeciesPage from './components/species/species-page';
-import ObservationPage from './components/species/observation-page';
+import TaxonPage from './components/taxon/taxon-page';
+import ObservationPage from './components/taxon/observation-page';
 import SpeciesNotFound from './components/not-found';
 
 function App() {
@@ -46,11 +46,11 @@ function CustomRoutes() {
             <Route path="/about/privacy-notice" element={<PrivacyNotice />} />
             <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/news/:date" element={<MarkdownPage key="news-date" pageTitle={"News"}/>} />
-            <Route path="/species/:taxonId" element={<SpeciesPage />} />
+            <Route path="/taxon/:taxonId" element={<TaxonPage />} />
             <Route path="/observations/:observationId" element={<ObservationPage />} />
             <Route path="/404" element={<E404 />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
-            <Route path="/species/not-found" element={<SpeciesNotFound />} />
+            <Route path="/taxon/not-found" element={<SpeciesNotFound />} />
         </Routes>
     );
 }

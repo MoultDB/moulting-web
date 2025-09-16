@@ -174,7 +174,7 @@ const ObservationPage = () => {
                                         <h2 className="info-title">Links</h2>
                                         <ul className="info-list">
                                             <li>
-                                                <Link to={"/species/" + image.taxonId}>Species observations</Link>
+                                                <Link to={"/taxon/" + image.taxonId}>Taxon observations</Link>
                                             </li>
                                             {moultDBValid && (
                                               <li>

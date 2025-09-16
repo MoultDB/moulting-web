@@ -24,7 +24,7 @@ const Carusel = () => {
     };
     const stageParam = stageMap[selectedTab] || 'moulting';
     const taxonId = '47120'; // Arthropoda
-    navigate(`/species/${taxonId}?stage=${encodeURIComponent(stageParam)}`);
+    navigate(`/taxon/${taxonId}?stage=${encodeURIComponent(stageParam)}`);
   };
 
   const handleViewAllClickKeyword = () => {
@@ -35,7 +35,7 @@ const Carusel = () => {
       '#Coccinellidae': 48486
     };
     const accession = tabToAccession[selectedTab2];
-    if (accession) navigate(`/species/${accession}`);
+    if (accession) navigate(`/taxon/${accession}`);
   };
 
   // Images for the first carousel (MOULTING STAGE)
@@ -191,8 +191,8 @@ const Carusel = () => {
           </ul>
           <Slider key={sliderKey} {...settings}>
             {images.map((img, i) => (
-              <div key={i} className="slide-it">
-                <div className="species-item">
+              <div key={i} className="slide-item">
+                <div className="slide-content">
                   <Link to={`/observations/${img.observationId}`}>
                     <div className="mv-img"><img src={img.img} alt={img.title} /></div>
                     <div className="title-in">
@@ -223,8 +223,8 @@ const Carusel = () => {
           </ul>
           <Slider key={sliderKey} {...settings}>
             {Keywords.map((img, i) => (
-              <div key={i} className="slide-it">
-                <div className="species-item">
+              <div key={i} className="slide-item">
+                <div className="slide-content">
                   <Link to={`/observations/${img.observationId}`}>
                     <div className="mv-img"><img src={img.img} alt={img.title} /></div>
                     <div className="title-in">

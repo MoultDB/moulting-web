@@ -1,4 +1,4 @@
-.flex-wrap-specieslist {
+.flex-wrap-observation-list {
   margin-right: -30px;
   display: grid;
   min-height: 500px; 
@@ -33,18 +33,18 @@
 
 
 @media (max-width: 767px) {
-  .flex-wrap-specieslist {
+  .flex-wrap-observation-list {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
     padding: 10px !important;
   }
 
-  .species-item-style-2 {
+  .observation-item {
     width: 100% !important;
   }
 
-  .species-item-style-2 img {
+  .observation-item img {
     width: 100% !important;
     height: 260px !important;
     object-fit: cover !important;
