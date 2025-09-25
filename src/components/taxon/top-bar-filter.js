@@ -1,10 +1,10 @@
 import React from 'react';
 import "./top-bar-filter.css";
 
-const TopBarFilter = ({ totalSpecies, handleSortChange }) => {
+const TopBarFilter = ({ totalObservations, handleSortChange }) => {
     return (
         <div className="topbar-filter">
-            <p>Found <span>{totalSpecies}</span> observations</p>
+            <p>Found <span>{totalObservations}</span> observations</p>
             {handleSortChange && (
                 <>
                     <label>Sort by:</label>

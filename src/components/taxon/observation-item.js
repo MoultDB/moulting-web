@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import "./species-item.css"
+import "./observation-item.css"
 
-const SpeciesItem = ({ image }) => {
+const ObservationItem = ({ image }) => {
 
     return (
-        <div className="species-item-style-2 species-item-style-1">
+        <div className="observation-item observation-item-2">
             <Link to={{
                 pathname: "/observations/" + image.inatId,
                 state: { image: image }
@@ -21,4 +21,4 @@ const SpeciesItem = ({ image }) => {
     );
 };
 
-export default SpeciesItem;
+export default ObservationItem;

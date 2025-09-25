@@ -1,9 +1,9 @@
 import React from 'react';
-import "./species-grid.css";
-import SpeciesItem from './species-item';
+import "./observation-grid.css";
+import ObservationItem from './observation-item';
 import Loader from '../common/loader';
 
-const SpeciesGrid = ({ images, loading }) => {
+const ObservationGrid = ({ images, loading }) => {
     if (loading) {
         return (
             <div className="loader-wrapper">
@@ -15,9 +15,9 @@ const SpeciesGrid = ({ images, loading }) => {
     return (
         <>
             {images.length > 0 ? (
-                <div className="flex-wrap-specieslist">
+                <div className="flex-wrap-observation-list">
                     {images.map((image, index) => (
-                        <SpeciesItem key={index} image={image} />
+                        <ObservationItem key={index} image={image} />
                     ))}
                 </div>
             ) : (
@@ -32,6 +32,4 @@ const SpeciesGrid = ({ images, loading }) => {
 
 };
 
-
-
-export default SpeciesGrid;
+export default ObservationGrid;

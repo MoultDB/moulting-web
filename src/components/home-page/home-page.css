@@ -1,4 +1,4 @@
-.photo-items .slide-it {
+.photo-items .slide-item {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import SpeciesHero from './species-hero';
+import TaxonHero from './taxon-hero';
 import TopBarFilter from './top-bar-filter';
-import SpeciesGrid from './species-grid';
+import ObservationGrid from './observation-grid';
 import Sidebar from '../common/sidebar';
 import Pagination from './pagination';
-import './species-page.css';
+import './taxon-page.css';
 import imageService from "../../services/image.service";
 import taxonService from "../../services/taxon.service";
 
-const SpeciesPage = () => {
+const TaxonPage = () => {
     const params = useParams();
     const navigate = useNavigate();
     const [images, setImages] = useState([]);
     const [filteredImages, setFilteredImages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [speciesName, setSpeciesName] = useState("");
-    const [speciesPerPage, setSpeciesPerPage] = useState(20);
+    const [taxonName, setTaxonName] = useState("");
+    const [observationsPerPage, setObservationsPerPage] = useState(20);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [filterApplied, setFilterApplied] = useState(false);
@@ -56,14 +56,14 @@ const SpeciesPage = () => {
                 const taxon = await taxonService.getTaxonById(taxonId);
 
                 if (!taxon || !taxon.id || !taxon.name || typeof taxon.name !== "string" || taxon.name.toLowerCase() === 'unknown') {
-                    navigate("/species/not-found", { replace: true });
+                    navigate("/taxon/not-found", { replace: true });
                     return;
                 }
 
-                setSpeciesName(taxon.name);
+                setTaxonName(taxon.name);
             } catch (err) {
                 console.error("Failed to fetch taxon name", err);
-                navigate("/species/not-found", { replace: true });
+                navigate("/taxon/not-found", { replace: true });
                 return;
             } finally {
                 setTaxonLoaded(true);
@@ -98,7 +98,7 @@ const SpeciesPage = () => {
             if (yearTo) searchParams.set("yearTo", yearTo);
             if (captive) searchParams.set("captive", captive);
             if (lifeStage) searchParams.set("lifeStage", lifeStage);
-            navigate(`/species/${params.taxonId}?${searchParams.toString()}`);
+            navigate(`/taxon/${params.taxonId}?${searchParams.toString()}`);
         }
 
         setFilterApplied(true);
@@ -137,15 +137,15 @@ const SpeciesPage = () => {
     };
 
 
-    const indexOfLastSpecies = currentPage * speciesPerPage;
-    const indexOfFirstSpecies = indexOfLastSpecies - speciesPerPage;
+    const indexOfLastObservation = currentPage * observationsPerPage;
+    const indexOfFirstObservation = indexOfLastObservation - observationsPerPage;
     const activeList = filterApplied ? filteredImages : images;
-    const currentImages = activeList.slice(indexOfFirstSpecies, indexOfLastSpecies);
+    const currentImages = activeList.slice(indexOfFirstObservation, indexOfLastObservation);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    const handleSpeciesPerPageChange = (speciesPerPage) => {
-        setSpeciesPerPage(speciesPerPage);
+    const handleObservationsPerPageChange = (observationsPerPage) => {
+        setObservationsPerPage(observationsPerPage);
         setCurrentPage(1);
     };
 
@@ -171,25 +171,25 @@ const SpeciesPage = () => {
         <div className="page-wrapper">
             <div className="page-content">
                 <div className="page-single">
-                    <SpeciesHero speciesName={speciesName} />
+                    <TaxonHero taxonName={taxonName} />
                     <div className="container">
                         <div className="row ipad-width">
                             <div className="col-md-8 col-sm-12 col-xs-12">
                                 <TopBarFilter
-                                    totalSpecies={activeList.length}
+                                    totalObservations={activeList.length}
                                     handleSortChange={handleSortChange}
                                 />
                                 {error && <p className="error">{error}</p>}
-                                <SpeciesGrid
+                                <ObservationGrid
                                     images={currentImages}
                                     loading={loading}
                                 />
                                 <Pagination
-                                    speciesPerPage={speciesPerPage}
-                                    totalSpecies={activeList.length}
+                                    observationsPerPage={observationsPerPage}
+                                    totalObservations={activeList.length}
                                     paginate={paginate}
                                     currentPage={currentPage}
-                                    handleSpeciesPerPageChange={handleSpeciesPerPageChange}
+                                    handleObservationsPerPageChange={handleObservationsPerPageChange}
                                 />
                             </div>
                             <div className="col-md-4 col-sm-12 col-xs-12">
@@ -207,4 +207,4 @@ const SpeciesPage = () => {
     );
 };
 
-export default SpeciesPage;
+export default TaxonPage;

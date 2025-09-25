@@ -64,7 +64,7 @@
 }
 
 /* Individual species card */
-.species-item {
+.slide-content {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
@@ -91,12 +91,12 @@
 }
 
 /* Dim image slightly on hover */
-.species-item:hover img {
+.slide-content:hover img {
   opacity: 0.5;
 }
 
 /* Highlight species name on hover */
-.species-item:hover h6 {
+.slide-content:hover h6 {
   color: #DCF835;
 }
 
@@ -114,7 +114,7 @@
 }
 
 /* Optional: limit item width for layout consistency */
-.slide-it {
+.slide-item {
   max-width: 220px;
   margin: 0 auto;
 }
@@ -149,7 +149,7 @@
     margin-top: 10px !important;
   }
 
-  .slide-it {
+  .slide-item {
     max-width: 90%;
     margin: 0 auto;
   }
@@ -158,7 +158,7 @@
     aspect-ratio: 1/1;
   }
 
-  .species-item {
+  .slide-content {
     padding: 5px;
     background: #1c2b3a;
     border-radius: 6px;

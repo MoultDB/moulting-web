@@ -38,13 +38,13 @@ export default function Header() {
         }
     };
     
-    const redirectToSpecies = (id) => {
-        if (id) window.location.href = `/species/${id}`;
+    const redirectToTaxon = (id) => {
+        if (id) window.location.href = `/taxon/${id}`;
         else alert("No matching iNaturalist taxon ID found.");
     };
 
     const handleSelectSuggestion = async (s) => {
-        redirectToSpecies(s.accession);
+        redirectToTaxon(s.accession);
     };
 
     const handleKeyDown = async (e) => {
@@ -64,9 +64,9 @@ export default function Header() {
                 const exactMatch = results.find(r => r.scientificName.toLowerCase() === query.toLowerCase());
 
                 if (exactMatch) {
-                    redirectToSpecies(exactMatch.accession);
+                    redirectToTaxon(exactMatch.accession);
                 } else {
-                    window.location.href = `/species/not-found?query=${encodeURIComponent(query)}`;
+                    window.location.href = `/taxon/not-found?query=${encodeURIComponent(query)}`;
                 }
             }
         }
@@ -88,12 +88,12 @@ export default function Header() {
                             {isMenuOpen && (<button className="close-menu-btn" onClick={() => setIsMenuOpen(false)}>&times;</button>)}
                             <ul className="navbar-nav navbar-end">
                                 <li className="nav-item"><Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-                                <li className="nav-item"><a href="https://moultdb.org" className="nav-link" target="_blank" rel="noreferrer noopener">MoultDB</a></li>
+                                <li className="nav-item"><a href={process.env.REACT_APP_MOULTDB_URL} className="nav-link" target="_blank" rel="noreferrer noopener">MoultDB</a></li>
                                 <li className="nav-item"><Link to="/tutorial" className="nav-link" onClick={() => setIsMenuOpen(false)}>Tutorial</Link></li>
                                 <li className="nav-item dropdown">
-                                    <span className="nav-link dropdown-toggle">About us</span>
+                                    <span className="nav-link dropdown-toggle" data-bs-toggle="dropdown">About us</span>
                                     <ul className="dropdown-menu">
-                                        <li><a href="https://moultdb.org/about" className="dropdown-item">The MoultDB project</a></li>
+                                        <li><a href={process.env.REACT_APP_MOULTDB_URL + "/about"} className="dropdown-item">The MoultDB project</a></li>
                                         <li><Link to="/about/privacy-notice" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Privacy notice</Link></li>
                                         <li><a href="https://github.com/MoultDB/" className="dropdown-item" target="_blank" rel="noreferrer noopener">Source code</a></li>
                                     </ul>

@@ -9,7 +9,7 @@ export default function Footer() {
         <footer className="ht-footer">
             <div className="footer-socials">
                 <a href="https://www.facebook.com/groups/402623715250579" className="social-links" rel="noopener noreferrer" target="_blank"><Facebook/></a>
-                <a href="https://twitter.com/moultdb" className="social-links" rel="noopener noreferrer" target="_blank"><TwitterX/></a>
+                <a href="https://x.com/moultdb" className="social-links" rel="noopener noreferrer" target="_blank"><TwitterX/></a>
                 <a href="https://www.instagram.com/moultdb/" className="social-links" rel="noopener noreferrer" target="_blank"><Instagram/></a>
                 <a href="https://ecoevo.social/@moultdb" className="social-links" rel="noopener noreferrer" target="_blank"><Mastodon/></a>
                 <a href="https://github.com/MoultDB" className="social-links" rel="noopener noreferrer" target="_blank"><Github/></a>
@@ -17,7 +17,7 @@ export default function Footer() {
             
             <div className="footer-nav">
                 <Link to="/">Home</Link>
-                <Link to="https://moultdb.org/about">About</Link>
+                <a href={process.env.REACT_APP_MOULTDB_URL + "/about"}>The MoultDB project</a>
                 <Link to="https://github.com/MoultDB">Source</Link>
                 <Obfuscate email={process.env.REACT_APP_CONTACT_EMAIL}
                            headers={{subject: '[moulting.org] Contact'}}>Contact</Obfuscate>

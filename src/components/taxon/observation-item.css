@@ -1,17 +1,17 @@
-.species-item-style-2 {
+.observation-item {
     position: relative;
     display: inline-block;
     margin: 15px;
     text-align: center; /* Center the text */
 }
 
-.species-item-style-2.species-item-style-1 img {
+.observation-item.observation-item-2 img {
     width: 400px; 
     height: 200px; 
     object-fit: cover; 
 }
 
-.species-item-style-2 img {
+.observation-item img {
     width: 100%; /* Ensure the images fill the grid cells */
     height: auto;
     border-radius: 1px;
@@ -35,7 +35,7 @@
 }
 
 
-.species-item-style-2 {
+.observation-item {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -47,19 +47,19 @@
 }
 
 @media (max-width: 767px) {
-  .species-item-style-1 {
+  .observation-item-2 {
     margin-left: 15px;
     max-width: 170px;
   }
 }
 
 @media (max-width: 767px) {
-  .species-item-style-2 {
+  .observation-item {
     display: flex;
     flex-direction: column;
   }
 }
-.species-item-style-2 img {
+.observation-item img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -70,31 +70,31 @@
   transition: all 0.5s ease-out;
 }
 @media (max-width: 767px) {
-  .species-item-style-2 img {
+  .observation-item img {
     margin-right: 0;
     margin-bottom: 15px;
   }
 }
 @media (max-width: 767px) {
-  .species-item-style-2 .mv-item-infor {
+  .observation-item .mv-item-infor {
     max-width: 180px;
     margin: 0 auto;
   }
 }
-.species-item-style-2 .mv-item-infor h6 {
+.observation-item .mv-item-infor h6 {
   margin-bottom: 10px;
 }
-.species-item-style-2 .mv-item-infor p {
+.observation-item .mv-item-infor p {
   margin-bottom: 0;
 }
-.species-item-style-2 a {
+.observation-item a {
   color: white;
 }
-.species-item-style-2:hover a {
+.observation-item:hover a {
   color: #dcf836;
 }
 
-.species-item-style-1 {
+.observation-item-2 {
   display: flex;
   flex-direction: column;
   align-items: inherit;
@@ -102,11 +102,11 @@
   position: relative;
   margin-right: 23px;
 }
-.species-item-style-1 img {
+.observation-item-2 img {
   margin-right: 0;
   margin-bottom: 15px;
 }
-.species-item-style-1:hover img {
+.observation-item-2:hover img {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   -webkit-opacity: 0.5;
@@ -115,7 +115,7 @@
   filter: alpha(opacity=50);
 }
 @media (max-width: 767px) {
-  .species-item-style-1 {
+  .observation-item-2 {
     margin-left: 15px;
     max-width: 170px;
   }

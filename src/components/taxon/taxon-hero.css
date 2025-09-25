@@ -1,4 +1,4 @@
-.species-hero {
+.taxon-hero {
   background-position: center;
   text-align: center;
   background-size: cover;
@@ -11,7 +11,7 @@
   justify-content: center;
   margin-top:  70px;
 }
-.species-hero h1 {
+.taxon-hero h1 {
   font-family: 'Dosis', sans-serif;
   font-size: 36px;
   color: #ffffff;
@@ -19,14 +19,14 @@
   text-transform: uppercase;
   margin-bottom: 20px;
 }
-.species-hero ul.breadcumb {
+.taxon-hero ul.breadcumb {
   list-style-type: none;
 }
-.species-hero ul.breadcumb li.active a {
+.taxon-hero ul.breadcumb li.active a {
   color: #4280bf;
 }
-.species-hero ul.breadcumb li,
-.species-hero ul.breadcumb a {
+.taxon-hero ul.breadcumb li,
+.taxon-hero ul.breadcumb a {
   display: inline-block;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
@@ -34,11 +34,11 @@
   font-weight: 300;
   text-transform: uppercase;
 }
-.species-hero ul.breadcumb span {
+.taxon-hero ul.breadcumb span {
   margin-left: 15px;
   margin-right: 15px;
 }
-.species-hero:before {
+.taxon-hero:before {
   position: absolute;
   content: '';
   width: 100%;
@@ -59,20 +59,13 @@
     font-size: 14px;
     width: 100%;
   }
-
-  .species-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    padding: 10px;
-  }
-
-  .species-item {
+  
+  .slide-content {
     width: 100%;
     padding: 6px;
   }
 
-  .species-item .mv-img img {
+  .slide-content .mv-img img {
     width: 100%;
     height: auto;
     aspect-ratio: 1/1; /* evita allungamento verticale */

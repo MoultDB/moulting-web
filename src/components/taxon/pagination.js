@@ -1,10 +1,10 @@
 import React from 'react';
 import "./pagination.css";
 
-const Pagination = ({ speciesPerPage, totalSpecies, paginate, currentPage, handleSpeciesPerPageChange }) => {
+const Pagination = ({ observationsPerPage, totalObservations, paginate, currentPage, handleObservationsPerPageChange }) => {
     
     // Calculate the total number of pages
-    const totalPages = Math.ceil(totalSpecies / speciesPerPage);
+    const totalPages = Math.ceil(totalObservations / observationsPerPage);
 
     // Generates the paginated sequence with ellipses
     const getPageRange = (totalPages, currentPage, delta = 2) => {
@@ -39,11 +39,11 @@ const Pagination = ({ speciesPerPage, totalSpecies, paginate, currentPage, handl
 
     return (
         <div className="topbar-filter">
-            <label>Species per page:</label>
-            <select value={speciesPerPage} onChange={(e) => handleSpeciesPerPageChange(parseInt(e.target.value))}>
-                <option value="20">20 Species</option>
-                <option value="40">40 Species</option>
-                <option value="60">60 Species</option>
+            <label>Observations per page:</label>
+            <select value={observationsPerPage} onChange={(e) => handleObservationsPerPageChange(parseInt(e.target.value))}>
+                <option value="20">20 observations</option>
+                <option value="40">40 observations</option>
+                <option value="60">60 observations</option>
             </select>
 
             <div className="pagination2">
